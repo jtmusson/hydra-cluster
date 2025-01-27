@@ -38,3 +38,18 @@ spec:
     service:
       tcp:
         loadBalancerIP: ${TRAEFIK_IP}
+        externalTrafficPolicy: local
+    middlewares:
+      basicAuth:
+        - name: auth-kubernetes-dashboard
+          users:
+            - username: "${EMAIL1}"
+              password: "${KS_DASHBOARD_PASSWORD}"
+      ipWhiteList:
+        - name: allowlist-private
+          ipStrategy:
+            depth: 0
+          sourceRange:
+            - 10.0.0.0/8
+            - 172.16.0.0/12
+            - 192.168.0.0/16
