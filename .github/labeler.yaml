@@ -1,7 +1,6 @@
----
 area/github:
   - changed-files:
       - any-glob-to-any-file: .github/**/*
-area/cluster:
+area/kubernetes:
   - changed-files:
-      - any-glob-to-any-file: cluster/**/*
+      - any-glob-to-any-file: clusters/**/*
