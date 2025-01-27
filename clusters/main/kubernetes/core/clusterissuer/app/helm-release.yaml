@@ -52,6 +52,11 @@ spec:
           type: "cloudflare"
           # for cloudflare
           cfapitoken: "${DOMAIN_0_CLOUDFLARE_TOKEN}"
+        - name: cloudflare-prod
+          cfapitoken: "${CF_API_TOKEN}"
+          email: "${EMAIL1}"
+          server: https://acme-v02.api.letsencrypt.org/directory
+          type: cloudflare
 
     ## Remove these if you do NOT want to use clusterissuer
     clusterCertificates:
