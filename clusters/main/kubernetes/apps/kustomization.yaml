@@ -8,3 +8,4 @@ resources:
   - peanut-upstairs/ks.yaml
   - peanut-downstairs/ks.yaml
   - paperless-ngx/ks.yaml
+  - nexcloud/ks.yaml
