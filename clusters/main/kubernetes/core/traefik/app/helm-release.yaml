@@ -38,7 +38,7 @@ spec:
     service:
       tcp:
         loadBalancerIP: ${TRAEFIK_IP}
-        externalTrafficPolicy: local
+        externalTrafficPolicy: Local
     middlewares:
       basicAuth:
         - name: auth-kubernetes-dashboard
