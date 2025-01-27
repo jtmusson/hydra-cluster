@@ -12,3 +12,4 @@ resources:
   - mosquitto/ks.yaml
   - minecraft-bedrock/ks.yaml
   - metube/ks.yaml
+  - makemkv/ks.yaml
