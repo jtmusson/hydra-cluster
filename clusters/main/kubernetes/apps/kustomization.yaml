@@ -18,3 +18,4 @@ resources:
   - home-assistant/ks.yaml
   - handbrake/ks.yaml
   - ext-homebridge/ks.yaml
+  - audiobookshelf/ks.yaml

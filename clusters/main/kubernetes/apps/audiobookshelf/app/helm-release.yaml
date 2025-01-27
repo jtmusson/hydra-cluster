@@ -1,0 +1,99 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: audiobookshelf
+  namespace: audiobookshelf
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: audiobookshelf
+      version: 11.13.1
+      sourceRef:
+        kind: HelmRepository
+        name: truecharts
+        namespace: flux-system
+      interval: 15m
+  timeout: 20m
+  maxHistory: 3
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    global:
+      stopAll: false
+    credentials:
+      backblaze:
+        accessKey: "${B2_ACCESSKEY}"
+        bucket: "${B2_BUCKET}"
+        encrKey: "${B2_ENCRKEY}"
+        secretKey: "${B2_SECRETKEY}"
+        type: s3
+        url: "${B2_URL}"
+    ingress:
+      main:
+        enabled: true
+        hosts:
+          - host: audiobookshelf.${BASE_DOMAIN}
+            paths:
+              - path: /
+                pathType: Prefix
+        integrations:
+          certManager:
+            certificateIssuer: cloudflare-prod
+            enabled: true
+          homepage:
+            enabled: true
+            group: Media
+            widget:
+              custom:
+                key: ${AUDIOBOOKSHELF_API_KEY}
+          traefik:
+            enabled: true
+            entrypoints:
+              - websecure
+#            middlewares:
+#              - name: allowlist-private
+#                namespace: "traefik"
+    persistence:
+      audiobooks:
+        mountPath: /audiobooks
+        path: /mnt/pool0/audiobookshelf/audiobookshelf-audiobooks
+        server: "${PLUTO_IP}"
+        type: nfs
+      podcasts:
+        enabled: true
+        path: /mnt/pool0/audiobookshelf/audiobookshelf-podcasts
+        server: "${PLUTO_IP}"
+        type: nfs
+        mountPath: "/podcasts"
+      config:
+        enabled: true
+        mountPath: /config
+        volsync:
+          - name: config-1
+            type: restic
+            credentials: backblaze
+            dest:
+              enabled: true
+            src:
+              enabled: true
+      metadata:
+        enabled: true
+        mountPath: /metadata
+        volsync:
+          - name: metadata-1
+            type: restic
+            credentials: backblaze
+            dest:
+              enabled: true
+            src:
+              enabled: true
