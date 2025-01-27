@@ -10,3 +10,4 @@ resources:
   - paperless-ngx/ks.yaml
   - nextcloud/ks.yaml
   - mosquitto/ks.yaml
+  - minecraft-bedrock/ks.yaml
