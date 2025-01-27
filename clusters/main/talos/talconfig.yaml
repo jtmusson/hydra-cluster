@@ -1,6 +1,6 @@
 clusterName: ${CLUSTERNAME}
 # renovate: datasource=docker depName=ghcr.io/siderolabs/installer
-talosVersion: v1.9.1
+talosVersion: v1.9.2
 # renovate: datasource=docker depName=ghcr.io/siderolabs/kubelet
 kubernetesVersion: v1.32.0
 endpoint: https://${VIP}:6443
@@ -26,8 +26,7 @@ nodes:
       ipAddress: ${MASTER1IP_IP}
       controlPlane: true
       nameservers:
-        - 1.1.1.1
-        - 8.8.8.8
+        - 10.242.1.53
       installDiskSelector:
         size: <= 1600GB
       networkInterfaces:
@@ -56,6 +55,9 @@ controlPlane:
                     - siderolabs/util-linux-tools
                     - siderolabs/iscsi-tools
                     - siderolabs/qemu-guest-agent
+                    - siderolabs/i915
+                    - siderolabs/mei
+                    - siderolabs/intel-ucode
     machineFiles:
     - content: |
         [plugins."io.containerd.grpc.v1.cri"]
@@ -95,6 +97,9 @@ worker:
                     - siderolabs/util-linux-tools
                     - siderolabs/iscsi-tools
                     - siderolabs/qemu-guest-agent
+                    - siderolabs/i915
+                    - siderolabs/mei
+                    - siderolabs/intel-ucode
     machineFiles:
     - content: |
         [plugins."io.containerd.grpc.v1.cri"]
