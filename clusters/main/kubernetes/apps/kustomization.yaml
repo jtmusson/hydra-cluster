@@ -7,4 +7,4 @@ resources:
   - speedtest-tracker/ks.yaml
   - peanut-upstairs/ks.yaml
   - peanut-downstairs/ks.yaml
-#  - paperless-ngx/ks.yaml
+  - paperless-ngx/ks.yaml
