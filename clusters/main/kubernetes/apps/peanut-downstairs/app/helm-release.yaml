@@ -51,9 +51,9 @@ spec:
             enabled: true
             entrypoints:
               - websecure
-            middlewares:
-              - name: allowlist-private
-                namespace: "traefik"
+#            middlewares:
+#              - name: allowlist-private
+#                namespace: "traefik"
     workload:
       main:
         podSpec:
