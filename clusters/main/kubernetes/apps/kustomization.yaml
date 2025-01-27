@@ -11,3 +11,4 @@ resources:
   - nextcloud/ks.yaml
   - mosquitto/ks.yaml
   - minecraft-bedrock/ks.yaml
+  - metube/ks.yaml
