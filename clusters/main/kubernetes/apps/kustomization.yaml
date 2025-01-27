@@ -4,3 +4,4 @@ resources:
   - kubernetes-dashboard/ks.yaml
   - external-dns/ks.yaml
   - uptime-kuma/ks.yaml
+  - speedtest-tracker/ks.yaml
