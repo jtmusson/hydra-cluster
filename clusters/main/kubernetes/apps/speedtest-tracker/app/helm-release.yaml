@@ -47,11 +47,11 @@ spec:
         backups:
           enabled: true
           credentials: backblaze
-          revision: "1"
+          revision: "2"
           retentionPolicy: "14d"
         recovery:
           method: object_store
-          revision: 
+          revision: "1"
           credentials: backblaze
         database: "speedtest-tracker"
         password: "PLACEHOLDERPASSWORD"
