@@ -15,3 +15,4 @@ resources:
   - makemkv/ks.yaml
   - jellyfin/ks.yaml
   - homepage/ks.yaml
+  - home-assistant/ks.yaml
