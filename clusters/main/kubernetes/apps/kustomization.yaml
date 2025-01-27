@@ -9,3 +9,4 @@ resources:
   - peanut-downstairs/ks.yaml
   - paperless-ngx/ks.yaml
   - nextcloud/ks.yaml
+  - mosquitto/ks.yaml
