@@ -6,3 +6,6 @@ resources:
   - metallb-config/ks.yaml
   - system-upgrade-controller-plans/ks.yaml
   - traefik/ks.yaml
+  - blocky/ks.yaml
+  - intel-device-plugins-gpu/ks.yaml
+  - intel-gpu-plugin-operator/ks.yaml
