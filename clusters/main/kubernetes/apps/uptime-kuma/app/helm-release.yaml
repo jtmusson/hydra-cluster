@@ -72,7 +72,7 @@ spec:
             credentials: backblaze
             type: restic
             dest:
-              enabled: false
+              enabled: true
               cacheCapacity: 10Gi
             src:
               enabled: true
