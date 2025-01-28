@@ -101,4 +101,4 @@ spec:
                   gpu.intel.com/i915: 1
                   cpu: 6000m
               env:
-                DARK_MODE: true
+                DARK_MODE: 1
