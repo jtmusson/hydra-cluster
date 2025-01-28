@@ -45,6 +45,7 @@ spec:
       AUTOMATED_CONVERSION_PRESET: General/HQ 1080p30 Surround Subtitles QSV
       KEEP_APP_RUNNING: true
       SECURE_CONNECTION: false
+      DARK_MODE: true
     persistence:
       config:
         volsync:
