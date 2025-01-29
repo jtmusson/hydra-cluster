@@ -19,3 +19,4 @@
           - uses: EndBug/label-sync@52074158190acb45f3077f9099fea818aa43f97a # v2
             with:
               config-file: .github/labels.yaml
+              token: ${{ secrets.HYDRA_CLUSTER_LABEL_SYNC }}
