@@ -2,22 +2,8 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended",
-    "github>truecharts/public//.github/renovate/main.json5"
-  ],
-  "customDatasources": {
-    "minecraft-bedrock": {
-      "defaultRegistryUrlTemplate": "https://web.archive.org/web/9999/https://www.minecraft.net/en-us/download/server/bedrock",
-      "format": "html"
-    }
-  },
-  "packageRules": [
-    {
-      "matchDatasources": [
-        "custom.minecraft-bedrock"
-      ],
-      "extractVersion": "/bedrockdedicatedserver/bin-linux/bedrock-server-(?<version>.+)\\.zip$",
-      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\.(?<build>\\d+)$"
-    }
+    "github>truecharts/public//.github/renovate/main.json5",
+    "github>jtmusson/hydra-cluster//.github/renovate/minecraft-bedrock.json5"
   ],
   "separateMultipleMajor": true,
   "timezone": "Europe/London"
