@@ -118,6 +118,7 @@ spec:
                 PAPERLESS_ADMIN_PASSWORD: "${PAPERLESS_ADMIN_PASSWORD}"
                 PAPERLESS_ADMIN_USER: "admin"
                 PAPERLESS_CONSUMER_POLLING: "120"
+                PAPERLESS_CONSUMER_ENABLE_ASN_BARCODE: true
                 PAPERLESS_OCR_LANGUAGE: "eng"
                 PAPERLESS_OCR_LANGUAGES: "eng fra deu"
                 PAPERLESS_URL: "https://paperless-ngx.${BASE_DOMAIN}"
