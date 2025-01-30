@@ -45,11 +45,11 @@ spec:
           users:
             - username: "${EMAIL1}"
               password: "${KS_DASHBOARD_PASSWORD}"
-#      ipAllowList:
-#        - name: allowlist-private
-#          ipStrategy:
-#            depth: 0
-#          sourceRange:
-#            - 10.0.0.0/8
-#            - 172.16.0.0/12
-#            - 192.168.0.0/16
+      ipAllowList:
+        - name: allowlist-private
+          ipStrategy:
+            depth: 0
+          sourceRange:
+            - 10.0.0.0/8
+            - 172.16.0.0/12
+            - 192.168.0.0/16
