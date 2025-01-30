@@ -29,7 +29,7 @@ spec:
     keepHistory: false
   values:
     global:
-      stopAll: false
+      stopAll: true
     credentials:
       backblaze:
         accessKey: "${B2_ACCESSKEY}"
@@ -76,7 +76,7 @@ spec:
 #              - name: "allowlist-private"
 #                namespace: "traefik"
           homepage:
-            enabled: true
+            enabled: false
             group: "Network - Performance"
             widget:
               type: "speedtest"
