@@ -97,7 +97,3 @@ spec:
 #            middlewares:
 #              - name: "allowlist-private"
 #                namespace: "traefik"
-    workload:
-      main:
-          replicas: 2
-          strategy: RollingUpdate
