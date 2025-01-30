@@ -44,9 +44,6 @@ spec:
         enabled: true
         hosts:
           - host: makemkv.${BASE_DOMAIN}
-            paths:
-              - path: /
-                pathType: Prefix
         integrations:
           certManager:
             certificateIssuer: cloudflare-prod

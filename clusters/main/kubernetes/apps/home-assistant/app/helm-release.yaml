@@ -82,9 +82,6 @@ spec:
         enabled: true
         hosts:
           - host: hass.${BASE_DOMAIN_EXT}
-            paths:
-              - path: /
-                pathType: Prefix
         integrations:
           certManager:
             certificateIssuer: cloudflare-prod

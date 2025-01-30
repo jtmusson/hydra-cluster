@@ -43,9 +43,6 @@ spec:
         enabled: true
         hosts:
           - host: jellyfin.${BASE_DOMAIN}
-            paths:
-              - path: /
-                pathType: Prefix
         integrations:
           certManager:
             certificateIssuer: cloudflare-prod

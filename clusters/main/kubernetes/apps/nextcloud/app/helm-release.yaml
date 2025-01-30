@@ -61,9 +61,6 @@ spec:
         enabled: true
         hosts:
           - host: nc.${BASE_DOMAIN_EXT}
-            paths:
-              - path: /
-                pathType: Prefix
         integrations:
           certManager:
             certificateIssuer: cloudflare-prod
