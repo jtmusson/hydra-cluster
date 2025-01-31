@@ -43,9 +43,6 @@ spec:
         enabled: true
         hosts:
           - host: audiobookshelf.${BASE_DOMAIN}
-#            paths:
-#              - path: /
-#                pathType: Prefix
         integrations:
           certManager:
             certificateIssuer: cloudflare-prod
