@@ -4,7 +4,7 @@ metadata:
   name: system-upgrade-controller
   namespace: flux-system
 spec:
-  interval: 10m
+  interval: 30m
   path: clusters/main/kubernetes/system/system-upgrade-controller/app
   prune: true
   sourceRef:
