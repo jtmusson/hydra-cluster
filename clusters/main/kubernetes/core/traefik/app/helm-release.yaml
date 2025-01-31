@@ -45,7 +45,7 @@ spec:
           users:
             - username: "${EMAIL1}"
               password: "${KS_DASHBOARD_PASSWORD}"
-      ipAllowList:
+      ipWhiteList:
         - name: allowlist-private
           ipStrategy:
             depth: "0"
