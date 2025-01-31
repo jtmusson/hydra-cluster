@@ -1,0 +1,72 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: netdata
+  namespace: netdata
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: netdata
+      version: 12.3.1
+      sourceRef:
+        kind: HelmRepository
+        name: truecharts
+        namespace: flux-system
+      interval: 15m
+  timeout: 10m
+  maxHistory: 3
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    global:
+      stopAll: false
+    credentials:
+      backblaze:
+        accessKey: "${B2_ACCESSKEY}"
+        bucket: "${B2_BUCKET}"
+        encrKey: "${B2_ENCRKEY}"
+        name: backblaze
+        secretKey: "${B2_SECRETKEY}"
+        type: s3
+        url: "${B2_URL}"
+    ingress:
+      main:
+        enabled: true
+        hosts:
+          - host: netdata.${BASE_DOMAIN}
+        integrations:
+          certManager:
+            certificateIssuer: cloudflare-prod
+            enabled: true
+          homepage:
+            enabled: true
+            group: Monitoring
+            widget:
+              enabled: false
+          traefik:
+            enabled: true
+            entrypoints:
+              - websecure
+    persistence:
+      config:
+        enabled: true
+        volsync:
+          - name: config-1
+            credentials: backblaze
+            type: restic
+            dest:
+              enabled: true
+              cacheCapacity: 10Gi
+            src:
+              enabled: true
+              cacheCapacity: 10Gi
