@@ -9,6 +9,7 @@ resources:
   - peanut-downstairs/ks.yaml
   - paperless-ngx/ks.yaml
   - nextcloud/ks.yaml
+  - netdata/ks.yaml
   - myspeed/ks.yaml
   - mosquitto/ks.yaml
   - minecraft-bedrock/ks.yaml
