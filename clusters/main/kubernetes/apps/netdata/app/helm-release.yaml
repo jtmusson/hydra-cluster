@@ -70,3 +70,7 @@ spec:
             src:
               enabled: true
               cacheCapacity: 10Gi
+      group:
+        enabled: false
+      passwd:
+        enabled: false
