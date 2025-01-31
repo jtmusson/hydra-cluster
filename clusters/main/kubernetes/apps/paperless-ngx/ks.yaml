@@ -4,7 +4,7 @@ metadata:
   name: paperless-ngx
   namespace: flux-system
 spec:
-  interval: 10m
+  interval: 30m
   path: clusters/main/kubernetes/apps/paperless-ngx/app
   prune: true
   sourceRef:

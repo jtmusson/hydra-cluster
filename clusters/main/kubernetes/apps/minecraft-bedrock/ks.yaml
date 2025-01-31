@@ -4,7 +4,7 @@ metadata:
   name: minecraft-bedrock
   namespace: flux-system
 spec:
-  interval: 10m
+  interval: 30m
   path: clusters/main/kubernetes/apps/minecraft-bedrock/app
   prune: true
   sourceRef:

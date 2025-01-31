@@ -4,7 +4,7 @@ metadata:
   name: nextcloud
   namespace: flux-system
 spec:
-  interval: 10m
+  interval: 30m
   path: clusters/main/kubernetes/apps/nextcloud/app
   prune: true
   sourceRef:
