@@ -61,6 +61,7 @@ spec:
         enabled: true
         hosts:
           - host: nc.${BASE_DOMAIN_EXT}
+            # paths is required for nextcloud, will 404 if not present
             paths:
               - path: /
                 pathType: Prefix
