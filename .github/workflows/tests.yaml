@@ -29,7 +29,7 @@
   
         - name: Run kubeconform
           shell: bash
-          run: bash ./scripts/kubeconform.sh ${{ env.KUBERNETES_DIR }}
+          run: bash ./.github/scripts/kubeconform.sh ${{ env.KUBERNETES_DIR }}
   
     flux-diff:
       name: Flux Diff
