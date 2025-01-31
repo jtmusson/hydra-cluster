@@ -52,7 +52,7 @@ spec:
             enabled: true
             group: Monitoring
             widget:
-              type: "netdata"
+              enabled: false
           traefik:
             enabled: true
             entrypoints:
