@@ -52,11 +52,14 @@ spec:
             enabled: true
             group: Monitoring
             widget:
-              enabled: false
+              type: "netdata"
           traefik:
             enabled: true
             entrypoints:
               - websecure
+            middlewares:
+              - name: "allowlist-private"
+                namespace: "traefik"
     persistence:
       config:
         enabled: true
@@ -70,6 +73,7 @@ spec:
             src:
               enabled: true
               cacheCapacity: 10Gi
+      # does not install on talos without the group and passwd being disabled
       group:
         enabled: false
       passwd:
