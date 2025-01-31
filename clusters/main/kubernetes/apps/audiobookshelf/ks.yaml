@@ -4,7 +4,7 @@ metadata:
   name: audiobookshelf
   namespace: flux-system
 spec:
-  interval: 10m
+  interval: 30m
   path: clusters/main/kubernetes/apps/audiobookshelf/app
   prune: true
   sourceRef:

@@ -4,7 +4,7 @@ metadata:
   name: myspeed
   namespace: flux-system
 spec:
-  interval: 10m
+  interval: 30m
   path: clusters/main/kubernetes/apps/myspeed/app
   prune: true
   sourceRef:
