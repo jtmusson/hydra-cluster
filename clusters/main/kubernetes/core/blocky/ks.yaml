@@ -4,10 +4,9 @@ metadata:
   name: blocky
   namespace: flux-system
 spec:
-  interval: 10m
+  interval: 30m
   path: clusters/main/kubernetes/core/blocky/app
   prune: true
   sourceRef:
     kind: GitRepository
     name: cluster
-
