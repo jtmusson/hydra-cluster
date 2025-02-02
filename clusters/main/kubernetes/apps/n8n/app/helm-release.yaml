@@ -73,11 +73,10 @@ spec:
         backups:
           enabled: true
           credentials: backblaze
-          revision: "1"
+          revision: 
           retentionPolicy: "14d"
         recovery:
-          method: object_store
-          revision: 
+          # revision: 
           credentials: backblaze
     persistence:
       data:
