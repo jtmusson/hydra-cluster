@@ -31,7 +31,7 @@ spec:
     global:
       stopAll: false
     deployment:
-      N8N_HOST: n8n.${BASE_DOMAIN}
+      N8N_HOST: n8n.${BASE_DOMAIN} # ensure ingress.main.hosts is updated
     usermanagement:
       N8N_EMAIL_MODE: "smtp"
       N8N_SMTP_HOST: "${SMTP_SERVER}"
@@ -53,7 +53,7 @@ spec:
       main:
         enabled: true
         hosts:
-          - host: n8n.${BASE_DOMAIN}
+          - host: n8n.${BASE_DOMAIN} # ensure N8N_HOST is updated
         integrations:
           certManager:
             certificateIssuer: cloudflare-prod
