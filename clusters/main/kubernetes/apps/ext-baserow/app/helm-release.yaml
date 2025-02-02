@@ -34,7 +34,7 @@ spec:
         externalIP: "10.242.1.49"
         ports:
           main:
-            protocol: https
+            protocol: http
             port: 10228
     ingress:
       main:
