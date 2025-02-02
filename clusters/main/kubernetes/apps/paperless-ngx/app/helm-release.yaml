@@ -119,3 +119,8 @@ spec:
                 PAPERLESS_OCR_LANGUAGE: "eng"
                 PAPERLESS_OCR_LANGUAGES: "eng fra deu"
                 PAPERLESS_URL: "https://paperless-ngx.${BASE_DOMAIN}"
+                PAPERLESS_EMAIL_HOST: "${SMTP_SERVER}"
+                PAPERLESS_EMAIL_PORT: "${SMTP_PORT}"
+                PAPERLESS_EMAIL_HOST_USER: "${PAPERLESS_EMAIL_HOST_USER}"
+                PAPERLESS_EMAIL_HOST_PASSWORD: "${PAPERLESS_EMAIL_HOST_PASSWORD}"
+                PAPERLESS_EMAIL_USE_TLS: true
