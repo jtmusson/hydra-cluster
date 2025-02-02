@@ -39,24 +39,24 @@ spec:
         secretKey: "${B2_SECRETKEY}"
         type: s3
         url: "${B2_URL}"
-#    ingress:
-#      main:
-#        enabled: true
-#        hosts:
-#          - host: baserow.${BASE_DOMAIN} # ensure BASEROW_PUBLIC_URL is updated
-#        integrations:
-#          certManager:
-#            certificateIssuer: cloudflare-prod
-#            enabled: true
-#          homepage:
-#            enabled: true
-#            group: Productivity
-#            widget:
-#              enabled: false
-#          traefik:
-#            enabled: true # disable since CADDY takes over?
-#            entrypoints:
-#              - websecure
+    ingress:
+      main:
+        enabled: true
+        hosts:
+          - host: baserow.${BASE_DOMAIN} # ensure BASEROW_PUBLIC_URL is updated
+        integrations:
+          certManager:
+            certificateIssuer: cloudflare-prod
+            enabled: false # disable since CADDY will obtain
+          homepage:
+            enabled: false # disable
+            group: Productivity
+            widget:
+              enabled: false
+          traefik:
+            enabled: false # disable since CADDY takes over?
+            entrypoints:
+              - websecure
     cnpg:
       main:
         cluster:
