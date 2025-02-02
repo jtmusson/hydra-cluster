@@ -39,4 +39,4 @@ spec:
       registry: noop
       sources:
         - ingress
-#       - service
+        - service
