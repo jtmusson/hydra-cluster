@@ -1,7 +1,7 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: n8n-io
+  name: n8n
   namespace: flux-system
 spec:
   interval: 30m

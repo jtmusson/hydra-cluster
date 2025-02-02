@@ -2,8 +2,8 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: n8n-io
-  namespace: n8n-io
+  name: n8n
+  namespace: n8n
 spec:
   interval: 15m
   chart:
