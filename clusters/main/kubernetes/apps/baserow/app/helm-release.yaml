@@ -1,0 +1,99 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: baserow
+  namespace: baserow
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: baserow
+      version: 14.15.3
+      sourceRef:
+        kind: HelmRepository
+        name: truecharts
+        namespace: flux-system
+      interval: 15m
+  timeout: 10m
+  maxHistory: 3
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    global:
+      stopAll: false
+    credentials:
+      backblaze:
+        accessKey: "${B2_ACCESSKEY}"
+        bucket: "${B2_BUCKET}"
+        encrKey: "${B2_ENCRKEY}"
+        name: backblaze
+        secretKey: "${B2_SECRETKEY}"
+        type: s3
+        url: "${B2_URL}"
+    ingress:
+      main:
+        enabled: true
+        hosts:
+          - host: baserow.${BASE_DOMAIN} # ensure BASEROW_PUBLIC_URL is updated
+        integrations:
+          certManager:
+            certificateIssuer: cloudflare-prod
+            enabled: true
+          homepage:
+            enabled: true
+            group: Productivity
+            widget:
+              enabled: false
+          traefik:
+            enabled: true
+            entrypoints:
+              - websecure
+    cnpg:
+      main:
+        cluster:
+          singleNode: true
+        mode: standalone # change to `recovery` when required to restore from backup
+        backups:
+          enabled: true
+          credentials: backblaze
+          revision:
+          retentionPolicy: "14d"
+        recovery:
+          # revision: 
+          credentials: backblaze
+    persistence:
+      data:
+        enabled: true
+        volsync:
+          - name: data-1
+            credentials: backblaze
+            type: restic
+            dest:
+              enabled: true
+              cacheCapacity: 10Gi
+            src:
+              enabled: true
+              cacheCapacity: 10Gi
+    workload:
+      main:
+        podSpec:
+          containers:
+            main:
+              env:
+                BASEROW_PUBLIC_URL: "https://baserow.${BASE_DOMAIN}" # ensure ingress.hosts.main is also updated
+                FROM_EMAIL: "${BASEROW_EMAIL_HOST_USER}"
+                EMAIL_SMTP: true
+                EMAIL_SMTP_USE_TLS: true
+                EMAIL_SMTP_HOST: "${SMTP_SERVER}"
+                EMAIL_SMTP_POST: "${SMTP_PORT}"
+                EMAIL_SMTP_USER: "${BASEROW_EMAIL_HOST_USER}"
+                EMAIL_SMTP_PASSWORD: "${BASEROW_EMAIL_HOST_PASSWORD}"
