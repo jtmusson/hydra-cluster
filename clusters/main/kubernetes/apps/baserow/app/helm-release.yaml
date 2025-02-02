@@ -54,7 +54,7 @@ spec:
             widget:
               enabled: false
           traefik:
-            enabled: true
+            enabled: false
             entrypoints:
               - websecure
     cnpg:
