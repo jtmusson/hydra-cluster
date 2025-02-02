@@ -29,15 +29,15 @@ spec:
     keepHistory: false
   values:
     global:
-      stopAll: true
-    usermanagement: {}
-    # N8N_EMAIL_MODE: "smtp"
-    # N8N_SMTP_HOST: ""
-    # N8N_SMTP_PORT: 0
-    # N8N_SMTP_USER: ""
-    # N8N_SMTP_PASS: ""
-    # N8N_SMTP_SENDER: ""
-    # N8N_SMTP_SSL: true
+      stopAll: false
+    usermanagement:
+      N8N_EMAIL_MODE: "smtp"
+      N8N_SMTP_HOST: "${SMTP_SERVER}"
+      N8N_SMTP_PORT: "${SMTP_PORT}"
+      N8N_SMTP_USER: "${N8N_EMAIL_HOST_USER}"
+      N8N_SMTP_PASS: "${N8N_EMAIL_HOST_PASSWORD}"
+      N8N_SMTP_SENDER: "${N8N_EMAIL_HOST_USER}"
+      N8N_SMTP_SSL: false
     credentials:
       backblaze:
         accessKey: "${B2_ACCESSKEY}"
