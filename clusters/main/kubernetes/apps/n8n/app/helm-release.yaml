@@ -30,8 +30,7 @@ spec:
   values:
     global:
       stopAll: false
-    timezoneandlocale:
-      GENERIC_TIMEZONE: "Europe/London"
+    timezoneandlocale: {}
     deployment:
       N8N_HOST: n8n.${BASE_DOMAIN} # ensure ingress.main.hosts and below are updated
       N8N_EDITOR_BASE_URL: https://n8n.${BASE_DOMAIN}/
@@ -96,3 +95,10 @@ spec:
             src:
               enabled: true
               cacheCapacity: 10Gi
+    workload:
+      main:
+        podSpec:
+          containers:
+            main:
+              env:
+                GENERIC_TIMEZONE: "Europe/London"
