@@ -53,10 +53,10 @@ spec:
             group: Productivity
             widget:
               enabled: false
-#          traefik:
-#            enabled: true
-#            entrypoints:
-#              - websecure
+          traefik:
+            enabled: false # disable since CADDY takes over
+            entrypoints:
+              - websecure
     cnpg:
       main:
         cluster:
