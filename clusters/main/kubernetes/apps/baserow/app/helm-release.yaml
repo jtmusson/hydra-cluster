@@ -44,6 +44,10 @@ spec:
         enabled: true
         loadBalancerIP: "${BASEROW_IP}"
         type: LoadBalancer
+        ports:
+          main:
+            port: 443
+            protocol: https
     ingress:
       main:
         enabled: false
