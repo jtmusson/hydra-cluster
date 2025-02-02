@@ -32,6 +32,7 @@ spec:
       stopAll: false
     deployment:
       N8N_HOST: n8n.${BASE_DOMAIN} # ensure ingress.main.hosts is updated
+      N8N_EDITOR_BASE_URL: https://{{ Values.deployment.N8N_HOST }}/
     usermanagement:
       N8N_EMAIL_MODE: "smtp"
       N8N_SMTP_HOST: "${SMTP_SERVER}"
