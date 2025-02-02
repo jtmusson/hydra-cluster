@@ -49,3 +49,5 @@ spec:
             enabled: true
             entrypoints:
               - websecure
+        annotations:
+          traefik.frontend.passHostHeader: "true"
