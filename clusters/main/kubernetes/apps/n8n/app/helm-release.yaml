@@ -69,11 +69,11 @@ spec:
       main:
         cluster:
           singleNode: true
-        mode: recovery
+        mode: standalone # change to `recovery` when required to restore from backup
         backups:
           enabled: true
           credentials: backblaze
-          revision: 
+          revision:
           retentionPolicy: "14d"
         recovery:
           # revision: 
