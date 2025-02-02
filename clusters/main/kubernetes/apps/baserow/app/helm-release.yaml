@@ -46,6 +46,12 @@ spec:
         type: LoadBalancer
         ports:
           main:
+            port: 10228
+            protocol: http
+          web:
+            port: 80
+            protocol: http
+          websecure: 
             port: 443
             protocol: https
     ingress:
