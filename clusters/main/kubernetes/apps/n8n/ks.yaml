@@ -5,7 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 30m
-  path: clusters/main/kubernetes/apps/n8n-io/app
+  path: clusters/main/kubernetes/apps/n8n/app
   prune: true
   sourceRef:
     kind: GitRepository
