@@ -53,10 +53,10 @@ spec:
             group: Productivity
             widget:
               enabled: false
-          traefik:
-            enabled: false
-            entrypoints:
-              - websecure
+#          traefik:
+#            enabled: true
+#            entrypoints:
+#              - websecure
     cnpg:
       main:
         cluster:
