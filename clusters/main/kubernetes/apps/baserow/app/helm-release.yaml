@@ -47,8 +47,8 @@ spec:
     ingress:
       main:
         enabled: false
-        hosts:
-          - host: baserow.${BASE_DOMAIN} # ensure BASEROW_PUBLIC_URL is updated
+        # hosts:
+        #   - host: baserow.${BASE_DOMAIN} # ensure BASEROW_PUBLIC_URL is updated
         integrations:
           certManager:
             certificateIssuer: cloudflare-prod
