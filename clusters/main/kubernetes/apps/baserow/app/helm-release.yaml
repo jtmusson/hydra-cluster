@@ -49,9 +49,11 @@ spec:
             port: 10228
             protocol: http
           web:
+            enabled: true
             port: 80
             protocol: http
           websecure: 
+            enabled: true
             port: 443
             protocol: https
     ingress:
