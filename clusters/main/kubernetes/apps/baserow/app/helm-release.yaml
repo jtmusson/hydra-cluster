@@ -60,7 +60,7 @@ spec:
       main:
         enabled: false
         # hosts:
-        #   - host: baserow.${BASE_DOMAIN} # ensure BASEROW_PUBLIC_URL is updated
+        #   - host: baserow.${BASE_DOMAIN_EXT} # ensure BASEROW_PUBLIC_URL is updated
         integrations:
           certManager:
             certificateIssuer: cloudflare-prod
@@ -106,7 +106,7 @@ spec:
           containers:
             main:
               env:
-                BASEROW_PUBLIC_URL: "https://baserow.${BASE_DOMAIN}" # ensure ingress.hosts.main is also updated
+                BASEROW_PUBLIC_URL: "https://baserow.${BASE_DOMAIN_EXT}" # ensure ingress.hosts.main is also updated
                 FROM_EMAIL: "${BASEROW_EMAIL_HOST_USER}"
                 EMAIL_SMTP: true
                 EMAIL_SMTP_USE_TLS: true
