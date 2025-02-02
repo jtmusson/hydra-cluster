@@ -45,10 +45,7 @@ spec:
         loadBalancerIP: "${BASEROW_IP}"
         type: LoadBalancer
         ports:
-          - name: main
-            port: 10228
-            protocol: http
-          - name: websecure
+          main:
             port: 443
             protocol: https
     ingress:
