@@ -21,6 +21,5 @@ resources:
   - home-assistant/ks.yaml
   - handbrake/ks.yaml
   - ext-homebridge/ks.yaml
-  - ext-baserow/ks.yaml
   - baserow/ks.yaml
   - audiobookshelf/ks.yaml
