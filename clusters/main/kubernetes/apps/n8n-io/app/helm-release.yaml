@@ -37,7 +37,7 @@ spec:
       N8N_SMTP_USER: "${N8N_EMAIL_HOST_USER}"
       N8N_SMTP_PASS: "${N8N_EMAIL_HOST_PASSWORD}"
       N8N_SMTP_SENDER: "${N8N_EMAIL_HOST_USER}"
-      N8N_SMTP_SSL: false
+      N8N_SMTP_SSL: true
     credentials:
       backblaze:
         accessKey: "${B2_ACCESSKEY}"
