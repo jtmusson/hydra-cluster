@@ -39,9 +39,14 @@ spec:
         secretKey: "${B2_SECRETKEY}"
         type: s3
         url: "${B2_URL}"
-    ingress:
+    service:
       main:
         enabled: true
+        loadBalancerIP: "${BASEROW_IP}"
+        type: LoadBalancer
+    ingress:
+      main:
+        enabled: false
         hosts:
           - host: baserow.${BASE_DOMAIN} # ensure BASEROW_PUBLIC_URL is updated
         integrations:
@@ -90,7 +95,7 @@ spec:
             main:
               env:
                 BASEROW_PUBLIC_URL: "https://baserow.${BASE_DOMAIN}" # ensure ingress.hosts.main is also updated
-                # BASEROW_CADDY_ADDRESSES: "https://baserow.${BASE_DOMAIN}" - use value from source chart
+                BASEROW_CADDY_ADDRESSES: "https://baserow.${BASE_DOMAIN}" # use value from source chart
                 FROM_EMAIL: "${BASEROW_EMAIL_HOST_USER}"
                 EMAIL_SMTP: true
                 EMAIL_SMTP_USE_TLS: true
