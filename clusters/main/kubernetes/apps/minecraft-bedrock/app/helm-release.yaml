@@ -28,10 +28,6 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    image:
-      repository: ghcr.io/itzg/minecraft-bedrock-server
-      tag: 2024.11.0
-      pullPolicy: Always
     global:
       stopAll: false # change to 'true' to stop all pods whenever world maintenance is needed
     credentials:
