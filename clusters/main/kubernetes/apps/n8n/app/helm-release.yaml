@@ -75,7 +75,7 @@ spec:
       main:
         cluster:
           singleNode: true
-        mode: standalone # change to `recovery` when required to restore from backup
+        mode: recovery # change to `standalone` on new install
         backups:
           enabled: true
           credentials: backblaze
