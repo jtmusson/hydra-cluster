@@ -7,3 +7,4 @@ resources:
   - snapshot-delete.yaml
   - snapshot-cleanup.yaml
   - trim.yaml
+  - ingress.yaml
