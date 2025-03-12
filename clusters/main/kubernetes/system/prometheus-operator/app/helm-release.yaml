@@ -23,4 +23,55 @@ spec:
     crds: CreateReplace
     remediation:
       retries: 3
-  values: {}
+  values:
+    crds:
+      enabled: true
+      upgradeJob:
+        enabled: true
+        forceConflicts: true
+    prometheusOperator:
+      enabled: false
+    global:
+      rbac:
+        create: false
+    defaultRules:
+      create: false
+    windowsMonitoring:
+      enabled: false
+    prometheus-windows-exporter:
+      prometheus:
+        monitor:
+          enabled: false
+    alertmanager:
+      enabled: false
+    grafana:
+      enabled: false
+      forceDeployDashboards: true
+      defaultDashboardsEnabled: true
+      forceDeployDatasources: true
+    kubernetesServiceMonitors:
+      enabled: true
+    kubeApiServer:
+      enabled: false
+    kubelet:
+      enabled: false
+    kubeControllerManager:
+      enabled: false
+    coreDns:
+      enabled: false
+    kubeDns:
+      enabled: false
+    kubeEtcd:
+      enabled: false
+    kubeScheduler:
+      enabled: false
+    kubeProxy:
+      enabled: false
+    kubeStateMetrics:
+      enabled: false
+    nodeExporter:
+      enabled: false
+    prometheus:
+      enabled: false
+    thanosRuler:
+      enabled: false
