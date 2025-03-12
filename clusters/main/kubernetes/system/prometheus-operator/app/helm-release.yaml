@@ -23,4 +23,20 @@ spec:
     crds: CreateReplace
     remediation:
       retries: 3
-  values: {}
+  values:
+    kps:
+      crds:
+        enabled: true
+        upgradeJob:
+          enabled: true
+          forceConflicts: true
+      prometheusOperator:
+        enabled: false
+      global:
+        rbac:
+          create: false
+      grafana:
+        enabled: false
+        forceDeployDashboards: true
+        defaultDashboardsEnabled: true
+        forceDeployDatasources: true
