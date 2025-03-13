@@ -29,7 +29,7 @@ spec:
     keepHistory: false
   values:
     global:
-      stopAll: true
+      stopAll: false
     credentials:
       backblaze:
         accessKey: "${B2_ACCESSKEY}"
@@ -75,7 +75,7 @@ spec:
             dest:
               enabled: true
             src:
-              enabled: false
+              enabled: true
       movies:
         enabled: true
         mountPath: "/mnt/movies"
