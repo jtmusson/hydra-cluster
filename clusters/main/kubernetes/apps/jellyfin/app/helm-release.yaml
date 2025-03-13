@@ -69,15 +69,13 @@ spec:
         enabled: true
         mountPath: "/config"
         volsync:
-          - name: config-2
+          - name: config-3
             credentials: backblaze
             type: restic
             dest:
               enabled: true
-              cacheCapacity: 10Gi
             src:
               enabled: true
-              cacheCapacity: 10Gi
       movies:
         enabled: true
         mountPath: "/mnt/movies"
