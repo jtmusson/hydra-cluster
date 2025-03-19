@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: baserow
-      version: 14.16.4
+      version: 14.16.5
       sourceRef:
         kind: HelmRepository
         name: truecharts
