@@ -94,3 +94,10 @@ spec:
             middlewares:
               - name: "allowlist-private"
                 namespace: "traefik"
+    workload:
+      main:
+        podSpec:
+          containers:
+            main:
+              env:
+                HOMEPAGE_ALLOWED_HOSTS: "homepage.${BASE_DOMAIN}"
