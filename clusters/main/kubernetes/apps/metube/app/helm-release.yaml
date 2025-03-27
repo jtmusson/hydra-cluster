@@ -63,7 +63,7 @@ spec:
     persistence:
       config:
         volsync:
-          - name: config-1
+          - name: config-2
             credentials: backblaze
             type: restic
             dest:
