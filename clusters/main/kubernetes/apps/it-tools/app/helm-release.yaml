@@ -39,7 +39,7 @@ spec:
             enabled: true
           homepage:
             enabled: true
-            group: "Monitoring"
+            group: "Developer"
             widget:
               enabled: false
           traefik:
