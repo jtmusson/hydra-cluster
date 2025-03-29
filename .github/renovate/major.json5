@@ -4,5 +4,6 @@
       "enabled": true,
       "automerge": false,
       "dependencyDashboardApproval": false
-    }
+    },
+    "separateMultipleMajor": true,
 }
