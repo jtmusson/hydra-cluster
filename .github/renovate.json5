@@ -6,6 +6,12 @@
     "github>jtmusson/hydra-cluster//.github/renovate/minecraft-bedrock.json5",
     "github>jtmusson/hydra-cluster//.github/renovate/major.json5"
   ],
+  "timezone": "Europe/London",
   "schedule": ["* 0-5 * * *"],
-  "timezone": "Europe/London"
+  "packageRules": [
+    {
+      "matchManagers": "github-actions",
+      "schedule": ["* * * * *"]
+    }
+  ]
 }
