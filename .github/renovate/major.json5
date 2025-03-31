@@ -5,5 +5,5 @@
       "automerge": false,
       "dependencyDashboardApproval": false
     },
-    "separateMultipleMajor": true,
+    "separateMultipleMajor": true
 }
