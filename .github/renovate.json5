@@ -6,9 +6,6 @@
     "github>jtmusson/hydra-cluster//.github/renovate/minecraft-bedrock.json5",
     "github>jtmusson/hydra-cluster//.github/renovate/major.json5"
   ],
-  {
-  "description": "Schedule all branch creation to between midnight and 06:00 AM",
-  "schedule": ["* 0-5 * * *"]
-  },
+  "schedule": ["* 0-5 * * *"],
   "timezone": "Europe/London"
 }
