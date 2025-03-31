@@ -76,6 +76,8 @@ spec:
               enabled: false # ensure this is set to "true" before attempting restore
             src:
               enabled: true
+              trigger:
+                schedule: 0 1 * * *
       movies:
         enabled: true
         mountPath: "/mnt/movies"
