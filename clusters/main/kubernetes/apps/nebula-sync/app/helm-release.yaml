@@ -1,0 +1,49 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: nebula-sync
+  namespace: nebula-sync
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: app-template
+      version: 14.5.3
+      sourceRef:
+        kind: HelmRepository
+        name: truecharts
+        namespace: flux-system
+      interval: 15m
+  timeout: 20m
+  maxHistory: 3
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    global:
+      stopAll: false
+    image:
+      repository: ghcr.io/lovelaze/nebula-sync
+      pullPolicy: IfNotPresent
+      tag: v0.8.0@sha256:e1d1546d337c894ac430510aaf5d9c6116df675b567bebbcc283fd882fe0fbf2
+    workload:
+      main:
+        podSpec:
+          containers:
+            main:
+              env:
+                TZ: "Europe/London"
+                PRIMARY: "http://ph1.example.com|password"
+                REPLICAS: "http://ph2.example.com|password,http://ph3.example.com|password"
+                FULL_SYNC: true
+                RUN_GRAVITY: false
+                CRON: "0 * * * *"
+                CLIENT_SKIP_TLS_VERIFICATION: true
