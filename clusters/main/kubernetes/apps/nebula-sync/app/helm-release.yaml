@@ -49,8 +49,8 @@ spec:
           containers:
             main:
               env:
-                PRIMARY: "https://10.242.1.4|password"
-                REPLICAS: "https://10.242.1.6|password"
+                PRIMARY: "https://${PIHOLE_1_HOST}|${PIHOLE_1_PASSWORD}"
+                REPLICAS: "https://${PIHOLE_2_HOST}|${PIHOLE_2_PASSWORD}"
                 FULL_SYNC: false # if set to false, enable and select keys below
                 RUN_GRAVITY: false
                 CRON: "*/15 * * * *"
