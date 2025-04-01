@@ -8,7 +8,7 @@ resources:
   - peanut/ks.yaml
   - paperless-ngx/ks.yaml
   - nextcloud/ks.yaml
-  - nebula-sync/ks.yaml
+#  - nebula-sync/ks.yaml
   - n8n/ks.yaml
   - myspeed/ks.yaml
   - mosquitto/ks.yaml
