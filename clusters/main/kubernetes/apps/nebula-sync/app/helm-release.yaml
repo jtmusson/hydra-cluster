@@ -51,10 +51,11 @@ spec:
               env:
                 PRIMARY: "https://10.242.1.4|password"
                 REPLICAS: "https://10.242.1.6|password"
-                FULL_SYNC: false
+                FULL_SYNC: false # if set to false, enable and select keys below
                 RUN_GRAVITY: false
                 CRON: "*/15 * * * *"
                 CLIENT_SKIP_TLS_VERIFICATION: true
+                # Enable keys below for granular control over sync
                 SYNC_CONFIG_DNS: true
                 SYNC_CONFIG_DHCP: false
                 SYNC_CONFIG_NTP: false
@@ -70,6 +71,7 @@ spec:
                 SYNC_GRAVITY_DOMAIN_LIST_BY_GROUP: true
                 SYNC_GRAVITY_CLIENT: true
                 SYNC_GRAVITY_CLIENT_BY_GROUP: true
+              # No service ports so disable probes
               probes:
                 liveness:
                   enabled: false
