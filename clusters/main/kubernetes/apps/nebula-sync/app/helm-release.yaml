@@ -40,6 +40,9 @@ spec:
         ports:
           main:
             enabled: false
+    portal:
+      open:
+        enabled: false
     workload:
       main:
         podSpec:
@@ -67,3 +70,10 @@ spec:
                 SYNC_GRAVITY_DOMAIN_LIST_BY_GROUP: true
                 SYNC_GRAVITY_CLIENT: true
                 SYNC_GRAVITY_CLIENT_BY_GROUP: true
+              probes:
+                liveness:
+                  enabled: false
+                readiness:
+                  enabled: false
+                startup:
+                  enabled: false
