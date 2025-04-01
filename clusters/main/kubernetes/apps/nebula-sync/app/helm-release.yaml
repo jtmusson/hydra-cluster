@@ -36,9 +36,10 @@ spec:
       tag: v0.8.0@sha256:e1d1546d337c894ac430510aaf5d9c6116df675b567bebbcc283fd882fe0fbf2
     service:
       main:
+        enabled: false
         ports:
           main:
-            port: 8080
+            enabled: false
     workload:
       main:
         podSpec:
