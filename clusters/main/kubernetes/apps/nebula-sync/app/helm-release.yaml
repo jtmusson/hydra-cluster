@@ -40,7 +40,6 @@ spec:
           containers:
             main:
               env:
-                TZ: "Europe/London"
                 PRIMARY: "http://ph1.example.com|password"
                 REPLICAS: "http://ph2.example.com|password,http://ph3.example.com|password"
                 FULL_SYNC: true
