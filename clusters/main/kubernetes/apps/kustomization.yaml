@@ -5,8 +5,7 @@ resources:
   - external-dns/ks.yaml
   - uptime-kuma/ks.yaml
   - streammaster/ks.yaml
-  - peanut-upstairs/ks.yaml
-  - peanut-downstairs/ks.yaml
+  - peanut/ks.yaml
   - paperless-ngx/ks.yaml
   - nextcloud/ks.yaml
   - n8n/ks.yaml

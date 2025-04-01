@@ -2,8 +2,8 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: peanut-upstairs
-  namespace: peanut-upstairs
+  name: peanut
+  namespace: peanut
 spec:
   interval: 15m
   chart:
@@ -28,22 +28,27 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    global:
+      stopAll: false
+    credentials:
+      backblaze:
+        accessKey: "${B2_ACCESSKEY}"
+        bucket: "${B2_BUCKET}"
+        encrKey: "${B2_ENCRKEY}"
+        secretKey: "${B2_SECRETKEY}"
+        type: s3
+        url: "${B2_URL}"
     ingress:
       main:
         enabled: true
         hosts:
-          - host: peanut-upstairs.${BASE_DOMAIN}
+          - host: peanut.${BASE_DOMAIN}
         integrations:
           certManager:
             enabled: true
             certificateIssuer: "cloudflare-prod"
           homepage:
-            enabled: true
-            group: "Network - UPS"
-            widget:
-              enabled: true
-              custom:
-                key: upstairs
+            enabled: false
           traefik:
             enabled: true
             entrypoints:
@@ -51,14 +56,22 @@ spec:
             middlewares:
               - name: allowlist-private
                 namespace: "traefik"
+    persistence:
+      config:
+        enabled: true
+        mountPath: "/config"
+        volsync:
+          - name: config
+            credentials: backblaze
+            type: restic
+            dest:
+              enabled: false # change to true on restore
+            src:
+              enabled: true
     workload:
       main:
         podSpec:
           containers:
             main:
               env:
-                NUT_HOST: "${NUT2_HOST}"
-                NUT_PORT: 3493
-                PASSWORD: "${NUT2_PASSWORD}"
-                USERNAME: monuser
                 WEB_PORT: '{{ .Values.service.main.ports.main.port }}'
