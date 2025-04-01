@@ -45,8 +45,8 @@ spec:
           containers:
             main:
               env:
-                PRIMARY: "http://ph1.example.com|password"
-                REPLICAS: "http://ph2.example.com|password"
+                PRIMARY: "https://10.242.1.4|password"
+                REPLICAS: "https://10.242.1.6|password"
                 FULL_SYNC: true
                 RUN_GRAVITY: false
                 CRON: "0 * * * *"
