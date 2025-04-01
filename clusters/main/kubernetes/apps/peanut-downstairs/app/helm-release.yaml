@@ -57,8 +57,9 @@ spec:
           containers:
             main:
               env:
-                NUT_HOST: "${NUT1_HOST}"
-                NUT_PORT: 3493
-                PASSWORD: "${NUT1_PASSWORD}"
-                USERNAME: monuser
+                NUT_SERVERS:
+                  - HOST: "${NUT1_HOST}"
+                    PORT: 3493
+                    PASSWORD: "${NUT1_PASSWORD}"
+                    USERNAME: monuser
                 WEB_PORT: '{{ .Values.service.main.ports.main.port }}'
