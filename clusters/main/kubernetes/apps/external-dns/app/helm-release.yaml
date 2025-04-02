@@ -34,6 +34,9 @@ spec:
       logLevel: info
       piholePassword: "${PIHOLE_PASSWORD}"
       piholeServer: "${PIHOLE_SERVER}"
+      domainFilters:
+        - "${BASE_DOMAIN}"
+        - "${BASE_DOMAIN_EXT}"
       policy: upsert-only
       provider: pihole
       registry: noop
