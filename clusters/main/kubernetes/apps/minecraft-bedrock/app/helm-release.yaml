@@ -83,6 +83,6 @@ spec:
                 SERVER_NAME: 71YC Server
                 TEXTUREPACK_REQUIRED: true
                 VIEW_DISTANCE: 64
-                WHITE_LIST: true
+                WHITE_LIST: true # set because source chart sets to false otherwise
                 ALLOW_LIST: true
                 ALLOW_LIST_USERS: "${MINECRAFT_ALLOW_LIST_USERS}"
