@@ -39,4 +39,11 @@ spec:
       registry: noop
       sources:
         - ingress
-        # - service
+      # - service
+#   workload:   # upcoming unreleased change in upstream added 2025-04-02
+#     main:
+#        podSpec:
+#         containers:
+#           main:
+#             env:
+#               EXTERNAL_DNS_PIHOLE_API_VERSION: # Default is 5. Eligible values are 5 or 6. #
