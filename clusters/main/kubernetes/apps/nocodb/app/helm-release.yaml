@@ -1,0 +1,99 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: n8n
+  namespace: n8n
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: nocodb
+      version: 15.20.5
+      sourceRef:
+        kind: HelmRepository
+        name: truecharts
+        namespace: flux-system
+      interval: 15m
+  timeout: 10m
+  maxHistory: 3
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    global:
+      stopAll: false
+    credentials:
+      backblaze:
+        accessKey: "${B2_ACCESSKEY}"
+        bucket: "${B2_BUCKET}"
+        encrKey: "${B2_ENCRKEY}"
+        name: backblaze
+        secretKey: "${B2_SECRETKEY}"
+        type: s3
+        url: "${B2_URL}"
+    ingress:
+      main:
+        enabled: true
+        hosts:
+          - host: nocodb.${BASE_DOMAIN} # ensure NC_PUBLIC_URL is updated
+        integrations:
+          certManager:
+            certificateIssuer: cloudflare-prod
+            enabled: true
+          homepage:
+            enabled: false
+          traefik:
+            enabled: true
+            entrypoints:
+              - websecure
+    cnpg:
+      main:
+        cluster:
+          singleNode: true
+        mode: standalone # change to `standalone` on new install
+        backups:
+          enabled: true
+          credentials: backblaze
+          revision:   # increment on restore
+          retentionPolicy: "14d"
+        recovery:
+          # revision:       # enable on first restore
+          credentials: backblaze
+    persistence:
+      data:
+        enabled: true
+        volsync:
+          - name: data
+            credentials: backblaze
+            type: restic
+            dest:
+              enabled: true
+              cacheCapacity: 10Gi
+            src:
+              enabled: true
+              cacheCapacity: 10Gi
+    workload:
+      main:
+        podSpec:
+          containers:
+            main:
+              env:
+                NC_PUBLIC_URL: https://nocodb.${BASE_DOMAIN}/
+                NC_INVITE_ONLY_SIGNUP: true
+                NC_ADMIN_EMAIL: ${NC_ADMIN_EMAIL}
+                NC_ADMIN_PASSWORD: ${NC_ADMIN_PASSWORD}
+                NC_SMTP_FROM: "${NC_EMAIL_HOST_USER}"
+                NC_SMTP_HOST: "${SMTP_SERVER}"
+                NC_SMTP_PORT: "${SMTP_PORT}"
+                NC_SMTP_USERNAME: "${NC_EMAIL_HOST_USER}"
+                NC_SMTP_PASSWORD: "${NC_EMAIL_HOST_PASSWORD}"
+                NC_SMTP_SECURE: true
+                NC_SMTP_IGNORE_TLS: false
