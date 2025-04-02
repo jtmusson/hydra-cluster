@@ -101,3 +101,4 @@ spec:
                 NC_SMTP_PASSWORD: "${NC_EMAIL_HOST_PASSWORD}"
                 NC_SMTP_SECURE: true
                 NC_SMTP_IGNORE_TLS: false
+                NC_ALLOW_LOCAL_HOOKS: true
