@@ -86,7 +86,7 @@ spec:
           containers:
             main:
               env:
-                NC_PUBLIC_URL: https://nocodb.${BASE_DOMAIN}/
+                NC_PUBLIC_URL: "https://nocodb.${BASE_DOMAIN}"
                 NC_INVITE_ONLY_SIGNUP: true
                 NC_ADMIN_EMAIL: ${NC_ADMIN_EMAIL}
                 NC_ADMIN_PASSWORD: ${NC_ADMIN_PASSWORD}
