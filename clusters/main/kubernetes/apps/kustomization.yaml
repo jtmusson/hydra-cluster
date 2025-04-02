@@ -10,7 +10,7 @@ resources:
   - nocodb/ks.yaml
   - nextcloud/ks.yaml
 # - nebula-sync/ks.yaml
-# - n8n/ks.yaml
+  - n8n/ks.yaml
   - myspeed/ks.yaml
   - mosquitto/ks.yaml
   - minecraft-bedrock/ks.yaml
