@@ -82,3 +82,4 @@ spec:
                 TEXTUREPACK_REQUIRED: true
                 VIEW_DISTANCE: 64
                 ALLOW_LIST: true
+                ALLOW_LIST_USERS: "${MINECRAFT_ALLOW_LIST_USERS}"
