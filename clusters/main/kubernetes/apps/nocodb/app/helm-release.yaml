@@ -44,6 +44,7 @@ spec:
         enabled: true
         hosts:
           - host: nocodb.${BASE_DOMAIN} # ensure NC_PUBLIC_URL is updated
+          - host: nocodb.${BASE_DOMAIN_EXT}
         integrations:
           certManager:
             certificateIssuer: cloudflare-prod
