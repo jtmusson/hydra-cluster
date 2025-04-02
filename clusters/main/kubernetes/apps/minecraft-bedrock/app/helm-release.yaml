@@ -77,8 +77,11 @@ spec:
                 GAMEMODE: creative
                 LEVEL_NAME: 71YC-Server
                 ONLINE_MODE: true
+                MAX_PLAYERS: 8
+                ENABLE_LAN_VISIBILITY: true
                 OPS: "${MINECRAFT_OPS}"
                 SERVER_NAME: 71YC Server
                 TEXTUREPACK_REQUIRED: true
                 VIEW_DISTANCE: 64
+                WHITE_LIST: true
                 ALLOW_LIST_USERS: "${MINECRAFT_ALLOW_LIST_USERS}"
