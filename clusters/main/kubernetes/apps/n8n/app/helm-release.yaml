@@ -33,6 +33,7 @@ spec:
     deployment:
       N8N_HOST: n8n.${BASE_DOMAIN} # ensure ingress.main.hosts and below are updated
       N8N_EDITOR_BASE_URL: https://n8n.${BASE_DOMAIN}/
+      N8N_HIRING_BANNER_ENABLED: false
     endpoints:
       WEBHOOK_URL: n8n-hooks.${BASE_DOMAIN_EXT}
     usermanagement:
@@ -104,3 +105,5 @@ spec:
             main:
               env:
                 GENERIC_TIMEZONE: "Europe/London"
+                N8N_VERSION_NOTIFICATIONS_ENABLED: false
+                N8N_BLOCK_FILE_ACCESS_TO_N8N_FILES: false
