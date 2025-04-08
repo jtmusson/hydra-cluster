@@ -45,6 +45,11 @@ spec:
           certManager:
             certificateIssuer: cloudflare-prod
             enabled: true
+          homepage:
+            enabled: true
+            group: "Developer"
+            widget:
+              enabled: false
           traefik:
             enabled: true
             entrypoints:
