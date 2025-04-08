@@ -31,7 +31,7 @@ spec:
     global:
       stopAll: false
     config:
-      nextauth_url: "https://linkwarden.${BASE_DOMAIN}"
+      nextauth_url: "https://linkwarden.${BASE_DOMAIN}/api/v1/auth"
     credentials:
       backblaze:
         accessKey: "${B2_ACCESSKEY}"
@@ -93,6 +93,7 @@ spec:
           containers:
             main:
               env:
+                NEXT_PUBLIC_CREDENTIALS_ENABLED: true
                 NEXT_PUBLIC_EMAIL_PROVIDER: true
                 EMAIL_FROM: "${LINKWARDEN_EMAIL_HOST_USER}"
                 EMAIL_SERVER: "smtps://linkwarden%40${SMTP_HOST_DOMAIN}:${LINKWARDEN_EMAIL_HOST_PASSWORD}@${SMTP_SERVER}:${SMTP_PORT}"
