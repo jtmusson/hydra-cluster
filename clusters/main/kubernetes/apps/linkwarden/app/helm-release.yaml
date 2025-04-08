@@ -52,9 +52,11 @@ spec:
             enabled: true
           homepage:
             enabled: true
-            group: Developer
+            group: Productivity
             widget:
-              enabled: false
+              enabled: true
+              type: linkwarden
+              # key: 
           traefik:
             enabled: true
             entrypoints:
