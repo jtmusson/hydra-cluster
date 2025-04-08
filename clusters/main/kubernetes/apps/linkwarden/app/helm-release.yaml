@@ -55,8 +55,8 @@ spec:
             group: Productivity
             widget:
               enabled: true
-              type: linkwarden
-              key: ${LINKWARDEN_API_KEY}
+              custom: 
+                key: ${LINKWARDEN_API_KEY}
           traefik:
             enabled: true
             entrypoints:
