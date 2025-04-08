@@ -94,5 +94,5 @@ spec:
             main:
               env:
                 NEXT_PUBLIC_EMAIL_PROVIDER: false
-                # EMAIL_FROM: ""
+                # EMAIL_FROM: "${LINKWARDEN_EMAIL_HOST_USER}"
                 # EMAIL_SERVER: "smtps://username%40domain:password@smtp.server.com:port"
