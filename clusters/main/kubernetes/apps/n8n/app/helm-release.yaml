@@ -108,7 +108,7 @@ spec:
           # user: "${SMB_PAPERLESS_BROTHER_PRINTER_USER}"
           password: "${SMB_PAPERLESS_BROTHER_PRINTER_PASSWORD}"
           share: "paperless-ngx-brother-printer"
-          server: "/${PLUTO_IP}"
+          server: "${PLUTO_IP}"
       movies:
         enabled: true
         mountPath: /mnt/movies
