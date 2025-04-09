@@ -16,13 +16,13 @@
     {
       "matchSourceUrls": ["https://github.com/n8n-io/n8n"],
       "matchUpdateTypes": ["patch"],
-      "labels": ["type/patch"],
+      "labels": ["type/patch", "renovate/container"],
       "groupName": "n8n patch"
     },
     {
       "matchSourceUrls": ["https://github.com/n8n-io/n8n"],
       "matchUpdateTypes": ["minor"],
-      "labels": ["type/minor"],
+      "labels": ["type/minor", "renovate/container"],
       "groupName": "n8n minor"
     }
   ]
