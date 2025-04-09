@@ -14,7 +14,7 @@
       "schedule": ["* * * * *"]
     },
     {
-      "matchPackagePatterns": ["ghcr.io/n8n-io/n8n"],
+      "matchPackageNames": ["ghcr.io/n8n-io/n8n"],
       "automerge": false
     }
   ]
