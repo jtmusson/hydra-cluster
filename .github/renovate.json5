@@ -23,6 +23,7 @@
       "matchSourceUrls": ["https://github.com/n8n-io/n8n"],
       "matchUpdateTypes": ["minor"],
       "labels": ["type/minor", "renovate/container"],
+      "automerge": false,
       "groupName": "n8n minor"
     }
   ]
