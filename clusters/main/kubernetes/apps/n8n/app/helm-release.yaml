@@ -104,7 +104,7 @@ spec:
         mountPath: /mnt/paperless-ngx-brother-printer
         static:
           mode: smb
-          user: "${SMB_PAPERLESS_BROTHER_PRINTER_USER}"
+          username: "${SMB_PAPERLESS_BROTHER_PRINTER_USER}"
           password: "${SMB_PAPERLESS_BROTHER_PRINTER_PASSWORD}"
           share: "paperless-ngx-brother-printer"
           server: "${PLUTO_IP}"
