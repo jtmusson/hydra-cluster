@@ -12,6 +12,10 @@
     {
       "matchManagers": "github-actions",
       "schedule": ["* * * * *"]
+    },
+    {
+      "matchPackagePatterns": ["ghcr.io/n8n-io/n8n"],
+      "automerge": false
     }
   ]
 }
