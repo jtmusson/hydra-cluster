@@ -12,6 +12,10 @@
     {
       "matchManagers": "github-actions",
       "schedule": ["* * * * *"]
+    },
+    {
+      "matchSourceUrls": ["https://github.com/n8n-io/n8n"],
+      "groupName": "n8n"
     }
   ]
 }
