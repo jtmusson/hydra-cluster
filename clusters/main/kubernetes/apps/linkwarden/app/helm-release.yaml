@@ -98,3 +98,4 @@ spec:
                 NEXT_PUBLIC_EMAIL_PROVIDER: true
                 EMAIL_FROM: "${LINKWARDEN_EMAIL_HOST_USER}"
                 EMAIL_SERVER: "smtps://linkwarden%40${SMTP_HOST_DOMAIN}:${LINKWARDEN_EMAIL_HOST_PASSWORD}@${SMTP_SERVER}:${SMTP_PORT}"
+                RSS_SUBSCRIPTION_LIMIT_PER_USER: "30"
