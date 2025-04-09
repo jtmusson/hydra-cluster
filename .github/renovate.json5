@@ -15,7 +15,15 @@
     },
     {
       "matchSourceUrls": ["https://github.com/n8n-io/n8n"],
-      "groupName": "n8n"
+      "matchUpdateTypes": ["patch"],
+      "labels": ["type/patch"],
+      "groupName": "n8n patch"
+    },
+    {
+      "matchSourceUrls": ["https://github.com/n8n-io/n8n"],
+      "matchUpdateTypes": ["minor"],
+      "labels": ["type/minor"],
+      "groupName": "n8n minor"
     }
   ]
 }
