@@ -68,7 +68,7 @@ spec:
             main:
               env:
                 # renovate: datasource=custom.minecraft-bedrock depName=minecraft-bedrock
-                VERSION: 1.21.71.01
+                VERSION: 1.21.72.01
                 ALLOW_CHEATS: true
                 DIFFICULTY: peaceful
                 GAMEMODE: creative
