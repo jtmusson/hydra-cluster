@@ -115,6 +115,12 @@ spec:
         path: "/mnt/pool0/movies/"
         server: "${PLUTO_IP}"
         type: nfs
+      paperless-ngx-brother-printer:
+        enabled: true
+        mountPath: /mnt/paperless-ngx-brother-printer
+        path: "/mnt/pool0/paperless-ngx/paperless-ngx-brother-printer"
+        server: "${PLUTO_IP}"
+        type: nfs
     workload:
       main:
         podSpec:
