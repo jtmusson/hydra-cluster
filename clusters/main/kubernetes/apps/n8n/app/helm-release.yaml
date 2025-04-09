@@ -15,7 +15,7 @@ spec:
         name: truecharts
         namespace: flux-system
       interval: 15m
-  timeout: 5m # increase to 20m on restore
+  timeout: 10m # increase to 20m on restore
   maxHistory: 3
   install:
     createNamespace: true
@@ -98,16 +98,17 @@ spec:
             src:
               enabled: true
               cacheCapacity: 10Gi
-      paperless-ngx-brother-printer:
-        enabled: true
-        type: pvc
-        mountPath: /mnt/paperless-ngx-brother-printer
-        static:
-          mode: smb
-          username: "${SMB_PAPERLESS_BROTHER_PRINTER_USER}"
-          password: "${SMB_PAPERLESS_BROTHER_PRINTER_PASSWORD}"
-          share: "paperless-ngx-brother-printer"
-          server: "/${PLUTO_IP}"
+#      paperless-ngx-brother-printer:
+#        enabled: true
+#        type: pvc
+#        mountPath: /mnt/paperless-ngx-brother-printer
+#        static:
+#          mode: smb
+#          username: "${SMB_PAPERLESS_BROTHER_PRINTER_USER}"
+#          user: "${SMB_PAPERLESS_BROTHER_PRINTER_USER}"
+#          password: "${SMB_PAPERLESS_BROTHER_PRINTER_PASSWORD}"
+#          share: "paperless-ngx-brother-printer"
+#          server: "/${PLUTO_IP}"
       movies:
         enabled: true
         mountPath: /mnt/movies
