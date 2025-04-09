@@ -17,15 +17,18 @@
       "matchPackageNames": ["ghcr.io/n8n-io/n8n"],
       "matchUpdateTypes": ["patch"],
       "labels": ["type/patch", "renovate/container"],
-      "automerge": false,
-      "groupName": "n8n patch"
+      "automerge": false
     },
     {
       "matchPackageNames": ["ghcr.io/n8n-io/n8n"],
       "matchUpdateTypes": ["minor"],
       "labels": ["type/minor", "renovate/container"],
-      "automerge": false,
-      "groupName": "n8n minor"
+      "automerge": false
+    },
+    {
+      "matchPackageNames": ["ghcr.io/n8n-io/n8n"],
+      "matchManagers": ["helm-values"],
+      "enabled": false
     }
   ]
 }
