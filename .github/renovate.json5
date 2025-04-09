@@ -26,7 +26,7 @@
       "automerge": false
     },
     {
-      "matchPackageNames": ["ghcr.io/n8n-io/n8n"],
+      "matchPackageNames": ["ghcr.io/n8n-io/n8n","ghcr.io/lovelaze/nebula-sync"],
       "matchManagers": ["helm-values"],
       "enabled": false
     }
