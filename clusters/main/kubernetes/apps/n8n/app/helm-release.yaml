@@ -98,6 +98,16 @@ spec:
             src:
               enabled: true
               cacheCapacity: 10Gi
+      paperless-ngx-brother-printer:
+        enabled: true
+        type: pvc
+        mountPath: /mnt/paperless-ngx-brother-printer
+        static:
+          mode: smb
+          user: "${SMB_PAPERLESS_BROTHER_PRINTER_USER}"
+          password: "${SMB_PAPERLESS_BROTHER_PRINTER_PASSWORD}"
+          share: "paperless-ngx-brother-printer"
+          server: "${PLUTO_IP}"
       movies:
         enabled: true
         mountPath: /mnt/movies
