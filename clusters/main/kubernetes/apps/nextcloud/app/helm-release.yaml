@@ -47,11 +47,11 @@ spec:
         backups:
           enabled: true
           credentials: backblaze
-          revision: "2"
+          revision: "3"
           retentionPolicy: "14d"
         recovery:
           method: object_store
-          revision: "1"
+          revision: "2"
           credentials: backblaze
         database: "nextcloud"
         password: "${NEXTCLOUD_CNPG_PASSWORD}"
