@@ -67,7 +67,7 @@ spec:
             credentials: backblaze
             type: restic
             dest:
-              enabled: false # set to true before restoring
+              enabled: true
             src:
               enabled: true
       downloads:
