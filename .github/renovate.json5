@@ -11,7 +11,7 @@
   "packageRules": [
     {
       "description": ["Allow github-actions to create branches at any time"],
-      "matchManagers": "github-actions",
+      "matchManagers": ["github-actions"],
       "schedule": ["* * * * *"]
     },
     {
