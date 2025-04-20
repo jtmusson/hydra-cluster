@@ -16,7 +16,7 @@
     },
     {
       "description": ["Set schedule for reloader to override TrueCharts config"],
-      "matchPackagePatterns": ["reloader"],
+      "matchPackageNames": ["reloader"],
       "schedule": ["on the first day of the week"]
     },
     {
