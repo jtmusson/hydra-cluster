@@ -20,7 +20,7 @@
       "schedule": ["on the first day of the week"]
     },
     {
-      "description": "[Disable matching for helm-values to prevent duplication"],
+      "description": ["Disable matching for helm-values to prevent duplication"],
       "matchPackageNames": ["ghcr.io/lovelaze/nebula-sync"],
       "matchManagers": ["helm-values"],
       "enabled": false
