@@ -16,7 +16,7 @@
     },
     {
       "description": ["Set schedule for reloader to override TrueCharts config"],
-      "matchPackageNames": ["reloader"],
+      "matchPackageNames": ["ghcr.io/stakater/charts/reloader"],
       "schedule": ["on the first day of the week"]
     },
     {
