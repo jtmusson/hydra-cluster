@@ -10,7 +10,7 @@
         {
             "description": ["Prevent reloader upgrading above 2.0.0"],
             "matchPackageNames": ["ghcr.io/stakater/charts/reloader"],
-            "allowedVersions": "<=2.0.0"
+            "allowedVersions": "<2.1.0"
         }
     ]
 }
