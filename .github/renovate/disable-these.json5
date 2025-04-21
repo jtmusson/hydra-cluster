@@ -6,11 +6,6 @@
             "matchPackageNames": ["ghcr.io/lovelaze/nebula-sync"],
             "matchManagers": ["helm-values"],
             "enabled": false
-        },
-        {
-            "description": ["Prevent reloader upgrading above 2.0.0"],
-            "matchPackageNames": ["ghcr.io/stakater/charts/reloader"],
-            "allowedVersions": "<2.1.0"
         }
     ]
 }
