@@ -15,7 +15,7 @@ spec:
         name: truecharts
         namespace: flux-system
       interval: 15m
-  timeout: 20m
+  timeout: 10m
   maxHistory: 3
   install:
     createNamespace: true
@@ -58,7 +58,7 @@ spec:
       config:
         enabled: true
         volsync:
-          - name: config-1
+          - name: config
             credentials: backblaze
             type: restic
             dest:
@@ -76,3 +76,12 @@ spec:
             main:
               env:
                 NTFY_BASE_URL: "https://ntfy.${BASE_DOMAIN}"
+                NTFY_BEHIND_PROXY: true
+                ENABLE_CACHE_FILE: true
+                ENABLE_AUTH_FILE: true
+                NTFY_VISITOR_SUBSCRIPTION_LIMIT: 100
+                NTFY_AUTH_DEFAULT_ACCESS: "deny-all"
+                NTFY_SMTP_SERVER_LISTEN: ":25"
+                NTFY_SMTP_SERVER_DOMAIN: "mail.${BASE_DOMAIN_EXT}"
+                NTFY_ENABLE_SIGNUP: true
+                NTFY_ENABLE_LOGIN: true
