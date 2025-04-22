@@ -57,6 +57,7 @@ spec:
     persistence:
       config:
         enabled: true
+        mountPath: "/etc/ntfy"
         volsync:
           - name: config
             credentials: backblaze
