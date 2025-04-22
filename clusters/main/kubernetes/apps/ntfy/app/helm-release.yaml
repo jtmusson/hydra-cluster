@@ -70,6 +70,9 @@ spec:
         enabled: true
         loadBalancerIP: "${NTFY_IP}"
         type: LoadBalancer
+      ports:
+        smtp:
+          port: 25
     workload:
       main:
         podSpec:
