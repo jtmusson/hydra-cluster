@@ -57,7 +57,6 @@ spec:
     persistence:
       config:
         enabled: true
-        mountPath: "/etc/ntfy"
         volsync:
           - name: config
             credentials: backblaze
@@ -66,6 +65,7 @@ spec:
               enabled: false # enable on restore
             src:
               enabled: true
+    service:
       main:
         enabled: true
         loadBalancerIP: "${NTFY_IP}"
