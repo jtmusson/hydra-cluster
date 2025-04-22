@@ -38,7 +38,22 @@ spec:
         name: backblaze
         secretKey: "${B2_SECRETKEY}"
         type: s3
-        url: "${B2_URL}"  
+        url: "${B2_URL}"
+    ingress:
+      main:
+        enabled: true
+        hosts:
+          - host: ntfy.${BASE_DOMAIN} # update NTFY_BASE_URL
+        integrations:
+          certManager:
+            certificateIssuer: cloudflare-prod
+            enabled: true
+          homepage:
+            enabled: false
+          traefik:
+            enabled: true
+            entrypoints:
+              - websecure
     persistence:
       config:
         enabled: true
@@ -60,4 +75,4 @@ spec:
           containers:
             main:
               env:
-                NTFY
+                NTFY_BASE_URL: "https://ntfy.${BASE_DOMAIN}"
