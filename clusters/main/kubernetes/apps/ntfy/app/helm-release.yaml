@@ -49,7 +49,10 @@ spec:
             certificateIssuer: cloudflare-prod
             enabled: true
           homepage:
-            enabled: false
+            enabled: true
+            group: Developer
+            widget:
+              enabled: false
           traefik:
             enabled: true
             entrypoints:
