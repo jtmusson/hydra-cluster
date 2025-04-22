@@ -71,10 +71,11 @@ spec:
         loadBalancerIP: "${NTFY_IP}"
         type: LoadBalancer
         ports:
-          main:
-            ports:
-              - 25
-              - 10222
+          smtp:
+            enabled: true
+            targetSelector: main
+            port: 25
+            protocol: http
     workload:
       main:
         podSpec:
