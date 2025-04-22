@@ -72,6 +72,7 @@ spec:
         type: LoadBalancer
       ports:
         smtp:
+          enabled: true
           port: 25
     workload:
       main:
