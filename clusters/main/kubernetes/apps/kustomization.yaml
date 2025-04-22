@@ -7,6 +7,7 @@ resources:
   - streammaster/ks.yaml
   - peanut/ks.yaml
   - paperless-ngx/ks.yaml
+  - ntfy/ks.yaml
   - nocodb/ks.yaml
   - nextcloud/ks.yaml
 # - nebula-sync/ks.yaml
