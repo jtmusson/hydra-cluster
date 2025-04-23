@@ -54,7 +54,7 @@ spec:
             widget:
               type: jellyseerr
               custom:
-                key: ""
+                key: "${JELLYSEER_API_KEY}"
           traefik:
             enabled: true
             entrypoints:
