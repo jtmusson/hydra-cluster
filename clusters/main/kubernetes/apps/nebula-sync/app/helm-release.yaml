@@ -33,7 +33,7 @@ spec:
     image:
       repository: ghcr.io/lovelaze/nebula-sync
       pullPolicy: IfNotPresent
-      tag: v0.10.0@sha256:2b17c4526bf3f20bece6efab1479cdd5e1ac7a531f4c419fcddbe2008fc55a44
+      tag: v0.11.0@sha256:17177eb65637d73eee7169a789e69eda8395d4d4398cc0cd08e2cbeb7c2910f1
     service:
       main:
         enabled: false
