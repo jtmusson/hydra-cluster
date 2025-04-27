@@ -3,7 +3,7 @@
     "packageRules": [
         {
             "description": ["Disable matching for helm-values to prevent duplication"],
-            "matchPackageNames": ["ghcr.io/lovelaze/nebula-sync", "ghcr.io/siderolabs/kubelet"],
+            "matchPackageNames": ["ghcr.io/lovelaze/nebula-sync", "registry.k8s.io/kubectl"],
             "matchManagers": ["helm-values"],
             "enabled": false
         }
