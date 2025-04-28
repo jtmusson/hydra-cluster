@@ -29,7 +29,7 @@ spec:
     keepHistory: false
   values:
     global:
-      stopAll: false # change to 'true' to stop all pods whenever world maintenance is needed
+      stopAll: true # change to 'true' to stop all pods whenever world maintenance is needed
     credentials:
       backblaze:
         accessKey: "${B2_ACCESSKEY}"
