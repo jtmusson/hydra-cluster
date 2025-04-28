@@ -89,7 +89,6 @@ spec:
                 NTFY_BEHIND_PROXY: true
                 ENABLE_CACHE_FILE: true
                 ENABLE_AUTH_FILE: true
-                NTFY_VISITOR_SUBSCRIPTION_LIMIT: 100
                 NTFY_AUTH_DEFAULT_ACCESS: "deny-all"
                 NTFY_SMTP_SERVER_LISTEN: ":25"
                 NTFY_SMTP_SERVER_DOMAIN: "ntfy.${BASE_DOMAIN_EXT}"
