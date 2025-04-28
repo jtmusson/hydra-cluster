@@ -50,7 +50,7 @@ spec:
             enabled: true
           homepage:
             enabled: true
-            group: Media
+            group: "Ripping"
             widget:
               enabled: false
           traefik:
