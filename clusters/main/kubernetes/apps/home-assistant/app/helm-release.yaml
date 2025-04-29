@@ -69,9 +69,6 @@ spec:
           enabled: true
           credentials: backblaze
           revision: "2"
-          scheduledBackups:
-            - name: daily-backup
-              schedule: "0 5 0 * * *"
           retentionPolicy: "14d"
         recovery:
           method: object_store
