@@ -7,5 +7,5 @@ resources:
   - kubelet-csr-approver/ks.yaml
   - metrics-server/ks.yaml
   - node-feature-discovery/ks.yaml
-#  - generic-device-plugin/ks.yaml
+  - generic-device-plugin/ks.yaml
   - reloader/ks.yaml
