@@ -1,0 +1,47 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: generic-device-plugin
+  namespace: kube-system
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: generic-device-plugin
+      version: 1.3.3
+      sourceRef:
+        kind: HelmRepository
+        name: truecharts
+        namespace: flux-system
+      interval: 15m
+  timeout: 20m
+  maxHistory: 3
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    global:
+      stopAll: false
+    workload:
+      main:
+        podSpec:      
+          containers:
+            main:
+              args:
+                - --domain
+                - musson.uk
+                - -- device
+                - |
+                  name: optical
+                  groups: 
+                    - paths:
+                      - path: /dev/sr0
+                      - path: /dev/sg0
