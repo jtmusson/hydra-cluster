@@ -42,6 +42,6 @@ spec:
                 - |
                   name: optical
                   groups: 
-                    - paths:
+                    - paths: # NOTE: device numbering may change if a device is added or removed from the system
                       - path: /dev/sr0
                       - path: /dev/sg0
