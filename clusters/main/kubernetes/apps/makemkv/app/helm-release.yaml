@@ -85,6 +85,9 @@ spec:
         podSpec:      
           containers:
             main:
+              resources:
+                limits:
+                  squat.ai/optical: 1
               env:
                 INSTALL_PACKAGES: curl
     securityContext:
