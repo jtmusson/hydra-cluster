@@ -32,8 +32,8 @@ spec:
   values:
     service:
       main:
-        type: LoadBalancer
-        loadBalancerIP: ${DASHBOARD_IP}
+        type: ClusterIP
+        # loadBalancerIP: ${DASHBOARD_IP}
         ports:
           main:
             port: 80
