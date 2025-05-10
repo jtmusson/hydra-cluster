@@ -29,7 +29,7 @@ spec:
   uninstall:
     keepHistory: false
   dependsOn:
-    - name: intel-device-plugin-operator
+    - name: intel-device-plugins-operator
       namespace: kube-system
   values:
     name: intel-gpu-plugin
