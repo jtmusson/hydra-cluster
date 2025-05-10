@@ -5,7 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 30m
-  path: clusters/main/kubernetes/core/intel-device-plugins-gpu/app
+  path: clusters/main/kubernetes/kube-system/intel-device-plugins-gpu/app
   prune: true
   sourceRef:
     kind: GitRepository
