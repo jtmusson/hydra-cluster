@@ -27,3 +27,4 @@ resources:
   - spegel.yaml
   - truecharts.yaml
   - home-ops-mirror.yaml
+  - emberstack.yaml
