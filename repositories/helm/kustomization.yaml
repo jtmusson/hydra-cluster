@@ -25,6 +25,5 @@ resources:
   - postfinance.yaml
   - prometheus-community.yaml
   - spegel.yaml
-  - topolvm.yaml
   - truecharts.yaml
   - home-ops-mirror.yaml
