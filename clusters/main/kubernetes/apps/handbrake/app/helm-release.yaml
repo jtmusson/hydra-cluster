@@ -97,6 +97,6 @@ spec:
                 limits:
                   gpu.intel.com/i915: 1
                   cpu: 6000m
-                  memory: 2000Mi
+                  memory: 10000Mi
               env:
                 INSTALL_PACKAGES: curl
