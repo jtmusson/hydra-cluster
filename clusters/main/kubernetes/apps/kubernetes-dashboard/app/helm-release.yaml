@@ -5,7 +5,7 @@ metadata:
   name: kubernetes-dashboard
   namespace: kubernetes-dashboard
 spec:
-  interval: 15m
+  interval: 30m
   chart:
     spec:
       chart: kubernetes-dashboard
@@ -17,8 +17,6 @@ spec:
       interval: 15m
   timeout: 20m
   maxHistory: 3
-  driftDetection:
-    mode: warn
   install:
     createNamespace: true
     remediation:

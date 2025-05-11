@@ -5,7 +5,7 @@ metadata:
   name: kubernetes-reflector
   namespace: snapshot-controller
 spec:
-  interval: 15m
+  interval: 30m
   chart:
     spec:
       chart: kubernetes-reflector
