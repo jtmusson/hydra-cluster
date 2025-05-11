@@ -1,5 +1,8 @@
 replicas: 2
 kind: Deployment
+metadata:
+  name: descheduler-remove-failed-pods
+  namespace: kube-system
 deschedulerPolicyAPIVersion: descheduler/v1alpha2
 deschedulerPolicy:
   profiles:
