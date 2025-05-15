@@ -30,10 +30,12 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    workload:
-      main:
-        podSpec:
-          containers:
-            main:
-              securityContext:
-                readOnlyRootFilesystem: false
+    podOptions:
+      hostUsers: true
+#    workload:
+#      main:
+#        podSpec:
+#          containers:
+#            main:
+#              securityContext:
+#                readOnlyRootFilesystem: false
