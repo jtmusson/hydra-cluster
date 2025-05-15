@@ -32,10 +32,3 @@ spec:
   values:
     podOptions:
       hostUsers: true
-#    workload:
-#      main:
-#        podSpec:
-#          containers:
-#            main:
-#              securityContext:
-#                readOnlyRootFilesystem: false
