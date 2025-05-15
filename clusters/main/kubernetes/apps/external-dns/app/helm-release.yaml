@@ -43,6 +43,8 @@ spec:
       sources:
         - ingress
       # - service
+    podOptions:
+      hostUsers: true
 #   workload:   # upcoming unreleased change in upstream added 2025-04-02
 #     main:
 #        podSpec:
