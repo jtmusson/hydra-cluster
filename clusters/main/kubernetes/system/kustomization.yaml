@@ -11,7 +11,7 @@ resources:
   - prometheus-operator/ks.yaml
   - snapshot-controller/ks.yaml
   - spegel/ks.yaml
-# - system-upgrade-controller/ks.yaml
+  - system-upgrade-controller/ks.yaml
   - traefik-crds/ks.yaml
   - volsync/ks.yaml
   - csi-driver-nfs/ks.yaml
