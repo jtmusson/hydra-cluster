@@ -30,9 +30,6 @@ spec:
   values:
     global:
       stopAll: false
-    image:
-      repository: ghcr.io/home-assistant/home-assistant
-      tag: 2025.5.3@sha256:8a99004ff832dbd535e6ac4d141042bc31141ff6a86b4d5bb288b3680fbceac1
     credentials:
       backblaze:
         accessKey: "${B2_ACCESSKEY}"
