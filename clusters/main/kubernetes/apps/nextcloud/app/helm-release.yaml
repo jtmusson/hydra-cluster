@@ -118,11 +118,11 @@ spec:
       html:
         enabled: true
         volsync:
-          - name: html-1  
+          - name: html-2
             credentials: backblaze
             type: restic
             dest:
-              enabled: true
+              enabled: false # set to true on restore from backup
               cacheCapacity: 10Gi
             src:
               enabled: true
