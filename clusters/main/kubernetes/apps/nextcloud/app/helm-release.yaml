@@ -125,5 +125,5 @@ spec:
               enabled: false # set to true on restore from backup
               cacheCapacity: 10Gi
             src:
-              enabled: false
+              enabled: true
               cacheCapacity: 10Gi
