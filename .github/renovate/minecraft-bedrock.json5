@@ -1,9 +1,12 @@
 {
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
     "customDatasources": {
-      "minecraft-bedrock":
+      "minecraft-bedrock": {
         "defaultRegistryUrlTemplate": "https://net-secondary.web.minecraft-services.net/api/v1.0/download/links",
-        "format": "json"
+        "format": "json",
+        "transformTemplates": [
+          "{\"releases\":[{\"version\": $$.(data.result.links[downloadType = 'serverBedrockLinux'].downloadUrl)}]}"
+        ]
       }
     },
     "packageRules": [
