@@ -11,7 +11,7 @@
         "matchDatasources": [
           "custom.minecraft-bedrock"
         ],
-        "extractVersion": "/bedrockdedicatedserver/bin-linux/bedrock-server-(?<version>.+)\\.zip$",
+        "extractVersion": "https://www.minecraft.net/bedrockdedicatedserver/bin-linux/bedrock-server-(?<version>.+)\\.zip$",
         "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\.(?<build>\\d+)$"
       }
     ]
