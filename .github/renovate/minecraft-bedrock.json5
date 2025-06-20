@@ -3,7 +3,7 @@
     "customDatasources": {
       "minecraft-bedrock": {
         "defaultRegistryUrlTemplate": "https://net-secondary.web.minecraft-services.net/api/v1.0/download/links",
-        "format": "json"
+        "format": "plain"
       }
     },
     "packageRules": [
