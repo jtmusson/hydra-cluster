@@ -1,9 +1,9 @@
 {
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
     "customDatasources": {
-      "minecraft-bedrock": {
+      "minecraft-bedrock":
         "defaultRegistryUrlTemplate": "https://net-secondary.web.minecraft-services.net/api/v1.0/download/links",
-        "format": "html"
+        "format": "json"
       }
     },
     "packageRules": [
@@ -11,7 +11,7 @@
         "matchDatasources": [
           "custom.minecraft-bedrock"
         ],
-        "extractVersion": "https://www.minecraft.net/bedrockdedicatedserver/bin-linux/bedrock-server-(?<version>.+)\\.zip$",
+        "extractVersion": "/bedrockdedicatedserver/bin-linux/bedrock-server-(?<version>.+)\\.zip$",
         "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)\\.(?<build>\\d+)$"
       }
     ]
