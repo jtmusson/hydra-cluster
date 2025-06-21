@@ -5,7 +5,7 @@
         "defaultRegistryUrlTemplate": "https://net-secondary.web.minecraft-services.net/api/v1.0/download/links",
         "format": "json",
         "transformTemplates": [
-          "{\"releases\":[{\"version\": $$.(data.result.links[downloadType = 'serverBedrockLinux'].downloadUrl)}]}"
+          "{\"releases\":[{\"version\": $$.result.links[downloadType = 'serverBedrockLinux'].downloadUrl.$match(/bedrock-server-([0-9.]+)/).groups[0] }"
         ]
       }
     },
