@@ -10,5 +10,11 @@
     "github>jtmusson/hydra-cluster//.github/renovate/schedules.json5"
   ],
   "timezone": "Europe/London",
-  "schedule": ["* 0-5 * * *"] // Set effective default branch creation schedule to 0-5 daily
+  "schedule": ["* 0-5 * * *"], // Set effective default branch creation schedule to 0-5 daily
+  "logLevelRemap": [
+    {
+      "matchMessage": "/^Custom manager fetcher/",
+      "newLogLevel": "info"
+    }
+  ]
 }
