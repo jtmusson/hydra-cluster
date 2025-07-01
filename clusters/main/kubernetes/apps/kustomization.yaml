@@ -2,7 +2,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - kubernetes-dashboard/ks.yaml
-  - external-dns/ks.yaml
+# - external-dns/ks.yaml
   - uptime-kuma/ks.yaml
   - streammaster/ks.yaml
   - peanut/ks.yaml
