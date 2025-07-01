@@ -76,7 +76,14 @@ spec:
               # No service ports so disable probes
               probes:
                 liveness:
-                  enabled: false
+                  enabled: true
+                  type: exec
+                  command:
+                    - nebula-sync
+                    - healthcheck
+                  spec:
+                    initialDelaySeconds: 10
+                    periodSeconds: 3
                 readiness:
                   enabled: false
                 startup:
