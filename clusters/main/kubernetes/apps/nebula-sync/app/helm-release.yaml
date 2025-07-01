@@ -30,6 +30,8 @@ spec:
   values:
     global:
       stopAll: false
+    podOptions:
+      hostUsers: true
     image:
       repository: ghcr.io/lovelaze/nebula-sync
       pullPolicy: IfNotPresent
