@@ -33,7 +33,7 @@ spec:
       logFormat: text
       logLevel: info
       piholePassword: "${PIHOLE_PASSWORD}"
-      piholeServer: "${PIHOLE_SERVER}"
+      piholeServer: "10.242.1.4"
       piholeAPIVersion: "6" # set to 6 for pi-hole v6
       domainFilters:
         - "${BASE_DOMAIN}"
