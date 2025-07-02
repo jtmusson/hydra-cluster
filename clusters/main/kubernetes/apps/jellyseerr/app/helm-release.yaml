@@ -43,6 +43,7 @@ spec:
     ingress:
       main:
         enabled: true
+        ingressClassName: internal
         hosts:
           - host: media-requests.${BASE_DOMAIN}
           - host: jellyseerr.${BASE_DOMAIN}
@@ -58,9 +59,7 @@ spec:
               custom:
                 key: "${JELLYSEER_API_KEY}"
           traefik:
-            enabled: true
-            entrypoints:
-              - websecure
+            enabled: false
     persistence:
       config:
         volsync:

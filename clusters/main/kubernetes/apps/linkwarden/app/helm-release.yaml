@@ -44,6 +44,7 @@ spec:
     ingress:
       main:
         enabled: true
+        ingressClassName: internal
         hosts:
           - host: linkwarden.${BASE_DOMAIN} # ensure nextauth_url is updated
         integrations:
@@ -58,9 +59,7 @@ spec:
               custom: 
                 key: ${LINKWARDEN_API_KEY}
           traefik:
-            enabled: true
-            entrypoints:
-              - websecure
+            enabled: false
     cnpg:
       main:
         cluster:

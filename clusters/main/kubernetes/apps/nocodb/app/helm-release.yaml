@@ -42,6 +42,7 @@ spec:
     ingress:
       main:
         enabled: true
+        ingressClassName: external
         hosts:
           - host: nocodb.${BASE_DOMAIN} # ensure NC_PUBLIC_URL is updated
           - host: nocodb.${BASE_DOMAIN_EXT}
@@ -55,9 +56,7 @@ spec:
             widget:
               enabled: false
           traefik:
-            enabled: true
-            entrypoints:
-              - websecure
+            enabled: false
     cnpg:
       main:
         cluster:

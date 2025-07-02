@@ -42,6 +42,7 @@ spec:
     ingress:
       main:
         enabled: true
+        ingressClassName: internal
         hosts:
           - host: makemkv.${BASE_DOMAIN}
         integrations:
@@ -54,12 +55,7 @@ spec:
             widget:
               enabled: false
           traefik:
-            enabled: true
-            entrypoints:
-              - websecure
-            middlewares:
-              - name: allowlist-private
-                namespace: "traefik"
+            enabled: false
     makemkv:
       DARK_MODE: true
       KEEP_APP_RUNNING: true

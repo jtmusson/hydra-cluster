@@ -59,6 +59,7 @@ spec:
     ingress:
       main:
         enabled: true
+        ingressClassName: internal
         hosts:
           - host: "paperless-ngx.${BASE_DOMAIN}"
         integrations:
@@ -73,12 +74,7 @@ spec:
                 key: "${PAPERLESS_API_KEY}"
               enabled: true
           traefik:
-            enabled: true
-            entrypoints:
-              - websecure
-            middlewares:
-              - name: allowlist-private
-                namespace: "traefik"
+            enabled: false
     persistence:
       consume:
         enabled: true

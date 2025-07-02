@@ -42,6 +42,7 @@ spec:
     ingress:
       main:
         enabled: true
+        ingressClassName: external
         hosts:
           - host: ntfy.${BASE_DOMAIN_EXT} # update NTFY_BASE_URL
         integrations:
@@ -54,9 +55,7 @@ spec:
             widget:
               enabled: false
           traefik:
-            enabled: true
-            entrypoints:
-              - websecure
+            enabled: false
     persistence:
       config:
         enabled: true

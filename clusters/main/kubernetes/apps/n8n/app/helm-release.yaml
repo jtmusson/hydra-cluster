@@ -59,6 +59,7 @@ spec:
     ingress:
       main:
         enabled: true
+        ingressClassName: external
         hosts:
           - host: n8n.${BASE_DOMAIN} # ensure N8N_HOST is updated
           - host: n8n-hooks.${BASE_DOMAIN_EXT} # ensure WEBHOOK_URL is updated
@@ -72,9 +73,7 @@ spec:
             widget:
               enabled: false
           traefik:
-            enabled: true
-            entrypoints:
-              - websecure
+            enabled: false
     cnpg:
       main:
         cluster:

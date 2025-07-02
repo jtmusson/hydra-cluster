@@ -41,6 +41,7 @@ spec:
     ingress:
       main:
         enabled: true
+        ingressClassName: internal
         hosts:
           - host: peanut.${BASE_DOMAIN}
         integrations:
@@ -50,12 +51,7 @@ spec:
           homepage:
             enabled: false
           traefik:
-            enabled: true
-            entrypoints:
-              - websecure
-            middlewares:
-              - name: allowlist-private
-                namespace: "traefik"
+            enabled: false
     persistence:
       config:
         enabled: true

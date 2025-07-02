@@ -41,6 +41,7 @@ spec:
     ingress:
       main:
         enabled: true
+        ingressClassName: internal
         hosts:
           - host: jellyfin.${BASE_DOMAIN}
         integrations:
@@ -58,12 +59,7 @@ spec:
                   value: "true"
               enabled: true
           traefik:
-            enabled: true
-            entrypoints:
-              - websecure
-            middlewares:
-              - name: allowlist-private
-                namespace: "traefik"
+            enabled: false
     persistence:
       config:
         enabled: true

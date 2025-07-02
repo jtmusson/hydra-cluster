@@ -41,6 +41,7 @@ spec:
     ingress:
       main:
         enabled: true
+        ingressClassName: internal
         hosts:
           - host: myspeed.${BASE_DOMAIN}
         integrations:
@@ -53,12 +54,7 @@ spec:
             widget:
               type: "myspeed"
           traefik:
-            enabled: true
-            entrypoints:
-              - websecure
-            middlewares:
-              - name: allowlist-private
-                namespace: "traefik"
+            enabled: false
     persistence:
       data:
         volsync:
