@@ -40,6 +40,7 @@ spec:
           type: ClusterIP
         ingress:
           enabled: true
+          ingressClassName: internal
           hosts:
             - host: homepage-vs.${BASE_DOMAIN}
               path:
@@ -50,12 +51,7 @@ spec:
               enabled: true
               certificateIssuer: cloudflare-prod
             traefik:
-              enabled: true
-              entrypoints:
-                - websecure
-#              middlewares:
-#                - name: "allowlist-private"
-#                  namespace: "traefik"
+              enabled: false
     credentials:
       backblaze:
         accessKey: "${B2_ACCESSKEY}"
@@ -81,6 +77,7 @@ spec:
     ingress:
       main:
         enabled: true
+        ingressClassName: internal
         hosts:
           - host: homepage.${BASE_DOMAIN}
         integrations:
@@ -88,12 +85,7 @@ spec:
             certificateIssuer: "cloudflare-prod"
             enabled: true
           traefik:
-            enabled: true
-            entrypoints:
-              - websecure
-            middlewares:
-              - name: "allowlist-private"
-                namespace: "traefik"
+            enabled: false
     workload:
       main:
         podSpec:

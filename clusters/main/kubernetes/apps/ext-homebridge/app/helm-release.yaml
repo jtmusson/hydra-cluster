@@ -39,6 +39,7 @@ spec:
     ingress:
       main:
         enabled: true
+        ingressClassName: internal
         hosts:
           - host: "homebridge.${BASE_DOMAIN}"
         integrations:
@@ -46,9 +47,4 @@ spec:
             certificateIssuer: cloudflare-prod
             enabled: true
           traefik:
-            enabled: true
-            entrypoints:
-              - websecure
-#            middlewares:
-#              - name: allowlist-private
-#                namespace: "traefik"
+            enabled: false

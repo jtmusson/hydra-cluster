@@ -41,6 +41,7 @@ spec:
     ingress:
       main:
         enabled: true
+        ingressClassName: internal
         hosts:
           - host: audiobookshelf.${BASE_DOMAIN}
         integrations:
@@ -54,12 +55,7 @@ spec:
               custom:
                 key: ${AUDIOBOOKSHELF_API_KEY}
           traefik:
-            enabled: true
-            entrypoints:
-              - websecure
-            middlewares:
-              - name: allowlist-private
-                namespace: "traefik"
+            enabled: false
     persistence:
       audiobooks:
         mountPath: /audiobooks

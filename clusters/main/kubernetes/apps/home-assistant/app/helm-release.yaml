@@ -44,6 +44,7 @@ spec:
         enabled: false # change to 'true' when codeserver needed
         ingress:
           enabled: true
+          ingressClassName: internal
           hosts:
             - host: hass-vs.${BASE_DOMAIN}
               path:
@@ -54,12 +55,7 @@ spec:
               enabled: true
               certificateIssuer: cloudflare-prod
             traefik:
-              enabled: true
-              entrypoints:
-                - websecure
-              middlewares:
-                - name: "allowlist-private"
-                  namespace: "traefik"
+              enabled: false
     cnpg:
       main:
         cluster:
@@ -80,6 +76,7 @@ spec:
     ingress:
       main:
         enabled: true
+        ingressClassName: external
         hosts:
           - host: hass.${BASE_DOMAIN_EXT}
         integrations:
@@ -97,9 +94,7 @@ spec:
                   value: '["people_home", "lights_on"]'
               enabled: true
           traefik:
-            enabled: true
-            entrypoints:
-              - websecure
+            enabled: false
     persistence:
       config:
         enabled: true
