@@ -7,3 +7,5 @@ resources:
   - system-upgrade-controller-plans/ks.yaml
   - traefik/ks.yaml
   - blocky/ks.yaml
+# - nginx-external/ks.yaml
+# - nginx-internal/ks.yaml
