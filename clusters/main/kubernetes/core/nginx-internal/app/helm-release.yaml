@@ -26,13 +26,12 @@ spec:
   values:
     nameOverride: nginx-internal
     controller:
-      replicaCount: 1
+      replicaCount: 2
       service:
         externalTrafficPolicy: Local
         annotations:
           metallb.io/ip-allocated-from-pool: main
           metallb.io/loadBalancerIPs: ${NGINX_INTERNAL_IP}
-          metallb.universe.tf/ip-allocated-from-pool: main
       ingressClassByName: true
       watchIngressWithoutClass: true
       ingressClassResource:

@@ -26,13 +26,12 @@ spec:
   values:
     nameOverride: nginx-external
     controller:
-      replicaCount: 1
+      replicaCount: 2
       service:
         externalTrafficPolicy: Local
         annotations:
           metallb.io/ip-allocated-from-pool: main
           metallb.io/loadBalancerIPs: ${NGINX_EXTERNAL_IP}
-          metallb.universe.tf/ip-allocated-from-pool: main
       ingressClassByName: true
       watchIngressWithoutClass: false
       ingressClassResource:
@@ -57,7 +56,6 @@ spec:
         proxy-buffer-size: 16k
         ssl-protocols: TLSv1.3 TLSv1.2
         use-forwarded-headers: "true"
-        forwarded-for-header: "CF-Connecting-IP"
         proxy-real-ip-cidr: "${PODNET},${SVCNET}"
       metrics:
         enabled: false
