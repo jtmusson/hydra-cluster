@@ -59,6 +59,7 @@ spec:
     ingress:
       main:
         enabled: true
+        ingressClassName: external
         hosts:
           - host: nc.${BASE_DOMAIN_EXT}
             # paths is required for nextcloud, will 404 if not present
@@ -79,9 +80,7 @@ spec:
                 - key: fields
                   value: '["freespace", "activeusers"]'
           traefik:
-            enabled: true
-            entrypoints:
-              - websecure
+            enabled: false
     nextcloud:
       clamav:
         enabled: false
@@ -93,7 +92,7 @@ spec:
         initialAdminPassword: "${NEXTCLOUD_INITIAL_ADMIN_PASSWORD}"
         initialAdminUser: admin
       general:
-        accessIP: "${TRAEFIK_IP}"
+        accessIP: "${NGINX_EXTERNAL_IP}"
         default_phone_region: GB
       php:
         memory_limit: 5G
