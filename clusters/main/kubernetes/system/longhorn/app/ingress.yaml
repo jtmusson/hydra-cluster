@@ -8,6 +8,7 @@ metadata:
       cert-manager.io/private-key-rotation-policy: Always
       nginx.ingress.kubernetes.io/whitelist-source-range: ${WHITELIST_IP_RANGE}
 spec:
+  ingressClassName: internal
   rules:
   - host: longhorn.${BASE_DOMAIN}
     http:
@@ -23,7 +24,7 @@ spec:
     - hosts:
       - longhorn.${BASE_DOMAIN}
       secretName: longhorn-tls-0
-status:
-    loadBalancer:
-      ingress:
-      - ip: ${NGINX_EXTERNAL_IP}
+# status:
+#    loadBalancer:
+#      ingress:
+#      - ip: ${NGINX_EXTERNAL_IP}
