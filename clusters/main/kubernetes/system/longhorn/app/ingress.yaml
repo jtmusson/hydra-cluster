@@ -6,7 +6,7 @@ metadata:
   annotations:
       cert-manager.io/cluster-issuer: cloudflare-prod
       cert-manager.io/private-key-rotation-policy: Always
-      # nginx.ingress.kubernetes.io/whitelist-source-range: ${WHITELIST_IP_RANGE},${MASTER1IP}
+      nginx.ingress.kubernetes.io/whitelist-source-range: ${WHITELIST_IP_RANGE},${MASTER1IP}
 spec:
   ingressClassName: internal
   rules:
