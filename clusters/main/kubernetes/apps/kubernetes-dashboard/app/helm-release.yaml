@@ -15,7 +15,7 @@ spec:
         name: truecharts
         namespace: flux-system
       interval: 15m
-  timeout: 20m
+  timeout: 15m
   maxHistory: 3
   install:
     createNamespace: true
@@ -33,7 +33,6 @@ spec:
     service:
       main:
         type: ClusterIP
-        # loadBalancerIP: ${DASHBOARD_IP}
         ports:
           main:
             port: 80
