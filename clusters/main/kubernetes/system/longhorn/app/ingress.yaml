@@ -6,6 +6,7 @@ metadata:
   annotations:
       cert-manager.io/cluster-issuer: cloudflare-prod
       cert-manager.io/private-key-rotation-policy: Always
+      nginx.ingress.kubernetes.io/whitelist-source-range: ${WHITELIST_IP_RANGE}
 spec:
   rules:
   - host: longhorn.${BASE_DOMAIN}
