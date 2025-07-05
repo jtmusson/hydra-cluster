@@ -41,6 +41,8 @@ spec:
       main:
         enabled: true
         ingressClassName: internal
+        annotations:
+          nginx.ingress.kubernetes.io/whitelist-source-range: 10.242.1.0/24,10.242.10.240,10.242.10.241
         hosts:
           - host: ks.${BASE_DOMAIN}
         integrations:
