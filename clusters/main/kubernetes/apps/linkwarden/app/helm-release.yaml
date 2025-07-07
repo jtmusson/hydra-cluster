@@ -30,6 +30,9 @@ spec:
   values:
     global:
       stopAll: false
+    resources:
+      requests:
+        cpu: 10m
     config:
       nextauth_url: "https://linkwarden.${BASE_DOMAIN}/api/v1/auth"
     credentials:
