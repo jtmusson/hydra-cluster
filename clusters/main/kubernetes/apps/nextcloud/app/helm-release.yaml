@@ -30,6 +30,8 @@ spec:
   values:
     global:
       stopAll: false
+    podOptions:
+      hostUsers: true
     credentials:
       backblaze:
         accessKey: "${B2_ACCESSKEY}"
