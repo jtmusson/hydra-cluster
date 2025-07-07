@@ -30,6 +30,9 @@ spec:
   values:
     global:
       stopAll: false
+    resources:
+      requests:
+        cpu: 10m
     addons:
       codeserver:
         enabled: true # change to 'true' when codeserver needed
