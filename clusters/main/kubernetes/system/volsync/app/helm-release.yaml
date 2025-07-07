@@ -24,3 +24,6 @@ spec:
   values:
     podOptions:
       hostUsers: true
+    resources:
+      requests:
+        cpu: 10m

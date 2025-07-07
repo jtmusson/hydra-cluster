@@ -30,6 +30,9 @@ spec:
   values:
     global:
       stopAll: false
+    resources:
+      requests:
+        cpu: 10m
     podOptions:
       hostUsers: true
     image:

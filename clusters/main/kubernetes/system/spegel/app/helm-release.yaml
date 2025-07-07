@@ -23,4 +23,7 @@ spec:
     remediation:
       strategy: rollback
       retries: 3
-  values: {}
+  values:
+    resources:
+      requests:
+        cpu: 10m

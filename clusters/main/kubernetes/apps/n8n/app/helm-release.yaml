@@ -30,6 +30,9 @@ spec:
   values:
     global:
       stopAll: false
+    resources:
+      requests:
+        cpu: 10m
     image:
       repository: ghcr.io/n8n-io/n8n
       tag: latest@sha256:ae08af2be497c7af445633d577365d8f6155362bdeaa52b54e7f47c0f672f7c8 # use latest tag with digest since betas are published with higher semver numbering
