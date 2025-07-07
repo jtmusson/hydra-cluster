@@ -18,3 +18,10 @@ spec:
   values:
     podOptions:
       hostUsers: true
+    workload:
+      main:
+        enabled: true
+        replicas: 1
+    metrics:
+      main:
+        enabled: false
