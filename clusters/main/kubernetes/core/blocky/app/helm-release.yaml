@@ -33,6 +33,9 @@ spec:
     # and/or disable its service
     global:
       stopAll: true
+    resources:
+      requests:
+        cpu: 10m
     service:
       dns:
         externalTrafficPolicy: Local
