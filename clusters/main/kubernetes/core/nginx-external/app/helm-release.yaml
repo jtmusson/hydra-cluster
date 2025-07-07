@@ -24,6 +24,9 @@ spec:
     remediation:
       retries: 3
   values:
+    resources:
+      requests:
+        cpu: 10m
     nameOverride: nginx-external
     controller:
       replicaCount: 2
