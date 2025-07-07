@@ -24,9 +24,6 @@ spec:
     remediation:
       retries: 3
   values:
-    resources:
-      requests:
-        cpu: 10m
     nameOverride: nginx-internal
     controller:
       replicaCount: 2
@@ -71,7 +68,7 @@ spec:
         enabled: false
       resources:
         requests:
-          cpu: 100m
+          cpu: 10m
         limits:
           memory: 500Mi
     defaultBackend:
