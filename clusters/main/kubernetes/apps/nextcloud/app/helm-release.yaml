@@ -30,8 +30,6 @@ spec:
   values:
     global:
       stopAll: false
-    podOptions:
-      hostUsers: true
     credentials:
       backblaze:
         accessKey: "${B2_ACCESSKEY}"
@@ -128,3 +126,7 @@ spec:
             src:
               enabled: true
               cacheCapacity: 10Gi
+    workload:
+      imaginary:
+        podSpec:
+          hostUsers: true
