@@ -32,7 +32,7 @@ spec:
       stopAll: false # change to 'true' to stop all pods whenever world maintenance is needed
     resources:
       requests:
-        cpu: 10m
+        cpu: 50m
     credentials:
       backblaze:
         accessKey: "${B2_ACCESSKEY}"
