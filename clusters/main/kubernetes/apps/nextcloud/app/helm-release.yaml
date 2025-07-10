@@ -133,3 +133,12 @@ spec:
       imaginary:
         podSpec:
           hostUsers: true
+      collabora:
+        podSpec:
+          containers:
+            collabora:
+              resources:
+                limits:
+                  cpu: 1000m
+                requests:
+                  cpu: 100m
