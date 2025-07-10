@@ -17,8 +17,6 @@ spec:
       interval: 15m
   timeout: 20m
   maxHistory: 3
-  driftDetection:
-    mode: warn
   install:
     createNamespace: true
     remediation:
@@ -32,6 +30,12 @@ spec:
   values:
     global:
       stopAll: false
+    podOptions:
+      nodeSelector:
+        kubernetes.io/hostname: "k8s-control-1"
+    resources:
+      requests:
+        cpu: 10m
     workload:
       main:
         podSpec:      
