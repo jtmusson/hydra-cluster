@@ -130,6 +130,15 @@ spec:
               enabled: true
               cacheCapacity: 10Gi
     workload:
+      main:
+        podSpec:
+          containers:
+            main:
+              resources:
+                limits:
+                  cpu: 1000m
+                requests:
+                  cpu: 50m
       imaginary:
         podSpec:
           hostUsers: true
