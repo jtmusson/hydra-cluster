@@ -15,7 +15,7 @@ spec:
         name: truecharts
         namespace: flux-system
       interval: 15m
-  timeout: 30m
+  timeout: 20m
   maxHistory: 3
   install:
     createNamespace: true
@@ -30,9 +30,6 @@ spec:
   values:
     global:
       stopAll: false
-    resources:
-      requests:
-        cpu: 10m
     credentials:
       backblaze:
         accessKey: "${B2_ACCESSKEY}"
@@ -96,6 +93,9 @@ spec:
                 limits:
                   gpu.intel.com/i915: 1
                   cpu: 6000m
-                  memory: 20000Mi
+                  memory: 20Gi
+                requests:
+                  gpu.intel.com/i915: 1
+                  cpu: 25m
               env:
                 INSTALL_PACKAGES: curl
