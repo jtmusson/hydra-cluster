@@ -30,11 +30,6 @@ spec:
   values:
     global:
       stopAll: false
-    resources:
-      limits:
-        memory: 30Gi
-      requests:
-        cpu: 10m
     credentials:
       backblaze:
         accessKey: "${B2_ACCESSKEY}"
@@ -89,8 +84,10 @@ spec:
               resources:
                 limits:
                   musson.uk/optical: 1
+                  memory: 20Gi
                 requests:
                   musson.uk/optical: 1
+                  cpu: 25m
               env:
                 INSTALL_PACKAGES: curl
     securityContext:
