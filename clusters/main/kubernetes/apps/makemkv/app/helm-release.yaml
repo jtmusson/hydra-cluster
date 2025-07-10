@@ -32,7 +32,7 @@ spec:
       stopAll: false
     resources:
       limits:
-        memory: 50Gi
+        memory: 30Gi
       requests:
         cpu: 10m
     credentials:
