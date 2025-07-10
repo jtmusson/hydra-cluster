@@ -31,6 +31,8 @@ spec:
     global:
       stopAll: false
     resources:
+      limits:
+        memory: 50Gi
       requests:
         cpu: 10m
     credentials:
@@ -86,6 +88,8 @@ spec:
             main:
               resources:
                 limits:
+                  musson.uk/optical: 1
+                requests:
                   musson.uk/optical: 1
               env:
                 INSTALL_PACKAGES: curl
