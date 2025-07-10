@@ -85,7 +85,7 @@ spec:
           containers:
             main:
               resources:
-                limits:
+                requests:
                   musson.uk/optical: 1
               env:
                 INSTALL_PACKAGES: curl
