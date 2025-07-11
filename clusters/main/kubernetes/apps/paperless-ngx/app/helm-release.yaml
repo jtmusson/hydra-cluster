@@ -31,6 +31,8 @@ spec:
     global:
       stopAll: false
     resources:
+      limits:
+        cpu: 2000m
       requests:
         cpu: 25m
     credentials:
