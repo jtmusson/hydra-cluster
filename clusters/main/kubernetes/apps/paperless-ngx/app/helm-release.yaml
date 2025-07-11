@@ -30,6 +30,9 @@ spec:
   values:
     global:
       stopAll: false
+    resources:
+      requests:
+        cpu: 25m
     credentials:
       backblaze:
         accessKey: "${B2_ACCESSKEY}"
@@ -126,5 +129,3 @@ spec:
                 limits:
                   memory: 2Gi
                   cpu: 2000m
-                requests:
-                  cpu: 25m
