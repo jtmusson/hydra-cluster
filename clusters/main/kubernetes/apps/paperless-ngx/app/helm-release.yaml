@@ -117,7 +117,7 @@ spec:
                 PAPERLESS_CONSUMER_ENABLE_ASN_BARCODE: true
                 PAPERLESS_OCR_LANGUAGE: "eng"
                 PAPERLESS_OCR_LANGUAGES: "eng fra deu"
-                PAPERLESS_WORKER_TIMEOUT: "500"
+                PAPERLESS_WORKER_TIMEOUT: "300"
                 PAPERLESS_URL: "https://paperless-ngx.${BASE_DOMAIN}"
                 PAPERLESS_CSRF_TRUSTED_ORIGINS: "https://*.${BASE_DOMAIN}, https://*.${BASE_DOMAIN_EXT}"
                 PAPERLESS_EMAIL_HOST: "${SMTP_SERVER}"
@@ -127,5 +127,5 @@ spec:
                 PAPERLESS_EMAIL_USE_SSL: true
               resources:
                 limits:
-                  memory: 10Gi
+                  memory: 5Gi
                   cpu: 2000m
