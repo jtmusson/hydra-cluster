@@ -75,6 +75,9 @@ spec:
         enabled: true
         loadBalancerIP: "${NTFY_IP}"
         type: LoadBalancer
+        integrations:
+          metallb:
+            enabled: true
         ports:
           smtp:
             enabled: true
