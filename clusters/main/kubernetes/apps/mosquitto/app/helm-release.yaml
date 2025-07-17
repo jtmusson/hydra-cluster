@@ -62,3 +62,6 @@ spec:
         enabled: true
         loadBalancerIP: "${MQTT_IP}"
         type: LoadBalancer
+        integrations:
+          metallb:
+            enabled: true
