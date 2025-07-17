@@ -124,6 +124,9 @@ spec:
         enabled: true
         loadBalancerIP: "${HASS_IP}"
         type: LoadBalancer
+        integrations:
+          metallb:
+            enabled: true
     homeassistant:
       trusted_proxies:
         - ${PODNET}
