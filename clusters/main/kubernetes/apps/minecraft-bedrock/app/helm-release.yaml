@@ -64,6 +64,9 @@ spec:
         enabled: true
         loadBalancerIP: "${MINECRAFT_IP}"
         type: LoadBalancer
+        integrations:
+          metallb:
+            enabled: true
     workload:
       main:
         podSpec:
