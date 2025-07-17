@@ -76,7 +76,6 @@ spec:
                 SYNC_GRAVITY_DOMAIN_LIST_BY_GROUP: true
                 SYNC_GRAVITY_CLIENT: true
                 SYNC_GRAVITY_CLIENT_BY_GROUP: true
-              # No service ports so disable probes
               probes:
                 liveness:
                   enabled: true
@@ -84,10 +83,15 @@ spec:
                   command:
                     - nebula-sync
                     - healthcheck
-                  spec:
-                    initialDelaySeconds: 10
-                    periodSeconds: 3
                 readiness:
-                  enabled: false
+                  enabled: true
+                  type: exec
+                  command:
+                    - nebula-sync
+                    - healthcheck
                 startup:
-                  enabled: false
+                  enabled: true
+                  type: exec
+                  command:
+                    - nebula-sync
+                    - healthcheck
