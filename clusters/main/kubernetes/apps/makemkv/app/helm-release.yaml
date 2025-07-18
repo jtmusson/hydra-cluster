@@ -84,6 +84,7 @@ spec:
               resources:
                 limits:
                   musson.uk/optical: 1
+                  memory: 5Gi
                 requests:
                   musson.uk/optical: 1
                   cpu: 25m
