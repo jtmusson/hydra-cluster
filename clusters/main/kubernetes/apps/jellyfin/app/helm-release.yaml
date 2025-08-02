@@ -57,6 +57,12 @@ spec:
               customkv:
                 - key: enableBlocks
                   value: "true"
+                - key: enableMediaControl
+                  value: "false"
+                - key: enableUser
+                  value: "true"
+                - key: showEpisodeNumber
+                  value: "true"
               enabled: true
           traefik:
             enabled: false
