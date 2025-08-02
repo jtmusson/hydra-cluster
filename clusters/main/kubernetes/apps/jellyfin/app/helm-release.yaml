@@ -63,6 +63,8 @@ spec:
                   value: "true"
                 - key: showEpisodeNumber
                   value: "true"
+                - key: expandOneStreamToTwoRows
+                  value: "false"
               enabled: true
           traefik:
             enabled: false
