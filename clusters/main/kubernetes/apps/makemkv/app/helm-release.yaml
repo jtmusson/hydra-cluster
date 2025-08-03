@@ -90,7 +90,6 @@ spec:
                   cpu: 25m
               env:
                 INSTALL_PACKAGES: curl
-                WEB_FILE_MANAGER: true
     securityContext:
       container:
         PUID: 0
