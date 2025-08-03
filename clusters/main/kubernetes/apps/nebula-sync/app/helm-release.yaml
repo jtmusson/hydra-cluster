@@ -79,22 +79,22 @@ spec:
                 SYNC_GRAVITY_DOMAIN_LIST_BY_GROUP: true
                 SYNC_GRAVITY_CLIENT: true
                 SYNC_GRAVITY_CLIENT_BY_GROUP: true
-              probes:
-                liveness:
-                  enabled: true
-                  type: exec
-                  command:
-                    - nebula-sync
-                    - healthcheck
-                readiness:
-                  enabled: true
-                  type: exec
-                  command:
-                    - nebula-sync
-                    - healthcheck
-                startup:
-                  enabled: true
-                  type: exec
-                  command:
-                    - nebula-sync
-                    - healthcheck
+#              probes:
+#                liveness:
+#                  enabled: true
+#                  type: exec
+#                  command:
+#                    - nebula-sync
+#                    - healthcheck
+#                readiness:
+#                  enabled: true
+#                  type: exec
+#                  command:
+#                    - nebula-sync
+#                    - healthcheck
+#                startup:
+#                  enabled: true
+#                  type: exec
+#                  command:
+#                    - nebula-sync
+#                    - healthcheck
