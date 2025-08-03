@@ -8,8 +8,8 @@ spec:
   interval: 15m
   chart:
     spec:
-      chart: app-template
-      version: 15.3.1
+      chart: nebula-sync
+      version: 0.2.0
       sourceRef:
         kind: HelmRepository
         name: truecharts
@@ -35,19 +35,19 @@ spec:
         cpu: 25m
     podOptions:
       hostUsers: true
-    image:
-      repository: ghcr.io/lovelaze/nebula-sync
-      pullPolicy: IfNotPresent
-      tag: v0.11.0@sha256:17177eb65637d73eee7169a789e69eda8395d4d4398cc0cd08e2cbeb7c2910f1
-    service:
-      main:
-        enabled: false
-        ports:
-          main:
-            enabled: false
-    portal:
-      open:
-        enabled: false
+#    image:
+#      repository: ghcr.io/lovelaze/nebula-sync
+#      pullPolicy: IfNotPresent
+#      tag: v0.11.0@sha256:17177eb65637d73eee7169a789e69eda8395d4d4398cc0cd08e2cbeb7c2910f1
+#    service:
+#      main:
+#        enabled: false
+#        ports:
+#          main:
+#            enabled: false
+#    portal:
+#      open:
+#        enabled: false
     workload:
       main:
         podSpec:
