@@ -55,6 +55,8 @@ spec:
               enabled: true
             src:
               enabled: true
+              trigger:
+                schedule: 0 4 15 * *
     websockets:
       enabled: false
     service:
