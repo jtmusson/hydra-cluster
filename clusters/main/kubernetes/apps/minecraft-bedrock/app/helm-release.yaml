@@ -53,6 +53,8 @@ spec:
               enabled: true
             src:
               enabled: true
+              trigger:
+                schedule: 30 4 * * *
       worlds:
         enabled: true
         path: "/mnt/pool1/minecraft-bedrock/minecraft-bedrock-worlds"
