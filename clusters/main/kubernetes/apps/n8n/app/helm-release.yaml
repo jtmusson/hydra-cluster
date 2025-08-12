@@ -35,7 +35,7 @@ spec:
         cpu: 10m
     image:
       repository: ghcr.io/n8n-io/n8n
-      tag: latest@sha256:9f35e15e12c625cc432b1a9533e8b8f1e78c76e32af41a68ae2b9e7eb96a4a90 # use latest tag with digest since betas are published with higher semver numbering
+      tag: latest@sha256:d4ac379e8c0148c55b654c437fe4b8c9e7e77a36fd4ae5585511ec4974805ab1 # use latest tag with digest since betas are published with higher semver numbering
     deployment:
       N8N_HOST: n8n.${BASE_DOMAIN} # ensure ingress.main.hosts and below are updated
       N8N_EDITOR_BASE_URL: https://n8n.${BASE_DOMAIN}/
