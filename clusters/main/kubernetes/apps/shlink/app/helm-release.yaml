@@ -1,0 +1,80 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: shlink
+  namespace: shlink
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: shlink
+      version: 18.8.5
+      sourceRef:
+        kind: HelmRepository
+        name: truecharts
+        namespace: flux-system
+      interval: 15m
+  timeout: 20m
+  maxHistory: 3
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    global:
+      stopAll: false
+    image:
+      repository: ghcr.io/shlinkio/shlink:4.5.1-roadrunner
+      tag: 4.5.1@sha256:bd194f427b64852f94062db1411e773f17dc4cb04d129cbb6838a3ec9f12aa7e
+    resources:
+      requests:
+        cpu: 10m
+    credentials:
+      backblaze:
+        accessKey: "${B2_ACCESSKEY}"
+        bucket: "${B2_BUCKET}"
+        encrKey: "${B2_ENCRKEY}"
+        secretKey: "${B2_SECRETKEY}"
+        type: s3
+        url: "${B2_URL}"
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: internal
+        hosts:
+          - host: shlink.${BASE_DOMAIN}
+        integrations:
+          certManager:
+            certificateIssuer: cloudflare-prod
+            enabled: true
+          homepage:
+            enabled: true
+            group: "Developer"
+            widget:
+              enabled: false
+          traefik:
+            enabled: false
+    cnpg:
+      main:
+        cluster:
+          singleNode: true
+        mode: standalone # change to `recovery` on restore
+        backups:
+          enabled: true
+          credentials: backblaze
+          retentionPolicy: "14d"
+        recovery:
+    workload:
+      main:
+        podSpec:
+          containers:
+            main:
+              env:
+                DEFAULT_DOMAIN: "shlink.${BASE_DOMAIN}"
