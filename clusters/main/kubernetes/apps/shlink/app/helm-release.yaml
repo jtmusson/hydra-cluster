@@ -47,12 +47,12 @@ spec:
     ingress:
       main:
         enabled: true
-        ingressClassName: internal
+        ingressClassName: external
         hosts:
-          - host: shlink.${BASE_DOMAIN}
+          - host: ${SHLINK_DOMAIN_EXT}
         integrations:
           certManager:
-            certificateIssuer: cloudflare-prod
+            certificateIssuer: cloudflare-prod-muss-uk
             enabled: true
           homepage:
             enabled: true
@@ -78,4 +78,4 @@ spec:
           containers:
             main:
               env:
-                DEFAULT_DOMAIN: "shlink.${BASE_DOMAIN}"
+                DEFAULT_DOMAIN: "${SHLINK_DOMAIN_EXT}"
