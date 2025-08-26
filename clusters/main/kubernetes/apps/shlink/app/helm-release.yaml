@@ -65,12 +65,13 @@ spec:
       main:
         cluster:
           singleNode: true
-        mode: standalone # change to `recovery` on restore
+        mode: recovery # change to `recovery` on restore
         backups:
           enabled: true
           credentials: backblaze
           retentionPolicy: "14d"
         recovery:
+          credentials: backblaze
     workload:
       main:
         podSpec:
