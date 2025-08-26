@@ -41,6 +41,7 @@ spec:
       domainFilters:
         - "${BASE_DOMAIN}"
         - "${BASE_DOMAIN_EXT}"
+        - "${SHLINK_DOMAIN_EXT}"
       policy: upsert-only
       provider: pihole
       registry: noop
