@@ -79,3 +79,4 @@ spec:
             main:
               env:
                 DEFAULT_DOMAIN: "${SHLINK_DOMAIN_EXT}"
+                DEFAULT_BASE_URL_REDIRECT: "https://musson.uk"
