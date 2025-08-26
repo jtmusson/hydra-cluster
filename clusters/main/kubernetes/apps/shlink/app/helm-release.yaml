@@ -81,3 +81,4 @@ spec:
                 DEFAULT_DOMAIN: "${SHLINK_DOMAIN_EXT}"
                 DEFAULT_BASE_URL_REDIRECT: "https://musson.uk"
                 INITIAL_API_KEY: "${SHLINK_API_KEY}"
+                GEOLITE_LICENSE_KEY: "${SHLINK_GEOLITE_LICENSE_KEY}"
