@@ -67,14 +67,12 @@ spec:
       main:
         cluster:
           singleNode: true
-        mode: standalone # change to `standalone` on new install
+        mode: recovery # change to `recovery` on restore
         backups:
           enabled: true
           credentials: backblaze
-          revision:   # increment on restore
           retentionPolicy: "14d"
         recovery:
-          # revision:       # enable on first restore
           credentials: backblaze
     persistence:
       data:
