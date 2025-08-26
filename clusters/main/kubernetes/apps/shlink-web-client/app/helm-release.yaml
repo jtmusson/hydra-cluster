@@ -67,6 +67,6 @@ spec:
           containers:
             main:
               env:
-                SHLINK_SERVER_URL: https://${SHLINK_DOMAIN_INT}
+                SHLINK_SERVER_URL: https://${SHLINK_DOMAIN_EXT}
                 SHLINK_SERVER_API_KEY: ${SHLINK_API_KEY}
                 SHLINK_SERVER_NAME: ${SHLINK_DOMAIN_EXT}
