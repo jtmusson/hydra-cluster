@@ -8,7 +8,7 @@ resources:
   - shlink-web-client/ks.yaml
   - shlink/ks.yaml
   - peanut/ks.yaml
-  - paperless-ngx/ks.yaml
+  # - paperless-ngx/ks.yaml
   - ntfy/ks.yaml
   - nocodb/ks.yaml
   - nextcloud/ks.yaml
