@@ -129,6 +129,8 @@ spec:
             src:
               enabled: true
               cacheCapacity: 10Gi
+              trigger:
+                schedule: 10 0 * * *
     workload:
       main:
         podSpec:
