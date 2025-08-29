@@ -50,12 +50,9 @@ spec:
         backups:
           enabled: true
           credentials: backblaze
-          retentionPolicy: "14d"
+          retentionPolicy: "7d"
         recovery:
           credentials: backblaze
-        database: "paperless-ng"
-        password: "PLACEHOLDERPASSWORD"
-        user: paperless-ng
     ingress:
       main:
         enabled: true
