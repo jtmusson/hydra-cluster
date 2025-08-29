@@ -81,7 +81,7 @@ spec:
             src:
               enabled: true
               trigger:
-                schedule: 0 5 * * *
+                schedule: 30 0 * * *
       movies:
         enabled: true
         mountPath: "/mnt/movies"
