@@ -48,7 +48,7 @@ spec:
           singleNode: true
         mode: standalone # set to `recovery` on restore
         backups:
-          enabled: false
+          enabled: true
           credentials: backblaze
           retentionPolicy: "7d"
         recovery:
