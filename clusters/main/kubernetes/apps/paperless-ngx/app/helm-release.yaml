@@ -46,14 +46,12 @@ spec:
       main:
         cluster:
           singleNode: true
-        mode: recovery
+        mode: standalone # set to `recovery` on restore
         backups:
-          enabled: true
+          enabled: false
           credentials: backblaze
-          revision: "3"
-          retentionPolicy: "7d"
+          retentionPolicy: "14d"
         recovery:
-          revision: "2"
           credentials: backblaze
         database: "paperless-ng"
         password: "PLACEHOLDERPASSWORD"
