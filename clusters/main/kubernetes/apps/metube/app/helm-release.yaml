@@ -33,6 +33,8 @@ spec:
     resources:
       requests:
         cpu: 10m
+    image:
+      tag: 2025.08.28@sha256:7e8b3357a585fa05b64987be74c305b987eb4d65262fd4b716c25e683683aafb
     credentials:
       backblaze:
         accessKey: "${B2_ACCESSKEY}"
