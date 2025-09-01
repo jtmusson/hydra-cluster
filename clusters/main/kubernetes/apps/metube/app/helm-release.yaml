@@ -73,6 +73,10 @@ spec:
         path: /mnt/pool0/movies/_MakeMKV_Out
         server: "${PLUTO_IP}"
         type: nfs
+      tempdir:
+        enabled: true
+        type: emptyDir
+        mountPath: /tempdir
     workload:
       main:
         podSpec:
@@ -83,3 +87,4 @@ spec:
                 OUTPUT_TEMPLATE: "%(title)s [%(id)s].%(ext)s"
                 YTDL_OPTIONS: '{"writesubtitles":true,"subtitleslangs":["en","-live_chat"],"updatetime":false,"postprocessors":[{"key":"FFmpegEmbedSubtitle","already_have_subtitle":false},{"key":"FFmpegMetadata","add_chapters":true}]}'
                 DOWNLOAD_MODE: "sequential"
+                TEMP_DIR: /tempdir
