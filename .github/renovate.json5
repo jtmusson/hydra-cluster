@@ -10,13 +10,5 @@
     "github>jtmusson/hydra-cluster//.github/renovate/schedules.json5"
   ],
   "timezone": "Europe/London",
-  "schedule": ["* 0-5 * * *"], // Set effective default branch creation schedule to 0-5 daily
-  // Below - temporary rule until upstream truecharts change to remove metube custom versioning
-  "packageRules": [
-    {
-      "matchDatasources": ["docker"],
-      "versioning": null,
-      "matchPackageNames": ["ghcr.io/alexta69/metube"]
-    }
-  ]
+  "schedule": ["* 0-5 * * *"] // Set effective default branch creation schedule to 0-5 daily
 }
