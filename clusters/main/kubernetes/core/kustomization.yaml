@@ -5,7 +5,7 @@ resources:
 # - kyverno-policies/ks.yaml
   - metallb-config/ks.yaml
   - system-upgrade-controller-plans/ks.yaml
-  - traefik/ks.yaml
+# - traefik/ks.yaml
   - blocky/ks.yaml
   - nginx-external/ks.yaml
   - nginx-internal/ks.yaml
