@@ -4,7 +4,7 @@ resources:
   - kubernetes-dashboard/ks.yaml
   - external-dns/ks.yaml
   - uptime-kuma/ks.yaml
-#  - streammaster/ks.yaml
+  - streammaster/ks.yaml
   - shlink-web-client/ks.yaml
   - shlink/ks.yaml
   - peanut/ks.yaml
