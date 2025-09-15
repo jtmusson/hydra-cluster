@@ -29,7 +29,7 @@ spec:
     keepHistory: false
   values:
     global:
-      stopAll: true
+      stopAll: false
     resources:
       requests:
         cpu: 10m
@@ -63,14 +63,12 @@ spec:
       main:
         cluster:
           singleNode: true
-        mode: standalone # change to `recovery` on restore
+        mode: recovery # change to `recovery` on restore
         backups:
           enabled: true
           credentials: backblaze
-          revision:   # increment on restore
           retentionPolicy: "14d"
         recovery:
-          # revision:       # enable on first restore
           credentials: backblaze
     persistence:
       config:
@@ -80,7 +78,7 @@ spec:
             credentials: backblaze
             type: restic
             dest:
-              enabled: false # change to true on restore
+              enabled: true # change to true on restore
               cacheCapacity: 10Gi
             src:
               enabled: true
