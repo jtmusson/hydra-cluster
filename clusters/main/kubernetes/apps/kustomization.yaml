@@ -20,6 +20,7 @@ resources:
   - metube/ks.yaml
   - makemkv/ks.yaml
   - linkwarden/ks.yaml
+  - jellystat/ks.yaml
   - jellyseerr/ks.yaml
   - jellyfin/ks.yaml
   - it-tools/ks.yaml
