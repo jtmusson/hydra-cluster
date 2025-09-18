@@ -58,7 +58,9 @@ spec:
             enabled: true
             group: "Media"
             widget:
-              enabled: false
+              custom:
+                key: ${JELLYSTAT_API_KEY}
+              enabled: true
           traefik:
             enabled: false
     cnpg:
