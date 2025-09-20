@@ -33,6 +33,9 @@ spec:
     resources:
       requests:
         cpu: 10m
+        ephemeral-storage: 5Gi
+      limits:
+        ephemeral-storage: 10Gi
     credentials:
       backblaze:
         accessKey: "${B2_ACCESSKEY}"
