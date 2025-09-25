@@ -87,7 +87,9 @@ spec:
                 token: ${NTFY_TOKEN_GATUS}
                 default-alert:
                   failure-threshold: 2
+                  success-threshold: 3
                   send-on-resolved: true
+                  description: "healthcheck failed"
             
             endpoints:
               - name: musson.uk
