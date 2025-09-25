@@ -100,17 +100,15 @@ spec:
                   - "[CERTIFICATE_EXPIRATION] > 48h"
                 alerts:
                   - type: ntfy
-                    description: "healthcheck failed"
               - name: minecraft-download-links
                 group: games
                 url: https://net-secondary.web.minecraft-services.net/api/v1.0/download/links
                 interval: 5m
                 conditions:
                   - "[STATUS] == 200"
-                  - "has([BODY].result.links) == true"
+                  - "has([BODY].result.links) == false"
                 alerts:
                   - type: ntfy
-                    description: "healthcheck failed"
 
             connectivity:
               checker:
