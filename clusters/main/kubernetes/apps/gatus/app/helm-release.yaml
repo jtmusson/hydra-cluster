@@ -106,6 +106,7 @@ spec:
                 group: websites
                 url: https://muss.uk
                 interval: 5m
+                conditions:
                   - "[STATUS] == 200"
                   - "[CERTIFICATE_EXPIRATION] > 48h"
               - name: minecraft-download-links
