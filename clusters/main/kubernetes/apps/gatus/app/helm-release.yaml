@@ -83,8 +83,17 @@ spec:
 
             endpoints:
               - name: musson.uk
+                group: web
                 url: https://musson.uk
                 interval: 60s
                 conditions:
                   - "[STATUS] == 200"
                   - "[BODY] == pat(*James Musson*)"
+                  - "[CERTIFICATE_EXPIRATION] > 48h"
+              - name: minecraft-download-links
+                group: games
+                url: https://net-secondary.web.minecraft-services.net/api/v1.0/download/links
+                interval: 5m
+                conditions:
+                  - "[STATUS] == 200"
+                  - "has([BODY].result.links) == true"
