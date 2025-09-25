@@ -91,22 +91,28 @@ spec:
             
             endpoints:
               - name: musson.uk
-                group: web
+                group: websites
                 url: https://musson.uk
-                interval: 60s
+                interval: 5m
                 conditions:
                   - "[STATUS] == 200"
                   - "[BODY] == pat(*James Musson*)"
                   - "[CERTIFICATE_EXPIRATION] > 48h"
                 alerts:
                   - type: ntfy
+              - name: muss.uk
+                group: websites
+                url: https://muss.uk
+                interval: 5m
+                  - "[STATUS] == 200"
+                  - "[CERTIFICATE_EXPIRATION] > 48h"
               - name: minecraft-download-links
                 group: games
                 url: https://net-secondary.web.minecraft-services.net/api/v1.0/download/links
                 interval: 5m
                 conditions:
                   - "[STATUS] == 200"
-                  - "has([BODY].result.links) == false"
+                  - "has([BODY].result.links) == true"
                 alerts:
                   - type: ntfy
 
