@@ -81,6 +81,14 @@ spec:
               path: {{ (printf "%s?client_encoding=utf8" (.Values.cnpg.main.creds.std | trimAll "\"")) | quote }}
             {{- end }}
 
+            alerting:
+              ntfy:
+                topic: gatus-updates
+                token: ${NTFY_TOKEN_GATUS}
+                default-alert:
+                  failure-threshold: 2
+                  send-on-resolved: true
+            
             endpoints:
               - name: musson.uk
                 group: web
@@ -90,6 +98,9 @@ spec:
                   - "[STATUS] == 200"
                   - "[BODY] == pat(*James Musson*)"
                   - "[CERTIFICATE_EXPIRATION] > 48h"
+                alerts:
+                  - type: ntfy
+                    description: "healthcheck failed"
               - name: minecraft-download-links
                 group: games
                 url: https://net-secondary.web.minecraft-services.net/api/v1.0/download/links
@@ -97,3 +108,11 @@ spec:
                 conditions:
                   - "[STATUS] == 200"
                   - "has([BODY].result.links) == true"
+                alerts:
+                  - type: ntfy
+                    description: "healthcheck failed"
+
+            connectivity:
+              checker:
+                target: 1.1.1.1:53
+                interval: 60s
