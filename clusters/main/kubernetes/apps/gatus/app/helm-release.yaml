@@ -96,4 +96,4 @@ spec:
                 interval: 5m
                 conditions:
                   - "[STATUS] == 200"
-                  - "has([BODY].result.links) == true"
+                  - "has([BODY].result.links[?(@.downloadType) == 'serverBedrockLinux']) == true"
