@@ -109,6 +109,8 @@ spec:
                 conditions:
                   - "[STATUS] == 200"
                   - "[CERTIFICATE_EXPIRATION] > 48h"
+                alerts:
+                  - type: ntfy
               - name: minecraft-download-links
                 group: games
                 url: https://net-secondary.web.minecraft-services.net/api/v1.0/download/links
