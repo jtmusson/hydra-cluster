@@ -120,6 +120,14 @@ spec:
                   - "has([BODY].result.links) == true"
                 alerts:
                   - type: ntfy
+              - name: minecraft-bedrock
+                group: games
+                url: tcp://mc.${BASE_DOMAIN_EXT}:19132
+                interval: 5m
+                conditions:
+                  - "[CONNECTED] == true"
+                alerts:
+                  - type: ntfy
               - name: jellyfin
                 group: media
                 url: https://jellyfin.${BASE_DOMAIN}/health
