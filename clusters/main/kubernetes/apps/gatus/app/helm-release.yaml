@@ -122,7 +122,7 @@ spec:
                   - type: ntfy
               - name: minecraft-bedrock
                 group: games
-                url: udp://mc.${BASE_DOMAIN_EXT}:19132/status
+                url: udp://mc.${BASE_DOMAIN_EXT}:19132
                 body: ""
                 interval: 5m
                 conditions:
