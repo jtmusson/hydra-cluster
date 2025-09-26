@@ -122,12 +122,10 @@ spec:
                   - type: ntfy
               - name: minecraft-bedrock
                 group: games
-                url: udp://mc.${BASE_DOMAIN_EXT}:19132
-                body: ""
+                url: icmp://mc.${BASE_DOMAIN_EXT}:19132
                 interval: 5m
                 conditions:
                   - "[CONNECTED] == true"
-                  - "has([BODY]) == true"
                 alerts:
                   - type: ntfy
               - name: jellyfin
