@@ -127,7 +127,7 @@ spec:
                 interval: 5m
                 conditions:
                   - "[CONNECTED] == true"
-                  - "has([BODY])"
+                  - "has([BODY]) == true"
                 alerts:
                   - type: ntfy
               - name: jellyfin
