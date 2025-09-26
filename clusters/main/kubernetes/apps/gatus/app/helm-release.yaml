@@ -120,6 +120,15 @@ spec:
                   - "has([BODY].result.links) == true"
                 alerts:
                   - type: ntfy
+              - name: jellyfin
+                group: media
+                url: https://jellyfin.${BASE_DOMAIN}/health
+                interval: 5m
+                conditions:
+                  - "[STATUS] == 200"
+                  - "[BODY] == 'Healthy'"
+                alerts:
+                  - type: ntfy
 
             connectivity:
               checker:
