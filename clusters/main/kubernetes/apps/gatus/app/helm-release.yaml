@@ -126,7 +126,7 @@ spec:
                 interval: 5m
                 conditions:
                   - "[STATUS] == 200"
-                  - "[BODY] == 'Healthy'"
+                  - "[BODY] == Healthy"
                 alerts:
                   - type: ntfy
 
