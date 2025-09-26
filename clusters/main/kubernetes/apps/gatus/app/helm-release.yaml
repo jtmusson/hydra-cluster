@@ -122,7 +122,7 @@ spec:
                   - type: ntfy
               - name: minecraft-bedrock
                 group: games
-                url: tcp://mc.${BASE_DOMAIN_EXT}:19132
+                url: udp://mc.${BASE_DOMAIN_EXT}:19132
                 interval: 5m
                 conditions:
                   - "[CONNECTED] == true"
