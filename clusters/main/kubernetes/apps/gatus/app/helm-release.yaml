@@ -86,6 +86,7 @@ spec:
                 url: "https://ntfy.${BASE_DOMAIN_EXT}"
                 topic: "gatus-updates"
                 token: "${NTFY_TOKEN_GATUS}"
+                priority: 5
                 default-alert:
                   failure-threshold: 1
                   success-threshold: 1
@@ -172,6 +173,14 @@ spec:
                 url: "10.242.1.4:53"
                 dns:
                   query-name: "l.root-servers.net"
+                  query-type: "A"
+                conditions:
+                  - "[DNS_RCODE] == NOERROR"
+              - name: pihole-kindath
+                group: dns
+                url: "10.242.1.6:53"
+                dns:
+                  query-name: "k.root-servers.net"
                   query-type: "A"
                 conditions:
                   - "[DNS_RCODE] == NOERROR"
