@@ -82,6 +82,10 @@ spec:
             {{- end }}
 
             ui:
+              logo: "https://musson.uk/favicon.png"
+              buttons:
+                - name: homepage
+                  link: "https://homepage.${BASE_DOMAIN}"
               default-sort-by: group
 
             alerting:
