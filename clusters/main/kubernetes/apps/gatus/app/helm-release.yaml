@@ -130,21 +130,17 @@ spec:
                 alerts:
                   - type: ntfy
               - name: minecraft-bedrock
-                group: apps
+                group: apps-hydra
                 url: "udp://mc.${BASE_DOMAIN_EXT}:19132"
                 interval: 5m
-                extra-labels:
-                  host: hydra
                 conditions:
                   - "[CONNECTED] == true"
                 alerts:
                   - type: ntfy
               - name: jellyfin
-                group: apps
+                group: apps-hydra
                 url: "https://jellyfin.${BASE_DOMAIN}/health"
                 interval: 5m
-                extra-labels:
-                  host: hydra
                 conditions:
                   - "[STATUS] == 200"
                   - "[BODY] == Healthy"
@@ -152,11 +148,9 @@ spec:
                 alerts:
                   - type: ntfy
               - name: scrutiny
-                group: apps
+                group: apps-pluto
                 url: "https://scrutiny.musson-lan.uk/api/health"
                 interval: 5m
-                extra-labels:
-                  host: pluto
                 conditions:
                   - "[STATUS] == 200"
                   - "[BODY].success == true"
@@ -164,7 +158,7 @@ spec:
                 alerts:
                   - type: ntfy
               - name: shlink
-                group: apps
+                group: apps-hydra
                 url: "https://muss.uk/rest/health"
                 interval: 5m
                 conditions:
