@@ -98,7 +98,6 @@ spec:
                   failure-threshold: 1
                   success-threshold: 1
                   send-on-resolved: true
-                  description: "healthcheck failed"
             
             endpoints:
               - name: musson.uk
@@ -200,6 +199,7 @@ spec:
                   - "[DNS_RCODE] == NOERROR"
                 alerts:
                   - type: ntfy
+                    failure-threshold: 2
               - name: pihole-valledan-web
                 group: dns
                 url: "https://valledan.musson-lan.uk/api/info/login"
