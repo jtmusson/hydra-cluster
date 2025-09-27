@@ -167,6 +167,7 @@ spec:
                   query-name: "d.root-servers.net"
                   query-type: "A"
                 conditions:
+                  - "[CONNECTED] == true"
                   - "[DNS_RCODE] == NOERROR"
               - name: pihole-valledan
                 group: dns
@@ -175,6 +176,7 @@ spec:
                   query-name: "l.root-servers.net"
                   query-type: "A"
                 conditions:
+                  - "[CONNECTED] == true"
                   - "[DNS_RCODE] == NOERROR"
               - name: pihole-kindath
                 group: dns
@@ -183,6 +185,7 @@ spec:
                   query-name: "k.root-servers.net"
                   query-type: "A"
                 conditions:
+                  - "[CONNECTED] == true"
                   - "[DNS_RCODE] == NOERROR"
 
             connectivity:
