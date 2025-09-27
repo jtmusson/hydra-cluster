@@ -236,12 +236,13 @@ spec:
                   - "[CONNECTED] == true"
                 alerts:
                   - type: ntfy
-              - name: hydra-node-1
-                group: machines
-                url: "icmp://10.242.1.41"
-                interval: 60s
+              - name: pluto-web
+                group: pluto
+                url: "https://pluto.${BASE_DOMAIN}"
+                interval: 5m
                 conditions:
-                  - "[CONNECTED] == true"
+                  - "[STATUS] == 200"
+                  - "[CERTIFICATE_EXPIRATION] > 48h"
                 alerts:
                   - type: ntfy
 
