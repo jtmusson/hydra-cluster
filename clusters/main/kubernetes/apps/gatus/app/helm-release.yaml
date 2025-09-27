@@ -81,6 +81,9 @@ spec:
               path: {{ (printf "%s?client_encoding=utf8" (.Values.cnpg.main.creds.std | trimAll "\"")) | quote }}
             {{- end }}
 
+            ui:
+              default-sort-by: group
+
             alerting:
               ntfy:
                 url: "https://ntfy.${BASE_DOMAIN_EXT}"
@@ -192,3 +195,8 @@ spec:
               checker:
                 target: 1.1.1.1:53
                 interval: 60s
+
+            maintenance:
+              start: 00:00
+              duration: 6h
+              timezone: "Europe/London"
