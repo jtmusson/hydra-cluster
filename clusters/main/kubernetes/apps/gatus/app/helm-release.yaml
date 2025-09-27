@@ -176,7 +176,9 @@ spec:
                 conditions:
                   - "[CONNECTED] == true"
                   - "[DNS_RCODE] == NOERROR"
-              - name: pihole-valledan
+                alerts:
+                  - type: ntfy
+              - name: pihole-valledan-dns
                 group: dns
                 url: "10.242.1.4:53"
                 dns:
@@ -185,7 +187,9 @@ spec:
                 conditions:
                   - "[CONNECTED] == true"
                   - "[DNS_RCODE] == NOERROR"
-              - name: pihole-kindath
+                alerts:
+                  - type: ntfy
+              - name: pihole-kindath-dns
                 group: dns
                 url: "10.242.1.6:53"
                 dns:
@@ -194,6 +198,28 @@ spec:
                 conditions:
                   - "[CONNECTED] == true"
                   - "[DNS_RCODE] == NOERROR"
+                alerts:
+                  - type: ntfy
+              - name: pihole-valledan-web
+                group: dns
+                url: "https://valledan.musson-lan.uk/api/info/login"
+                interval: 5m
+                conditions:
+                  - "[STATUS] == 200"
+                  - "[BODY].dns == true"
+                  - "[CERTIFICATE_EXPIRATION] > 48h"
+                alerts:
+                  - type: ntfy
+              - name: pihole-kindath-web
+                group: dns
+                url: "https://kindath.musson-lan.uk/api/info/login"
+                interval: 5m
+                conditions:
+                  - "[STATUS] == 200"
+                  - "[BODY].dns == true"
+                  - "[CERTIFICATE_EXPIRATION] > 48h"
+                alerts:
+                  - type: ntfy
 
             connectivity:
               checker:
