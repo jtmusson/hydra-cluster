@@ -83,6 +83,7 @@ spec:
 
             alerting:
               ntfy:
+                url: "https://ntfy.${BASE_DOMAIN_EXT}"
                 topic: "gatus-updates"
                 token: "${NTFY_TOKEN_GATUS}"
                 default-alert:
