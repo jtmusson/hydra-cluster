@@ -130,7 +130,7 @@ spec:
                 alerts:
                   - type: ntfy
               - name: jellyfin
-                group: media
+                group: apps
                 url: https://jellyfin.${BASE_DOMAIN}/health
                 interval: 5m
                 conditions:
@@ -145,6 +145,15 @@ spec:
                 conditions:
                   - "[STATUS] == 200"
                   - "[BODY].success == true"
+                alerts:
+                  - type: ntfy
+              - name: shlink
+                group: apps
+                url: https://muss.uk/rest/health
+                interval: 5m
+                conditions:
+                  - "[STATUS] == 200"
+                  - "[BODY].status == pass"
                 alerts:
                   - type: ntfy
 
