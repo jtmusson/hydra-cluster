@@ -121,7 +121,7 @@ spec:
                 alerts:
                   - type: ntfy
               - name: minecraft-download-links
-                group: games
+                group: websites
                 url: "https://net-secondary.web.minecraft-services.net/api/v1.0/download/links"
                 interval: 5m
                 conditions:
@@ -130,9 +130,11 @@ spec:
                 alerts:
                   - type: ntfy
               - name: minecraft-bedrock
-                group: games
+                group: apps
                 url: "udp://mc.${BASE_DOMAIN_EXT}:19132"
                 interval: 5m
+                extra-labels:
+                  hydra: true
                 conditions:
                   - "[CONNECTED] == true"
                 alerts:
