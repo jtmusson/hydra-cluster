@@ -70,13 +70,6 @@ spec:
           retentionPolicy: "14d"
         recovery:
           credentials: backblaze
-    security:
-      PUID: 0
-    securityContext:
-      container:
-        runAsNonRoot: false
-        runAsUser: 0
-        runAsGroup: 0
     configmap:
       config:
         enabled: true
