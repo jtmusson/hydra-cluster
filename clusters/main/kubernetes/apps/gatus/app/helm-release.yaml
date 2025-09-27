@@ -83,8 +83,8 @@ spec:
 
             alerting:
               ntfy:
-                topic: gatus-updates
-                token: ${NTFY_TOKEN_GATUS}
+                topic: "gatus-updates"
+                token: "${NTFY_TOKEN_GATUS}"
                 default-alert:
                   failure-threshold: 1
                   success-threshold: 1
