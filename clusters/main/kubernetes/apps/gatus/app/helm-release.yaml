@@ -134,7 +134,7 @@ spec:
                 url: "udp://mc.${BASE_DOMAIN_EXT}:19132"
                 interval: 5m
                 extra-labels:
-                  hydra: true
+                  host: hydra
                 conditions:
                   - "[CONNECTED] == true"
                 alerts:
@@ -143,6 +143,8 @@ spec:
                 group: apps
                 url: "https://jellyfin.${BASE_DOMAIN}/health"
                 interval: 5m
+                extra-labels:
+                  host: hydra
                 conditions:
                   - "[STATUS] == 200"
                   - "[BODY] == Healthy"
@@ -150,9 +152,11 @@ spec:
                 alerts:
                   - type: ntfy
               - name: scrutiny
-                group: pluto
+                group: apps
                 url: "https://scrutiny.musson-lan.uk/api/health"
                 interval: 5m
+                extra-labels:
+                  host: pluto
                 conditions:
                   - "[STATUS] == 200"
                   - "[BODY].success == true"
