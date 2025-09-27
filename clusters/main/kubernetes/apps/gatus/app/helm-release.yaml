@@ -159,11 +159,19 @@ spec:
                   - "[CERTIFICATE_EXPIRATION] > 48h"
                 alerts:
                   - type: ntfy
+              - name: pihole-dns
+                group: dns
+                url: "10.242.1.53:53"
+                dns:
+                  query-name: "d.root-servers.net"
+                  query-type: "A"
+                conditions:
+                  - "[DNS_RCODE] == NOERROR"
               - name: pihole-valledan
                 group: dns
                 url: "10.242.1.4:53"
                 dns:
-                  query-name: "d.root-servers.net"
+                  query-name: "l.root-servers.net"
                   query-type: "A"
                 conditions:
                   - "[DNS_RCODE] == NOERROR"
