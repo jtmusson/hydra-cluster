@@ -220,6 +220,22 @@ spec:
                   - "[CERTIFICATE_EXPIRATION] > 48h"
                 alerts:
                   - type: ntfy
+              - name: nut-pluto
+                group: ups
+                url: "tcp://10.242.1.242:3493"
+                interval: 5m
+                conditions:
+                  - "[CONNECTED] == true"
+                alerts:
+                  - type: ntfy
+              - name: nut-valledan
+                group: ups
+                url: "tcp://10.242.1.4:3493"
+                interval: 5m
+                conditions:
+                  - "[CONNECTED] == true"
+                alerts:
+                  - type: ntfy
 
             connectivity:
               checker:
