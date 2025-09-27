@@ -236,6 +236,14 @@ spec:
                   - "[CONNECTED] == true"
                 alerts:
                   - type: ntfy
+              - name: hydra-node-1
+                group: machines
+                url: "icmp://10.242.1.41"
+                interval: 60s
+                conditions:
+                  - "[CONNECTED] == true"
+                alerts:
+                  - type: ntfy
 
             connectivity:
               checker:
