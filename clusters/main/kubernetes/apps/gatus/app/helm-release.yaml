@@ -137,6 +137,15 @@ spec:
                   - "[BODY] == Healthy"
                 alerts:
                   - type: ntfy
+              - name: scrutiny
+                group: pluto
+                url: https://scrutiny.musson-lan.uk/api/health
+                interval: 5m
+                conditions:
+                  - "[STATUS] == 200"
+                  - "[BODY].success == true"
+                alerts:
+                  - type: ntfy
 
             connectivity:
               checker:
