@@ -95,7 +95,7 @@ spec:
             endpoints:
               - name: musson.uk
                 group: websites
-                url: https://musson.uk
+                url: "https://musson.uk"
                 interval: 5m
                 conditions:
                   - "[STATUS] == 200"
@@ -105,7 +105,7 @@ spec:
                   - type: ntfy
               - name: muss.uk
                 group: websites
-                url: https://muss.uk
+                url: "https://muss.uk"
                 interval: 5m
                 conditions:
                   - "[STATUS] == 200"
@@ -114,7 +114,7 @@ spec:
                   - type: ntfy
               - name: minecraft-download-links
                 group: games
-                url: https://net-secondary.web.minecraft-services.net/api/v1.0/download/links
+                url: "https://net-secondary.web.minecraft-services.net/api/v1.0/download/links"
                 interval: 5m
                 conditions:
                   - "[STATUS] == 200"
@@ -123,7 +123,7 @@ spec:
                   - type: ntfy
               - name: minecraft-bedrock
                 group: games
-                url: udp://mc.${BASE_DOMAIN_EXT}:19132
+                url: "udp://mc.${BASE_DOMAIN_EXT}:19132"
                 interval: 5m
                 conditions:
                   - "[CONNECTED] == true"
@@ -131,31 +131,42 @@ spec:
                   - type: ntfy
               - name: jellyfin
                 group: apps
-                url: https://jellyfin.${BASE_DOMAIN}/health
+                url: "https://jellyfin.${BASE_DOMAIN}/health"
                 interval: 5m
                 conditions:
                   - "[STATUS] == 200"
                   - "[BODY] == Healthy"
+                  - "[CERTIFICATE_EXPIRATION] > 48h"
                 alerts:
                   - type: ntfy
               - name: scrutiny
                 group: pluto
-                url: https://scrutiny.musson-lan.uk/api/health
+                url: "https://scrutiny.musson-lan.uk/api/health"
                 interval: 5m
                 conditions:
                   - "[STATUS] == 200"
                   - "[BODY].success == true"
+                  - "[CERTIFICATE_EXPIRATION] > 48h"
                 alerts:
                   - type: ntfy
               - name: shlink
                 group: apps
-                url: https://muss.uk/rest/health
+                url: "https://muss.uk/rest/health"
                 interval: 5m
                 conditions:
                   - "[STATUS] == 200"
                   - "[BODY].status == pass"
+                  - "[CERTIFICATE_EXPIRATION] > 48h"
                 alerts:
                   - type: ntfy
+              - name: pihole-valledan
+                group: dns
+                url: "10.242.1.4:53"
+                dns:
+                  query-name: "d.root-servers.net"
+                  query-type: "A"
+                conditions:
+                  - "[DNS_RCODE] == NOERROR"
 
             connectivity:
               checker:
