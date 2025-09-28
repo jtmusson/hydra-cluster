@@ -61,6 +61,7 @@ spec:
             enabled: false
     cnpg:
       main:
+        enabled: true
         cluster:
           singleNode: true
         mode: standalone # change to `recovery` on restore
