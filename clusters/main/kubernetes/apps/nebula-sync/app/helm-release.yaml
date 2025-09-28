@@ -35,6 +35,20 @@ spec:
         cpu: 25m
     podOptions:
       hostUsers: true
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: internal
+        hosts:
+          - host: nebula-sync.${BASE_DOMAIN}
+        integrations:
+          certManager:
+            certificateIssuer: cloudflare-prod
+            enabled: true
+          homepage:
+            enabled: false
+          traefik:
+            enabled: false
     workload:
       main:
         podSpec:
