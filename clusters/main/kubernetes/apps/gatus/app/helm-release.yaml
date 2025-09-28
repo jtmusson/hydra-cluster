@@ -263,7 +263,7 @@ spec:
                   - type: ntfy
               - name: home-assistant-api
                 group: apps-hydra
-                url: "https://hass.${BASE_DOMAIN_EXT}/api/"
+                url: "https://hass.${BASE_DOMAIN_EXT}/api"
                 headers: 
                   Authorization: "Bearer ${HOMEASSISTANT_API_KEY}"
                 interval: 5m
