@@ -147,3 +147,25 @@ spec:
                   - "has([BODY].result.links) == true"
                 alerts:
                   - type: ntfy
+              - name: minecraft-bedrock
+                <<: *defaults-apps
+                url: "udp://${MINECRAFT_IP}:19132"
+                conditions:
+                  - "[CONNECTED] == true"
+              - name: jellyfin
+                <<: *defaults-apps
+                url: "https://jellyfin.${BASE_DOMAIN}/health"
+                conditions:
+                  - "[STATUS] == 200"
+                  - "[BODY] == Healthy"
+                  - "[CERTIFICATE_EXPIRATION] > 48h"
+              - name: scrutiny
+                group: apps-pluto
+                url: "https://scrutiny.${BASE_DOMAIN}/api/health"
+                interval: 5m
+                conditions:
+                  - "[STATUS] == 200"
+                  - "[BODY].success == true"
+                  - "[CERTIFICATE_EXPIRATION] > 48h"
+                alerts:
+                  - type: ntfy
