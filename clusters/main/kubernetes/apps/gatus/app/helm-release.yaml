@@ -284,6 +284,50 @@ spec:
                   - "[CERTIFICATE_EXPIRATION] > 48h"
                 alerts:
                   - type: ntfy
+              - name: jellyseerr
+                group: apps-hydra
+                url: "https://jellyseerr.${BASE_DOMAIN}/api/v1/status"
+                interval: 5m
+                conditions:
+                  - "[STATUS] == 200"
+                  - "[BODY].restartRequired == false"
+                  - "[CERTIFICATE_EXPIRATION] > 48h"
+                alerts:
+                  - type: ntfy
+              - name: it-tools
+                group: apps-hydra
+                url: "https://it-tools.${BASE_DOMAIN}"
+                interval: 5m
+                conditions:
+                  - "[STATUS] == 200"
+                  - "[CERTIFICATE_EXPIRATION] > 48h"
+                alerts:
+                  - type: ntfy
+              - name: kubernetes-dashboard
+                group: apps-hydra
+                url: "https://ks.${BASE_DOMAIN}"
+                interval: 5m
+                conditions:
+                  - "[STATUS] == 200"
+                  - "[CERTIFICATE_EXPIRATION] > 48h"
+                alerts:
+                  - type: ntfy
+              - name: mosquitto
+                group: apps-hydra
+                url: "tcp://${MQTT_IP}:1883"
+                interval: 5m
+                conditions:
+                  - "[CONNECTED] == true"
+                alerts:
+                  - type: ntfy
+              - name: n8n
+                group: apps-hydra
+                url: "https://n8n.${BASE_DOMAIN}/healthz/readiness"
+                interval: 5m
+                conditions:
+                  - "[STATUS] == 200"
+                  - "[BODY].status == ok"
+                  - "[CERTIFICATE_EXPIRATION] > 48h"
               - name: pihole-dns
                 group: dns
                 url: "10.242.1.53:53"
