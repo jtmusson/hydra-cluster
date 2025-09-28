@@ -116,7 +116,36 @@ spec:
                 - "[STATUS] == 200"
                 - "[CERTIFICATE_EXPIRATION] > 48h"
               alerts:
-                - type: ntfy 
+                - type: ntfy
+
+            default-endpoint-pluto: &defaults-pluto
+              group: pluto
+              interval: 5m
+              conditions:
+                - "[STATUS] == 200"
+                - "[CERTIFICATE_EXPIRATION] > 48h"
+              alerts:
+                - type: ntfy
+
+            default-endpoint-dns: &defaults-dns
+              group: dns
+              dns:
+                query-name: "d.root-servers.net"
+                query-type: "A"
+              conditions:
+                - "[CONNECTED] == true"
+                - "[DNS_RCODE] == NOERROR"
+              alerts:
+                - type: ntfy
+                  failure-threshold: 2
+
+            default-endpoint-ups: &defaults-ups
+              group: ups
+              interval: 5m
+              conditions:
+                - "[CONNECTED] == true"
+              alerts:
+                - type: ntfy
             
             endpoints:
               ## websites
@@ -181,3 +210,278 @@ spec:
                   - "[STATUS] == 200"
                   - "[BODY].status == pass"
                   - "[CERTIFICATE_EXPIRATION] > 48h"
+              - name: nebula-sync
+                group: apps-hydra
+                url: "https://nebula-sync.${BASE_DOMAIN}/health"
+                interval: 5m
+                conditions:
+                  - "[STATUS] == 200"
+                alerts:
+                  - type: ntfy
+              - name: ntfy
+                group: apps-hydra
+                url: "https://ntfy.${BASE_DOMAIN_EXT}/v1/health"
+                interval: 60s
+                conditions:
+                  - "[STATUS] == 200"
+                  - "[BODY].healthy == true"
+                  - "[CERTIFICATE_EXPIRATION] > 48h"
+                alerts:
+                  - type: email
+              - name: peanut
+                group: apps-hydra
+                url: "https://peanut.${BASE_DOMAIN}/api/ping"
+                interval: 5m
+                conditions:
+                  - "[STATUS] == 200"
+                  - "[BODY] == \"pong\""
+                  - "[CERTIFICATE_EXPIRATION] > 48h"
+                alerts:
+                  - type: ntfy
+              - name: homepage
+                group: apps-hydra
+                url: "https://homepage.${BASE_DOMAIN}/api/healthcheck"
+                interval: 5m
+                conditions:
+                  - "[STATUS] == 200"
+                  - "[BODY] == up"
+                  - "[CERTIFICATE_EXPIRATION] > 48h"
+                alerts:
+                  - type: ntfy
+              - name: streammaster
+                group: apps-hydra
+                url: "https://streammaster.${BASE_DOMAIN}"
+                interval: 5m
+                conditions:
+                  - "[STATUS] == 200"
+                  - "[CERTIFICATE_EXPIRATION] > 48h"
+                alerts:
+                  - type: ntfy
+              - name: shlink-web
+                group: apps-hydra
+                url: "https://shlink-web.${BASE_DOMAIN}"
+                interval: 5m
+                conditions:
+                  - "[STATUS] == 200"
+                  - "[CERTIFICATE_EXPIRATION] > 48h"
+                alerts:
+                  - type: ntfy
+              - name: audiobookshelf
+                group: apps-hydra
+                url: "https://audiobookshelf.${BASE_DOMAIN}/ping"
+                interval: 5m
+                conditions:
+                  - "[STATUS] == 200"
+                  - "[BODY].success == true"
+                  - "[CERTIFICATE_EXPIRATION] > 48h"
+                alerts:
+                  - type: ntfy
+              - name: home-assistant
+                group: apps-hydra
+                url: "tcp://${HASS_IP}:8123"
+                interval: 5m
+                conditions:
+                  - "[CONNECTED] == true"
+                alerts:
+                  - type: ntfy
+              - name: metube
+                group: apps-hydra
+                url: "https://metube.${BASE_DOMAIN}/version"
+                interval: 5m
+                conditions:
+                  - "[STATUS] == 200"
+                  - "has([BODY].version) == true"
+                  - "[CERTIFICATE_EXPIRATION] > 48h"
+                alerts:
+                  - type: ntfy
+              - name: linkwarden
+                group: apps-hydra
+                url: "https://linkwarden.${BASE_DOMAIN}/api/v1/logins"
+                interval: 5m
+                conditions:
+                  - "[STATUS] == 200"
+                  - "[BODY].credentialsEnabled == true"
+                  - "[CERTIFICATE_EXPIRATION] > 48h"
+                alerts:
+                  - type: ntfy
+              - name: jellyseerr
+                group: apps-hydra
+                url: "https://jellyseerr.${BASE_DOMAIN}/api/v1/status"
+                interval: 5m
+                conditions:
+                  - "[STATUS] == 200"
+                  - "[BODY].restartRequired == false"
+                  - "[CERTIFICATE_EXPIRATION] > 48h"
+                alerts:
+                  - type: ntfy
+              - name: it-tools
+                group: apps-hydra
+                url: "https://it-tools.${BASE_DOMAIN}"
+                interval: 5m
+                conditions:
+                  - "[STATUS] == 200"
+                  - "[CERTIFICATE_EXPIRATION] > 48h"
+                alerts:
+                  - type: ntfy
+              - name: kubernetes-dashboard
+                group: apps-hydra
+                url: "https://ks.${BASE_DOMAIN}"
+                interval: 5m
+                conditions:
+                  - "[STATUS] == 200"
+                  - "[CERTIFICATE_EXPIRATION] > 48h"
+                alerts:
+                  - type: ntfy
+              - name: mosquitto
+                group: apps-hydra
+                url: "tcp://${MQTT_IP}:1883"
+                interval: 5m
+                conditions:
+                  - "[CONNECTED] == true"
+                alerts:
+                  - type: ntfy
+              - name: n8n
+                group: apps-hydra
+                url: "https://n8n.${BASE_DOMAIN}/healthz/readiness"
+                interval: 5m
+                conditions:
+                  - "[STATUS] == 200"
+                  - "[BODY].status == ok"
+                  - "[CERTIFICATE_EXPIRATION] > 48h"
+                alerts: 
+                  - type: ntfy
+              - name: nocodb
+                group: apps-hydra
+                url: "https://nocodb.${BASE_DOMAIN}/api/v1/health"
+                interval: 5m
+                conditions:
+                  - "[STATUS] == 200"
+                  - "[BODY].message == ok"
+                  - "[CERTIFICATE_EXPIRATION] > 48h"
+                alerts:
+                  - type: ntfy
+              - name: nextcloud
+                group: apps-hydra
+                url: "https://nc.${BASE_DOMAIN_EXT}/ocs/v2.php/apps/serverinfo/api/v1/info?format=json"
+                interval: 5m
+                conditions:
+                  - "[STATUS] == 200"
+                  - "[BODY].ocs.meta.status == ok"
+                  - "[CERTIFICATE_EXPIRATION] > 48h"
+                alerts:
+                  - type: ntfy
+              - name: n8n-hooks
+                  group: apps-hydra
+                  url: "https://n8n-hooks.${BASE_DOMAIN_EXT}"
+                  interval: 5m
+                  conditions:
+                    - "[STATUS] == 200"
+                    - "[CERTIFICATE_EXPIRATION] > 48h"
+                  alerts:
+                    - type: ntfy
+              - name: home-assistant-api
+                group: apps-hydra
+                url: "https://hass.${BASE_DOMAIN_EXT}/api/"
+                interval: 5m
+                headers:
+                  Authorization: "Bearer ${HOMEASSISTANT_API_KEY}"
+                  Accept: "application/json"
+                conditions:
+                  - "[STATUS] == 200"
+                  - "[BODY].message == pat(API running*)"
+                  - "[CERTIFICATE_EXPIRATION] > 48h"
+                alerts:
+                  - type: ntfy
+
+              ## dns
+              - name: pihole-dns
+                <<: *defaults-dns
+                url: "10.242.1.53:53"
+              - name: pihole-valledan-dns
+                <<: *defaults-dns
+                url: "10.242.1.4:53"
+              - name: pihole-kindath-dns
+                <<: *defaults-dns
+                url: "10.242.1.6:53"
+              - name: pihole-valledan-web
+                group: dns
+                url: "https://valledan.${BASE_DOMAIN}/api/info/login"
+                interval: 5m
+                conditions:
+                  - "[STATUS] == 200"
+                  - "[BODY].dns == true"
+                  - "[CERTIFICATE_EXPIRATION] > 48h"
+                alerts:
+                  - type: ntfy
+              - name: pihole-kindath-web
+                group: dns
+                url: "https://kindath.${BASE_DOMAIN}/api/info/login"
+                interval: 5m
+                conditions:
+                  - "[STATUS] == 200"
+                  - "[BODY].dns == true"
+                  - "[CERTIFICATE_EXPIRATION] > 48h"
+                alerts:
+                  - type: ntfy
+
+              ## ups
+              - name: nut-pluto
+                <<: *defaults-ups
+                url: "tcp://10.242.1.242:3493"
+              - name: nut-valledan
+                <<: *defaults-ups
+                url: "tcp://10.242.1.4:3493"
+              
+              ## pluto
+              - name: pluto-web
+                <<: *defaults-pluto
+                url: "https://pluto.${BASE_DOMAIN}"
+              - name: kerberos-web
+                <<: *defaults-pluto
+                url: "https://kerberos.${BASE_DOMAIN}"
+
+              ## network
+              - name: brother-printer
+                group: network
+                url: "http://brother-printer.${BASE_DOMAIN}/general/status.html"
+                interval: 10m
+                conditions:
+                  - "[STATUS] == 200"
+                alerts:
+                  - type: ntfy
+              - name: hue-hub
+                group: network
+                url: "http://10.242.20.64"
+                interval: 10m
+                conditions:
+                  - "[STATUS] == 200"
+                alerts:
+                  - type: ntfy
+              - name: mercury-web
+                group: network
+                url: "https://mercury.${BASE_DOMAIN}"
+                interval: 5m
+                conditions:
+                  - "[STATUS] == 200"
+                  - "[CERTIFICATE_EXPIRATION] > 48h"
+                alerts:
+                  - type: ntfy
+              - name: venus-web
+                group: network
+                url: "https://venus.${BASE_DOMAIN}"
+                interval: 5m
+                conditions:
+                  - "[STATUS] == 200"
+                  - "[CERTIFICATE_EXPIRATION] > 48h"
+                alerts:
+                  - type: ntfy
+
+            connectivity:
+              checker:
+                target: 1.1.1.1:53
+                interval: 60s
+
+            maintenance:
+              start: 00:00
+              duration: 6h
+              timezone: "Europe/London"
