@@ -196,6 +196,22 @@ spec:
                   - "[CERTIFICATE_EXPIRATION] > 48h"
                 alerts:
                   - type: email
+              - name: peanut
+                group: apps-hydra
+                url: "https://peanut.musson-lan.uk/api/ping"
+                interval: 5m
+                conditions:
+                  - "[STATUS] == 200"
+                  - "[BODY] == \"pong\""
+                  - "[CERTIFICATE_EXPIRATION] > 48h"
+              - name: homepage
+                group: apps-hydra
+                url: "https://homepage.musson-lan.uk/api/healthcheck"
+                interval: 5m
+                conditions:
+                  - "[STATUS] == 200"
+                  - "[BODY] == up"
+                  - "[CERTIFICATE_EXPIRATION] > 48h"
               - name: pihole-dns
                 group: dns
                 url: "10.242.1.53:53"
