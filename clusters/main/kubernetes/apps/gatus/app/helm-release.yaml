@@ -118,7 +118,7 @@ spec:
               alerts:
                 - type: ntfy
               maintenance-windows:
-                - start: 00:00
+                - start: "00:00"
                   duration: 6h
                   timezone: "Europe/London"
 
