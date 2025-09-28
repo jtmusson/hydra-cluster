@@ -353,8 +353,6 @@ spec:
                 group: apps-hydra
                 url: "https://nc.${BASE_DOMAIN_EXT}/ocs/v2.php/apps/serverinfo/api/v1/info?format=json"
                 interval: 5m
-                headers:
-                  Accept: "application/json"
                 conditions:
                   - "[STATUS] == 200"
                   - "[BODY].ocs.meta.status == ok"
