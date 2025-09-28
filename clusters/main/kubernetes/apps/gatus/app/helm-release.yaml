@@ -245,7 +245,7 @@ spec:
                   - type: ntfy
               - name: home-assistant
                 group: apps-hydra
-                url: "tcp://10.242.1.48:8123"
+                url: "tcp://${HASS_IP}:8123"
                 interval: 5m
                 conditions:
                   - "[CONNECTED] == true"
@@ -253,7 +253,7 @@ spec:
                   - type: ntfy
               - name: metube
                 group: apps-hydra
-                url: "https://metube.musson-lan.uk/version"
+                url: "https://metube.${BASE_DOMAIN}/version"
                 interval: 5m
                 conditions:
                   - "[STATUS] == 200"
