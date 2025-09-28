@@ -110,6 +110,15 @@ spec:
                   failure-threshold: 1
                   success-threshold: 1
                   send-on-resolved: true
+
+            default-endpoint-apps: &defaults-apps
+              group: apps-hydra
+              interval: 5m
+              conditions:
+                - "[STATUS] == 200"
+                - "[CERTIFICATE_EXPIRATION] > 48h"
+              alerts:
+                - type: ntfy 
             
             endpoints:
               - name: musson.uk
@@ -120,5 +129,31 @@ spec:
                   - "[STATUS] == 200"
                   - "[BODY] == pat(*James Musson*)"
                   - "[CERTIFICATE_EXPIRATION] > 48h"
+                alerts:
+                  - type: ntfy
+              - name: muss.uk
+                group: websites
+                url: "https://muss.uk"
+                interval: 5m
+                conditions:
+                  - "[STATUS] == 200"
+                  - "[CERTIFICATE_EXPIRATION] > 48h"
+                alerts:
+                  - type: ntfy
+              - name: minecraft-download-links
+                group: websites
+                url: "https://net-secondary.web.minecraft-services.net/api/v1.0/download/links"
+                interval: 5m
+                conditions:
+                  - "[STATUS] == 200"
+                  - "has([BODY].result.links) == true"
+                alerts:
+                  - type: ntfy
+              - name: minecraft-bedrock
+                group: apps-hydra
+                url: "udp://${MINECRAFT_IP}:19132"
+                interval: 5m
+                conditions:
+                  - "[CONNECTED] == true"
                 alerts:
                   - type: ntfy
