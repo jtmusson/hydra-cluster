@@ -119,6 +119,7 @@ spec:
                 - type: ntfy 
             
             endpoints:
+              ## websites
               - name: musson.uk
                 group: websites
                 url: "https://musson.uk"
@@ -147,6 +148,20 @@ spec:
                   - "has([BODY].result.links) == true"
                 alerts:
                   - type: ntfy
+              
+              ## apps-pluto
+              - name: scrutiny
+                group: apps-pluto
+                url: "https://scrutiny.${BASE_DOMAIN}/api/health"
+                interval: 5m
+                conditions:
+                  - "[STATUS] == 200"
+                  - "[BODY].success == true"
+                  - "[CERTIFICATE_EXPIRATION] > 48h"
+                alerts:
+                  - type: ntfy
+              
+              ## apps-hydra
               - name: minecraft-bedrock
                 <<: *defaults-apps
                 url: "udp://${MINECRAFT_IP}:19132"
@@ -159,13 +174,10 @@ spec:
                   - "[STATUS] == 200"
                   - "[BODY] == Healthy"
                   - "[CERTIFICATE_EXPIRATION] > 48h"
-              - name: scrutiny
-                group: apps-pluto
-                url: "https://scrutiny.${BASE_DOMAIN}/api/health"
-                interval: 5m
+              - name: shlink
+                <<: *defaults-apps
+                url: "https://muss.uk/rest/health"
                 conditions:
                   - "[STATUS] == 200"
-                  - "[BODY].success == true"
+                  - "[BODY].status == pass"
                   - "[CERTIFICATE_EXPIRATION] > 48h"
-                alerts:
-                  - type: ntfy
