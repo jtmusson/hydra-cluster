@@ -351,25 +351,21 @@ spec:
                 alerts: 
                   - type: ntfy
               - name: nocodb
-                group: apps-hydra
+                <<: *defaults-apps
                 url: "https://nocodb.${BASE_DOMAIN}/api/v1/health"
-                interval: 5m
                 conditions:
                   - "[STATUS] == 200"
-                  - "[BODY].message == ok"
+                  - "[BODY].message == OK"
                   - "[CERTIFICATE_EXPIRATION] > 48h"
-                alerts:
-                  - type: ntfy
               - name: nextcloud
-                group: apps-hydra
+                <<: *defaults-apps
                 url: "https://nc.${BASE_DOMAIN_EXT}/ocs/v2.php/apps/serverinfo/api/v1/info?format=json"
-                interval: 5m
+                headers:
+                  Authorization: "NC-Token ${NEXTCLOUD_API_KEY}"
                 conditions:
                   - "[STATUS] == 200"
                   - "[BODY].ocs.meta.status == ok"
                   - "[CERTIFICATE_EXPIRATION] > 48h"
-                alerts:
-                  - type: ntfy
               - name: n8n-hooks
                 group: apps-hydra
                 url: "https://n8n-hooks.${BASE_DOMAIN_EXT}"
