@@ -78,7 +78,7 @@ spec:
           config.yaml: |
             storage:
               type: postgres
-              path: \"postgresql://gatus:PLACEHOLDERPASSWORD@gatus-cnpg-main-rw:5432/gatus?client_encoding=utf8\"
+              path: "postgresql://gatus:PLACEHOLDERPASSWORD@gatus-cnpg-main-rw:5432/gatus?client_encoding=utf8"
 
             ui:
               logo: "https://musson.uk/favicon.png"
