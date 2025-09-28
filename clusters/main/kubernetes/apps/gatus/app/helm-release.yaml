@@ -196,8 +196,10 @@ spec:
               - name: minecraft-bedrock
                 <<: *defaults-apps
                 url: "udp://${MINECRAFT_IP}:19132"
+                body: "\x00\x00"
                 conditions:
                   - "[CONNECTED] == true"
+                  - "has([BODY]) == true"
               - name: jellyfin
                 <<: *defaults-apps
                 url: "https://jellyfin.${BASE_DOMAIN}/health"
