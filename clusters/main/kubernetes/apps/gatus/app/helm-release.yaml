@@ -328,7 +328,8 @@ spec:
                   - "[STATUS] == 200"
                   - "[BODY].status == ok"
                   - "[CERTIFICATE_EXPIRATION] > 48h"
-                alerts: ntfy
+                alerts: 
+                  - type: ntfy
               - name: n8n-hooks
                 group: apps-hydra
                 url: "https://n8n-hooks.${BASE_DOMAIN_EXT}"
