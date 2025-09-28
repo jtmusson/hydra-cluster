@@ -141,7 +141,7 @@ spec:
                   - type: ntfy
               - name: minecraft-bedrock
                 group: apps-hydra
-                url: "udp://mc.${BASE_DOMAIN_EXT}:19132"
+                url: "udp://${MINECRAFT_IP}:19132"
                 interval: 5m
                 conditions:
                   - "[CONNECTED] == true"
