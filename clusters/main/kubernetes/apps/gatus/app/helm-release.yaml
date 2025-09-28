@@ -99,10 +99,16 @@ spec:
                   success-threshold: 1
                   send-on-resolved: true
               email:
-                from: ""
-                username: 
-                password: 
-                host: ""
+                from: "gatus@${SMTP_HOST_DOMAIN}"
+                username: "gatus@{SMTP_HOST_DOMAIN}"
+                password: ""
+                host: "${SMTP_SERVER}"
+                port: "${SMTP_PORT}"
+                to: "${EMAIL1}"
+                default-alert:
+                  failure-threshold: 1
+                  success-threshold: 1
+                  send-on-resolved: true
             
             endpoints:
               - name: musson.uk
