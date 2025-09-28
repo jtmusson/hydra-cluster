@@ -235,7 +235,7 @@ spec:
                   - type: ntfy
               - name: audiobookshelf
                 group: apps-hydra
-                url: "https://audiobookshelf.${BASE_DOMAIN}/api/ping"
+                url: "https://audiobookshelf.${BASE_DOMAIN}/ping"
                 interval: 5m
                 conditions:
                   - "[STATUS] == 200"
