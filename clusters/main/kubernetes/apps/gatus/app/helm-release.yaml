@@ -155,6 +155,14 @@ spec:
                 - "[CERTIFICATE_EXPIRATION] > 48h"
               alerts:
                 - type: ntfy
+
+            default-endpoint-network: &defaults-network
+              group: network
+              interval: 10m
+              conditions:
+                - "[STATUS] == 200"
+              alerts:
+                - type: ntfy
             
             endpoints:
               ## websites
@@ -376,39 +384,23 @@ spec:
 
               ## network
               - name: brother-printer
-                group: network
+                <<: *defaults-network
                 url: "http://brother-printer.${BASE_DOMAIN}/general/status.html"
-                interval: 10m
-                conditions:
-                  - "[STATUS] == 200"
-                alerts:
-                  - type: ntfy
               - name: hue-hub
-                group: network
+                <<: *defaults-network
                 url: "http://10.242.20.64"
-                interval: 10m
-                conditions:
-                  - "[STATUS] == 200"
-                alerts:
-                  - type: ntfy
               - name: mercury-web
-                group: network
+                <<: *defaults-network
                 url: "https://mercury.${BASE_DOMAIN}"
-                interval: 5m
                 conditions:
                   - "[STATUS] == 200"
                   - "[CERTIFICATE_EXPIRATION] > 48h"
-                alerts:
-                  - type: ntfy
               - name: venus-web
-                group: network
+                <<: *defaults-network
                 url: "https://venus.${BASE_DOMAIN}"
-                interval: 5m
                 conditions:
                   - "[STATUS] == 200"
                   - "[CERTIFICATE_EXPIRATION] > 48h"
-                alerts:
-                  - type: ntfy
 
             connectivity:
               checker:
