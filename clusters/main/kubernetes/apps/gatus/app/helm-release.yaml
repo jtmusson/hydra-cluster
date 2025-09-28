@@ -216,7 +216,7 @@ spec:
                 <<: *defaults-apps
                 url: "https://nebula-sync.${BASE_DOMAIN}/health"
               - name: ntfy
-                group: apps-hydra
+                <<: *defaults-apps
                 url: "https://ntfy.${BASE_DOMAIN_EXT}/v1/health"
                 interval: 60s
                 conditions:
