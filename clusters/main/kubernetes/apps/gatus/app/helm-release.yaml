@@ -371,14 +371,14 @@ spec:
                 alerts:
                   - type: ntfy
               - name: n8n-hooks
-                  group: apps-hydra
-                  url: "https://n8n-hooks.${BASE_DOMAIN_EXT}"
-                  interval: 5m
-                  conditions:
-                    - "[STATUS] == 200"
-                    - "[CERTIFICATE_EXPIRATION] > 48h"
-                  alerts:
-                    - type: ntfy
+                group: apps-hydra
+                url: "https://n8n-hooks.${BASE_DOMAIN_EXT}"
+                interval: 5m
+                conditions:
+                  - "[STATUS] == 200"
+                  - "[CERTIFICATE_EXPIRATION] > 48h"
+                alerts:
+                  - type: ntfy
               - name: home-assistant-api
                 group: apps-hydra
                 url: "https://hass.${BASE_DOMAIN_EXT}/api/"
