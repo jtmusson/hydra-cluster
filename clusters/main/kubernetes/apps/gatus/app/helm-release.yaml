@@ -103,7 +103,7 @@ spec:
                 username: "${GATUS_EMAIL_HOST_USER}"
                 password: "${GATUS_EMAIL_HOST_PASSWORD}"
                 host: "${SMTP_SERVER}"
-                port: "${SMTP_PORT}"
+                port: ${SMTP_PORT}
                 to: "${EMAIL1}"
                 default-alert:
                   failure-threshold: 1
