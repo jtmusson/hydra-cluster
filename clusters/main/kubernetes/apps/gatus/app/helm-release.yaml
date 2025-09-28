@@ -317,6 +317,48 @@ spec:
                   - "[CERTIFICATE_EXPIRATION] > 48h"
                 alerts: 
                   - type: ntfy
+              - name: nocodb
+                group: apps-hydra
+                url: "https://nocodb.${BASE_DOMAIN}/api/v1/health"
+                interval: 5m
+                conditions:
+                  - "[STATUS] == 200"
+                  - "[BODY].message == ok"
+                  - "[CERTIFICATE_EXPIRATION] > 48h"
+                alerts:
+                  - type: ntfy
+              - name: nextcloud
+                group: apps-hydra
+                url: "https://nc.${BASE_DOMAIN_EXT}/ocs/v2.php/apps/serverinfo/api/v1/info?format=json"
+                interval: 5m
+                conditions:
+                  - "[STATUS] == 200"
+                  - "[BODY].ocs.meta.status == ok"
+                  - "[CERTIFICATE_EXPIRATION] > 48h"
+                alerts:
+                  - type: ntfy
+              - name: n8n-hooks
+                  group: apps-hydra
+                  url: "https://n8n-hooks.${BASE_DOMAIN_EXT}"
+                  interval: 5m
+                  conditions:
+                    - "[STATUS] == 200"
+                    - "[CERTIFICATE_EXPIRATION] > 48h"
+                  alerts:
+                    - type: ntfy
+              - name: home-assistant-api
+                group: apps-hydra
+                url: "https://hass.${BASE_DOMAIN_EXT}/api/"
+                interval: 5m
+                headers:
+                  Authorization: "Bearer ${HOMEASSISTANT_API_KEY}"
+                  Accept: "application/json"
+                conditions:
+                  - "[STATUS] == 200"
+                  - "[BODY].message == pat(API running*)"
+                  - "[CERTIFICATE_EXPIRATION] > 48h"
+                alerts:
+                  - type: ntfy
               - name: pihole-dns
                 group: dns
                 url: "10.242.1.53:53"
