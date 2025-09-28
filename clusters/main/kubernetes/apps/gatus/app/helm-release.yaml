@@ -388,6 +388,16 @@ spec:
                   - "[CERTIFICATE_EXPIRATION] > 48h"
                 alerts:
                   - type: ntfy
+              - name: paperless-ngx
+                <<: *defaults-apps
+                url: "https://paperless-ngx.musson-lan.uk/api/status/"
+                headers:
+                  Authorization: "Token ${PAPERLESS_API_KEY}"
+                  Accept: "application/json"
+                conditions:
+                  - "[STATUS] == 200"
+                  - "[BODY].database.status == OK"
+                  - "[CERTIFICATE_EXPIRATION] > 48h"
 
               ## dns
               - name: pihole-dns
