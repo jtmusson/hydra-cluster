@@ -117,6 +117,10 @@ spec:
                 - "[CERTIFICATE_EXPIRATION] > 48h"
               alerts:
                 - type: ntfy
+              maintenance-windows:
+                - start: 00:00
+                  duration: 6h
+                  timezone: "Europe/London"
 
             default-endpoint-pluto: &defaults-pluto
               group: pluto
@@ -406,8 +410,3 @@ spec:
               checker:
                 target: 1.1.1.1:53
                 interval: 60s
-
-            maintenance:
-              start: 00:00
-              duration: 6h
-              timezone: "Europe/London"
