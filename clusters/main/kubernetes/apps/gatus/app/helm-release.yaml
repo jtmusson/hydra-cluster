@@ -290,6 +290,34 @@ spec:
                 interval: 10m
                 conditions:
                   - "[STATUS] == 200"
+                alerts:
+                  - type: ntfy
+              - name: hue-hub
+                group: network
+                url: "http://10.242.20.64"
+                interval: 10m
+                conditions:
+                  - "[STATUS] == 200"
+                alerts:
+                  - type: ntfy
+              - name: mercury-web
+                group: network
+                url: "https://mercury.${BASE_DOMAIN}"
+                interval: 5m
+                conditions:
+                  - "[STATUS] == 200"
+                  - "[CERTIFICATE_EXPIRATION] > 48h"
+                alerts:
+                  - type: ntfy
+              - name: venus-web
+                group: network
+                url: "https://venus.${BASE_DOMAIN}"
+                interval: 5m
+                conditions:
+                  - "[STATUS] == 200"
+                  - "[CERTIFICATE_EXPIRATION] > 48h"
+                alerts:
+                  - type: ntfy
 
             connectivity:
               checker:
