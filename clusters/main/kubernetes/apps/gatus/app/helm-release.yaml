@@ -175,7 +175,7 @@ spec:
                 url: "https://musson.uk"
               - name: muss.uk
                 <<: *defaults-websites
-                url: "https:/muss.uk"
+                url: "https://muss.uk"
               - name: minecraft-download-links
                 <<: *defaults-websites
                 url: "https://net-secondary.web.minecraft-services.net/api/v1.0/download/links"
