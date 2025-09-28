@@ -355,6 +355,7 @@ spec:
                 interval: 5m
                 headers:
                   NC-Token: "${NEXTCLOUD_API_KEY}"
+                  Accept: "application/json"
                 conditions:
                   - "[STATUS] == 200"
                   - "[BODY].ocs.meta.status == ok"
