@@ -354,7 +354,6 @@ spec:
                 url: "https://nc.${BASE_DOMAIN_EXT}/ocs/v2.php/apps/serverinfo/api/v1/info?format=json"
                 interval: 5m
                 headers:
-                  NC-Token: "${NEXTCLOUD_API_KEY}"
                   Accept: "application/json"
                 conditions:
                   - "[STATUS] == 200"
