@@ -265,8 +265,8 @@ spec:
                 group: apps-hydra
                 url: "https://hass.${BASE_DOMAIN_EXT}/api"
                 interval: 5m
-                headers: 
-                  Authorization: "Bearer ${HOMEASSISTANT_API_KEY}"
+                # headers: 
+                #  Authorization: "Bearer ${HOMEASSISTANT_API_KEY}"
                 conditions:
                   - "[STATUS] == 200"
                   - "[BODY].message == pat(API running*)"
