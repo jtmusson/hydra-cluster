@@ -261,19 +261,6 @@ spec:
                   - "[CERTIFICATE_EXPIRATION] > 48h"
                 alerts:
                   - type: ntfy
-              - name: home-assistant-api
-                group: apps-hydra
-                url: "https://hass.${BASE_DOMAIN_EXT}/api/"
-                interval: 5m
-                headers:
-                  Authorization: "Bearer ${HOMEASSISTANT_API_KEY}"
-                  Accept: "application/json"
-                conditions:
-                  - "[STATUS] == 200"
-                  - "[BODY].message == pat(API running*)"
-                  - "[CERTIFICATE_EXPIRATION] > 48h"
-                alerts:
-                  - type: ntfy
               - name: linkwarden
                 group: apps-hydra
                 url: "https://linkwarden.${BASE_DOMAIN}/api/v1/logins"
