@@ -26,7 +26,7 @@ resources:
   - homepage/ks.yaml
   - home-assistant/ks.yaml
   - handbrake/ks.yaml
-  - gatus/ks.yaml
+# - gatus/ks.yaml
   - ext-scrutiny/ks.yaml
   - ext-homebridge/ks.yaml
   - audiobookshelf/ks.yaml
