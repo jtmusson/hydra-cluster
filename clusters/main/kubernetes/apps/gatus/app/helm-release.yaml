@@ -196,7 +196,7 @@ spec:
               - name: minecraft-bedrock
                 <<: *defaults-apps
                 url: "udp://${MINECRAFT_IP}:19132"
-                body: "\x00\x00"
+                body: "0x01, 0"
                 conditions:
                   - "[CONNECTED] == true"
                   - "has([BODY]) == true"
