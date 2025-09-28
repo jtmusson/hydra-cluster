@@ -251,6 +251,15 @@ spec:
                   - "[CONNECTED] == true"
                 alerts:
                   - type: ntfy
+              - name: metube
+                group: apps-hydra
+                url: "https://metube.musson-lan.uk/version"
+                interval: 5m
+                conditions:
+                  - "[STATUS] == 200"
+                  - "has([BODY].version) == true"
+                  - "[CERTIFICATE_EXPIRATION] > 48h"
+                alerts:
               - name: pihole-dns
                 group: dns
                 url: "10.242.1.53:53"
