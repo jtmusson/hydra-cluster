@@ -264,12 +264,10 @@ spec:
               - name: home-assistant-api
                 group: apps-hydra
                 url: "https://hass.${BASE_DOMAIN_EXT}/api"
-                # headers: 
-                # Authorization: Bearer ${HOMEASSISTANT_API_KEY}
                 interval: 5m
                 conditions:
                   - "[STATUS] == 200"
-                  - "[BODY].message == API running."
+                  - "[BODY].message == API running\."
                   - "[CERTIFICATE_EXPIRATION] > 48h"
                 alerts:
                   - type: ntfy
