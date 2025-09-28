@@ -286,7 +286,7 @@ spec:
                   - type: ntfy
               - name: brother-printer
                 group: network
-                url: "https://brother-printer.${BASE_DOMAIN}/general/status.html"
+                url: "http://brother-printer.${BASE_DOMAIN}/general/status.html"
                 interval: 10m
                 conditions:
                   - "[STATUS] == 200"
