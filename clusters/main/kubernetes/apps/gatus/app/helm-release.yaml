@@ -159,7 +159,7 @@ spec:
                   - type: ntfy
               - name: scrutiny
                 group: apps-pluto
-                url: "https://scrutiny.musson-lan.uk/api/health"
+                url: "https://scrutiny.${BASE_DOMAIN}/api/health"
                 interval: 5m
                 conditions:
                   - "[STATUS] == 200"
@@ -179,7 +179,7 @@ spec:
                   - type: ntfy
               - name: nebula-sync
                 group: apps-hydra
-                url: "https://nebula-sync.musson-lan.uk/health"
+                url: "https://nebula-sync.${BASE_DOMAIN}/health"
                 interval: 5m
                 conditions:
                   - "[STATUS] == 200"
@@ -188,7 +188,7 @@ spec:
                   - type: ntfy
               - name: ntfy
                 group: apps-hydra
-                url: "https://ntfy.musson-serv.uk/v1/health"
+                url: "https://ntfy.${BASE_DOMAIN_EXT}/v1/health"
                 interval: 60s
                 conditions:
                   - "[STATUS] == 200"
@@ -198,20 +198,42 @@ spec:
                   - type: email
               - name: peanut
                 group: apps-hydra
-                url: "https://peanut.musson-lan.uk/api/ping"
+                url: "https://peanut.${BASE_DOMAIN}/api/ping"
                 interval: 5m
                 conditions:
                   - "[STATUS] == 200"
                   - "[BODY] == \"pong\""
                   - "[CERTIFICATE_EXPIRATION] > 48h"
+                alerts:
+                  - type: ntfy
               - name: homepage
                 group: apps-hydra
-                url: "https://homepage.musson-lan.uk/api/healthcheck"
+                url: "https://homepage.${BASE_DOMAIN}/api/healthcheck"
                 interval: 5m
                 conditions:
                   - "[STATUS] == 200"
                   - "[BODY] == up"
                   - "[CERTIFICATE_EXPIRATION] > 48h"
+                alerts:
+                  - type: ntfy
+              - name: streammaster
+                group: apps-hydra
+                url: "https://streammaster.${BASE_DOMAIN}"
+                interval: 5m
+                conditions:
+                  - "[STATUS] == 200"
+                  - "[CERTIFICATE_EXPIRATION] > 48h"
+                alerts:
+                  - type: ntfy
+              - name: shlink-web
+                group: apps-hydra
+                url: "https://shlink-web.${BASE_DOMAIN}"
+                interval: 5m
+                conditions:
+                  - "[STATUS] == 200"
+                  - "[CERTIFICATE_EXPIRATION] > 48h"
+                alerts:
+                  - type: ntfy
               - name: pihole-dns
                 group: dns
                 url: "10.242.1.53:53"
@@ -248,7 +270,7 @@ spec:
                     failure-threshold: 2
               - name: pihole-valledan-web
                 group: dns
-                url: "https://valledan.musson-lan.uk/api/info/login"
+                url: "https://valledan.${BASE_DOMAIN}/api/info/login"
                 interval: 5m
                 conditions:
                   - "[STATUS] == 200"
@@ -258,7 +280,7 @@ spec:
                   - type: ntfy
               - name: pihole-kindath-web
                 group: dns
-                url: "https://kindath.musson-lan.uk/api/info/login"
+                url: "https://kindath.${BASE_DOMAIN}/api/info/login"
                 interval: 5m
                 conditions:
                   - "[STATUS] == 200"
