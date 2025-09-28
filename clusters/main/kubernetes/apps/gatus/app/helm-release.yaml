@@ -166,6 +166,14 @@ spec:
                   - "[CERTIFICATE_EXPIRATION] > 48h"
                 alerts:
                   - type: ntfy
+              - name: nebula-sync
+                group: apps-hydra
+                url: "https://nebula-sync.musson-lan.uk/health"
+                interval: 5m
+                conditions:
+                  - "[STATUS] = 200"
+                alerts:
+                  - type: ntfy
               - name: pihole-dns
                 group: dns
                 url: "10.242.1.53:53"
