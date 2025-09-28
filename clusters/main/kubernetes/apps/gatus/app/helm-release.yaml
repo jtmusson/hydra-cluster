@@ -109,7 +109,7 @@ spec:
                   success-threshold: 1
                   send-on-resolved: true
 
-            default-endpoint-apps: \&defaults-apps
+            default-endpoint-apps: &defaults-apps
               group: apps-hydra
               interval: 5m
               conditions:
