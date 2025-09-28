@@ -146,49 +146,39 @@ spec:
                 - "[CONNECTED] == true"
               alerts:
                 - type: ntfy
+
+            default-endpoint-websites: &defaults-websites
+              group: websites
+              interval: 30m
+              conditions:
+                - "[STATUS] == 200"
+                - "[CERTIFICATE_EXPIRATION] > 48h"
+              alerts:
+                - type: ntfy
             
             endpoints:
               ## websites
               - name: musson.uk
-                group: websites
+                <<: *defaults-websites
                 url: "https://musson.uk"
-                interval: 5m
-                conditions:
-                  - "[STATUS] == 200"
-                  - "[BODY] == pat(*James Musson*)"
-                  - "[CERTIFICATE_EXPIRATION] > 48h"
-                alerts:
-                  - type: ntfy
               - name: muss.uk
-                group: websites
-                url: "https://muss.uk"
-                interval: 5m
-                conditions:
-                  - "[STATUS] == 200"
-                  - "[CERTIFICATE_EXPIRATION] > 48h"
-                alerts:
-                  - type: ntfy
+                <<: *defaults-websites
+                url: "https:/muss.uk"
               - name: minecraft-download-links
-                group: websites
+                <<: *defaults-websites
                 url: "https://net-secondary.web.minecraft-services.net/api/v1.0/download/links"
-                interval: 5m
                 conditions:
                   - "[STATUS] == 200"
                   - "has([BODY].result.links) == true"
-                alerts:
-                  - type: ntfy
               
               ## apps-pluto
               - name: scrutiny
-                group: apps-pluto
+                <<: *defaults-pluto
                 url: "https://scrutiny.${BASE_DOMAIN}/api/health"
-                interval: 5m
                 conditions:
                   - "[STATUS] == 200"
                   - "[BODY].success == true"
                   - "[CERTIFICATE_EXPIRATION] > 48h"
-                alerts:
-                  - type: ntfy
               
               ## apps-hydra
               - name: minecraft-bedrock
@@ -211,13 +201,8 @@ spec:
                   - "[BODY].status == pass"
                   - "[CERTIFICATE_EXPIRATION] > 48h"
               - name: nebula-sync
-                group: apps-hydra
+                <<: *defaults-apps
                 url: "https://nebula-sync.${BASE_DOMAIN}/health"
-                interval: 5m
-                conditions:
-                  - "[STATUS] == 200"
-                alerts:
-                  - type: ntfy
               - name: ntfy
                 group: apps-hydra
                 url: "https://ntfy.${BASE_DOMAIN_EXT}/v1/health"
@@ -229,127 +214,79 @@ spec:
                 alerts:
                   - type: email
               - name: peanut
-                group: apps-hydra
+                <<: *defaults-apps
                 url: "https://peanut.${BASE_DOMAIN}/api/ping"
-                interval: 5m
                 conditions:
                   - "[STATUS] == 200"
                   - "[BODY] == \"pong\""
                   - "[CERTIFICATE_EXPIRATION] > 48h"
-                alerts:
-                  - type: ntfy
               - name: homepage
-                group: apps-hydra
+                <<: *defaults-apps
                 url: "https://homepage.${BASE_DOMAIN}/api/healthcheck"
-                interval: 5m
                 conditions:
                   - "[STATUS] == 200"
                   - "[BODY] == up"
                   - "[CERTIFICATE_EXPIRATION] > 48h"
-                alerts:
-                  - type: ntfy
               - name: streammaster
-                group: apps-hydra
+                <<: *defaults-aps
                 url: "https://streammaster.${BASE_DOMAIN}"
-                interval: 5m
-                conditions:
-                  - "[STATUS] == 200"
-                  - "[CERTIFICATE_EXPIRATION] > 48h"
-                alerts:
-                  - type: ntfy
               - name: shlink-web
-                group: apps-hydra
+                <<: *defaults-apps
                 url: "https://shlink-web.${BASE_DOMAIN}"
-                interval: 5m
-                conditions:
-                  - "[STATUS] == 200"
-                  - "[CERTIFICATE_EXPIRATION] > 48h"
-                alerts:
-                  - type: ntfy
               - name: audiobookshelf
-                group: apps-hydra
+                <<: *defaults-apps
                 url: "https://audiobookshelf.${BASE_DOMAIN}/ping"
-                interval: 5m
                 conditions:
                   - "[STATUS] == 200"
                   - "[BODY].success == true"
                   - "[CERTIFICATE_EXPIRATION] > 48h"
-                alerts:
-                  - type: ntfy
               - name: home-assistant
-                group: apps-hydra
+                <<: *defaults-apps
                 url: "tcp://${HASS_IP}:8123"
-                interval: 5m
                 conditions:
                   - "[CONNECTED] == true"
-                alerts:
-                  - type: ntfy
               - name: metube
-                group: apps-hydra
+                <<: *defaults-apps
                 url: "https://metube.${BASE_DOMAIN}/version"
-                interval: 5m
                 conditions:
                   - "[STATUS] == 200"
                   - "has([BODY].version) == true"
                   - "[CERTIFICATE_EXPIRATION] > 48h"
-                alerts:
-                  - type: ntfy
               - name: linkwarden
-                group: apps-hydra
+                <<: *defaults-apps
                 url: "https://linkwarden.${BASE_DOMAIN}/api/v1/logins"
-                interval: 5m
                 conditions:
                   - "[STATUS] == 200"
                   - "[BODY].credentialsEnabled == true"
                   - "[CERTIFICATE_EXPIRATION] > 48h"
-                alerts:
-                  - type: ntfy
               - name: jellyseerr
-                group: apps-hydra
+                <<: *defaults-apps
                 url: "https://jellyseerr.${BASE_DOMAIN}/api/v1/status"
-                interval: 5m
                 conditions:
                   - "[STATUS] == 200"
                   - "[BODY].restartRequired == false"
                   - "[CERTIFICATE_EXPIRATION] > 48h"
-                alerts:
-                  - type: ntfy
               - name: it-tools
-                group: apps-hydra
+                <<: *defaults-apps
                 url: "https://it-tools.${BASE_DOMAIN}"
-                interval: 5m
-                conditions:
-                  - "[STATUS] == 200"
-                  - "[CERTIFICATE_EXPIRATION] > 48h"
-                alerts:
-                  - type: ntfy
               - name: kubernetes-dashboard
-                group: apps-hydra
+                <<: *defaults-apps
                 url: "https://ks.${BASE_DOMAIN}"
-                interval: 5m
                 conditions:
                   - "[STATUS] == 200"
                   - "[CERTIFICATE_EXPIRATION] > 48h"
-                alerts:
-                  - type: ntfy
               - name: mosquitto
-                group: apps-hydra
+                <<: *defaults-apps
                 url: "tcp://${MQTT_IP}:1883"
-                interval: 5m
                 conditions:
                   - "[CONNECTED] == true"
-                alerts:
-                  - type: ntfy
               - name: n8n
-                group: apps-hydra
+                <<: *defaults-apps
                 url: "https://n8n.${BASE_DOMAIN}/healthz/readiness"
-                interval: 5m
                 conditions:
                   - "[STATUS] == 200"
                   - "[BODY].status == ok"
                   - "[CERTIFICATE_EXPIRATION] > 48h"
-                alerts: 
-                  - type: ntfy
               - name: nocodb
                 <<: *defaults-apps
                 url: "https://nocodb.${BASE_DOMAIN}/api/v1/health"
@@ -367,18 +304,11 @@ spec:
                   - "[BODY].ocs.meta.status == ok"
                   - "[CERTIFICATE_EXPIRATION] > 48h"
               - name: n8n-hooks
-                group: apps-hydra
+                <<: *defaults-apps
                 url: "https://n8n-hooks.${BASE_DOMAIN_EXT}"
-                interval: 5m
-                conditions:
-                  - "[STATUS] == 200"
-                  - "[CERTIFICATE_EXPIRATION] > 48h"
-                alerts:
-                  - type: ntfy
               - name: home-assistant-api
-                group: apps-hydra
+                <<: *defaults-apps
                 url: "https://hass.${BASE_DOMAIN_EXT}/api/"
-                interval: 5m
                 headers:
                   Authorization: "Bearer ${HOMEASSISTANT_API_KEY}"
                   Accept: "application/json"
@@ -386,8 +316,6 @@ spec:
                   - "[STATUS] == 200"
                   - "[BODY].message == pat(API running*)"
                   - "[CERTIFICATE_EXPIRATION] > 48h"
-                alerts:
-                  - type: ntfy
               - name: paperless-ngx
                 <<: *defaults-apps
                 url: "https://paperless-ngx.musson-lan.uk/api/status/"
