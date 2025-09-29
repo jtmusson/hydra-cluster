@@ -112,12 +112,12 @@ spec:
                 - /usr/local/bin/mc-monitor 
                 - status-bedrock 
                 - --host 
-                - ${MINECRAFT_IP} 
+                - "{{ .Values.service.main.loadBalancerIP }}" 
                 - --port
-                - "19132"
-#                - "&&"
-#                - curl
-#                - -H 
+                - "{{ .Values.service.main.ports.main.port }}"
+                - "&&"
+                - echo
+                - "Success"
 #                - "Authorization:"
 #                - Bearer
 #                - "${NTFY_TOKEN_GATUS}" 
