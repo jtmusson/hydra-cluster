@@ -111,7 +111,7 @@ spec:
               command:
                 - /bin/bash
                 - -c
-                - /usr/local/bin/mc-monitor status-bedrock --host ${MINECRAFT_IP} --port 19132 && curl -H "Authorization: Bearer ${NTFY_TOKEN_GATUS}" -d "Minecraft Bedrock Up" https://ntfy.${BASE_DOMAIN_EXT}/gatus-updates
+                - /usr/local/bin/mc-monitor status-bedrock --host ${MINECRAFT_IP} --port 19132
               probes:
                 liveness:
                   enabled: false
