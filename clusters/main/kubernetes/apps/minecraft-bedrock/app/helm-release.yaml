@@ -109,12 +109,10 @@ spec:
               resources:
                 excludeExtra: true
               command:
-                - /usr/local/bin/mc-monitor 
-                - status-bedrock 
-                - --host 
-                - ${MINECRAFT_IP} 
-                - --port 
-                - "19132"
+                - |
+                  /usr/local/bin/mc-monitor status-bedrock --host ${MINECRAFT_IP} --port "19132" \
+                  && \
+                  curl -H "Authorization: Bearer ${NTFY_TOKEN_GATUS}" -d "Minecraft Bedrock Up" https://ntfy.${BASE_DOMAIN_EXT}/gatus-updates
               probes:
                 liveness:
                   enabled: false
