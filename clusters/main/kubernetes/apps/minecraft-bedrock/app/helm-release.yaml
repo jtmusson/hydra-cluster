@@ -116,13 +116,7 @@ spec:
                 - --port
                 - "{{ .Values.service.main.ports.main.port }}"
                 - > 
-                  && echo "Success"
-#                - "Authorization:"
-#                - Bearer
-#                - "${NTFY_TOKEN_GATUS}" 
-#                - -d 
-#                - "Up"
-#                - https://ntfy.${BASE_DOMAIN_EXT}/gatus-updates
+                  '&& curl -H "Authorization: Bearer ${GATUS_EXT_MINECRAFT_BEDROCK_TOKEN}" -X POST "https://gatus.${BASE_DOMAIN}/api/v1/endpoints/apps-hydra_minecraft-bedrock-ext/external?success=true"'
               probes:
                 liveness:
                   enabled: false
