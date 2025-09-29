@@ -115,15 +115,15 @@ spec:
                 - ${MINECRAFT_IP} 
                 - --port
                 - "19132"
-                - "&&"
-                - curl
-                - -H 
-                - "Authorization:"
-                - Bearer
-                - "${NTFY_TOKEN_GATUS}" 
-                - -d 
-                - "Up"
-                - https://ntfy.${BASE_DOMAIN_EXT}/gatus-updates
+#                - "&&"
+#                - curl
+#                - -H 
+#                - "Authorization:"
+#                - Bearer
+#                - "${NTFY_TOKEN_GATUS}" 
+#                - -d 
+#                - "Up"
+#                - https://ntfy.${BASE_DOMAIN_EXT}/gatus-updates
               probes:
                 liveness:
                   enabled: false
