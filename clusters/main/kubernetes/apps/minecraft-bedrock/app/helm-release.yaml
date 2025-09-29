@@ -115,9 +115,8 @@ spec:
                 - "{{ .Values.service.main.loadBalancerIP }}" 
                 - --port
                 - "{{ .Values.service.main.ports.main.port }}"
-                - "&&"
-                - echo
-                - "Success"
+                - > 
+                  && echo "Success"
 #                - "Authorization:"
 #                - Bearer
 #                - "${NTFY_TOKEN_GATUS}" 
