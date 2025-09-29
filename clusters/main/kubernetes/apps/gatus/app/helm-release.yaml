@@ -407,7 +407,7 @@ spec:
                   - "[CERTIFICATE_EXPIRATION] > 48h"
 
             external-endpoints:
-              - name: ext-minecraft-bedrock
+              - name: minecraft-bedrock-ext
                 group: apps-hydra
                 token: "${GATUS_EXT_MINECRAFT_BEDROCK_TOKEN}"
                 heartbeat:
