@@ -30,10 +30,6 @@ spec:
   values:
     global:
       stopAll: false # change to 'true' to stop all pods whenever world maintenance is needed
-    mcmonitorImage:
-      repository: docker.io/itzg/mc-monitor
-      tag: 0.15.7@sha256:f038ec8096b222cff2c1150fd3b937fa0eb8c0e024632bf696429873fc434e0a
-      pullPolicy: IfNotPresent
     resources:
       requests:
         cpu: 50m
@@ -113,7 +109,7 @@ spec:
                 - -c
                 - |
                   /usr/local/bin/mc-monitor status-bedrock --host "{{ .Values.service.main.loadBalancerIP }}" --port "{{ .Values.service.main.ports.main.port }}" \
-                  && curl -H "Authorization: Bearer ${GATUS_EXT_MINECRAFT_BEDROCK_TOKEN}" -X POST "https://gatus.${BASE_DOMAIN}/api/v1/endpoints/apps-hydra_minecraft-bedrock-ext/external?success=true"
+                  && curl -v -H "Authorization: Bearer ${GATUS_EXT_MINECRAFT_BEDROCK_TOKEN}" -X POST "https://gatus.${BASE_DOMAIN}/api/v1/endpoints/apps-hydra_minecraft-bedrock-ext/external?success=true"
               probes:
                 liveness:
                   enabled: false
