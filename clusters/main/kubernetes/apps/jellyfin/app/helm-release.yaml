@@ -30,6 +30,13 @@ spec:
   values:
     global:
       stopAll: false
+    resources:
+      requests:
+        cpu: 50m
+        ephemeral-storage: 10Gi
+      limits:
+        memory: 5Gi
+        ephemeral-storage: 25Gi
     credentials:
       backblaze:
         accessKey: "${B2_ACCESSKEY}"
@@ -89,6 +96,8 @@ spec:
         server: "${PLUTO_IP}"
         readOnly: false
         type: nfs 
+      transcode:
+        size: 25Gi
     workload:
       main:
         podSpec:      
@@ -97,7 +106,5 @@ spec:
               resources:
                 limits:
                   gpu.intel.com/i915: 1
-                  memory: 5Gi
                 requests:
                   gpu.intel.com/i915: 1
-                  cpu: 50m
