@@ -109,7 +109,7 @@ spec:
               resources:
                 excludeExtra: true
               command:
-                - /bin/bash
+                - /bin/sh
                 - -c
                 - /usr/local/bin/mc-monitor status-bedrock --host ${MINECRAFT_IP} --port 19132
               probes:
