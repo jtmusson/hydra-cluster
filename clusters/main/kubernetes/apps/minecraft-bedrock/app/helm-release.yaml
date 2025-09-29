@@ -109,14 +109,11 @@ spec:
               resources:
                 excludeExtra: true
               command:
-                - /usr/local/bin/mc-monitor 
-                - status-bedrock 
-                - --host 
-                - "{{ .Values.service.main.loadBalancerIP }}" 
-                - --port
-                - "{{ .Values.service.main.ports.main.port }}"
-                - > 
-                  '&& curl -H "Authorization: Bearer ${GATUS_EXT_MINECRAFT_BEDROCK_TOKEN}" -X POST "https://gatus.${BASE_DOMAIN}/api/v1/endpoints/apps-hydra_minecraft-bedrock-ext/external?success=true"'
+                - /bin/sh
+                - -c
+                - |
+                  /usr/local/bin/mc-monitor status-bedrock --host "{{ .Values.service.main.loadBalancerIP }}" --port "{{ .Values.service.main.ports.main.port }}" \
+                  && curl -H "Authorization: Bearer ${GATUS_EXT_MINECRAFT_BEDROCK_TOKEN}" -X POST "https://gatus.${BASE_DOMAIN}/api/v1/endpoints/apps-hydra_minecraft-bedrock-ext/external?success=true"
               probes:
                 liveness:
                   enabled: false
