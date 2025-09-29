@@ -406,6 +406,15 @@ spec:
                   - "[STATUS] == 200"
                   - "[CERTIFICATE_EXPIRATION] > 48h"
 
+            external-endpoints:
+              - name: ext-minecraft-bedrock
+                group: apps-hydra
+                token: "${GATUS_EXT_MINECRAFT_BEDROCK_TOKEN}"
+                heartbeat:
+                  interval: 5m
+                alerts:
+                  - type: ntfy
+
             connectivity:
               checker:
                 target: 1.1.1.1:53
