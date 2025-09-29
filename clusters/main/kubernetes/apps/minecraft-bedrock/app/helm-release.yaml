@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: minecraft-bedrock
-      version: 12.9.0
+      version: 12.8.1
       sourceRef:
         kind: HelmRepository
         name: truecharts
@@ -95,3 +95,27 @@ spec:
                 WHITE_LIST: true # set because source chart sets to false otherwise
                 ALLOW_LIST: true
                 ALLOW_LIST_USERS: "${MINECRAFT_ALLOW_LIST_USERS}"
+      mcmonitor-cron:
+        enabled: true
+        type: CronJob
+        schedule: "*/5 * * * *"
+        podSpec:
+          restartPolicy: Never
+          containers:
+            mcmonitor-cron:
+              enabled: true
+              primary: true
+              imageSelector: mcmonitorImage
+              resources:
+                excludeExtra: true
+              command:
+                - /bin/bash
+                - -c
+                - /usr/local/bin/mc-monitor status-bedrock --host ${MINECRAFT_IP} --port 19132 && curl -H "Authorization: Bearer ${NTFY_TOKEN_GATUS}" -d "Minecraft Bedrock Up" https://ntfy.${BASE_DOMAIN_EXT}/gatus-updates
+              probes:
+                liveness:
+                  enabled: false
+                readiness:
+                  enabled: false
+                startup:
+                  enabled: false
