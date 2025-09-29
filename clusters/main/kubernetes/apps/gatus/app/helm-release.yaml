@@ -54,7 +54,7 @@ spec:
             enabled: true
           homepage:
             enabled: true
-            group: "Monitoring"
+            group: "Network - Monitoring"
             widget:
               enabled: enabled
           traefik:

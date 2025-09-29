@@ -53,7 +53,7 @@ spec:
             enabled: true
           homepage:
             enabled: true
-            group: "Network - Performance"
+            group: "Network - Monitoring"
             widget:
               type: "myspeed"
           traefik:
