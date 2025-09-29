@@ -239,9 +239,6 @@ spec:
                   - "[STATUS] == 200"
                   - "[BODY] == up"
                   - "[CERTIFICATE_EXPIRATION] > 48h"
-              - name: streammaster
-                <<: *defaults-apps
-                url: "https://streammaster.${BASE_DOMAIN}"
               - name: shlink-web
                 <<: *defaults-apps
                 url: "https://shlink-web.${BASE_DOMAIN}"
