@@ -95,26 +95,30 @@ spec:
                 WHITE_LIST: true # set because source chart sets to false otherwise
                 ALLOW_LIST: true
                 ALLOW_LIST_USERS: "${MINECRAFT_ALLOW_LIST_USERS}"
-#      mcmonitor-cron:
-#        enabled: true
-#       type: CronJob
-#       schedule: "*/5 * * * *"
-#       podSpec:
-#          restartPolicy: Never
-#          containers:
-#            mcmonitor-cron:
-#              enabled: true
-#              primary: true
-#              imageSelector: mcmonitorImage
-#              resources:
-#                excludeExtra: true
-#              command:
-#                - |
-#                  /usr/local/bin/mc-monitor status-bedrock --host ${MINECRAFT_IP} --port 19132
-#              probes:
-#                liveness:
-#                  enabled: false
-#                readiness:
-#                  enabled: false
-#                startup:
-#                  enabled: false
+      mcmonitor-cron:
+        enabled: true
+        type: CronJob
+        schedule: "*/5 * * * *"
+        podSpec:
+          restartPolicy: Never
+          containers:
+            mcmonitor-cron:
+              enabled: true
+              primary: true
+              imageSelector: image
+              resources:
+                excludeExtra: true
+              command:
+                - /usr/local/bin/mc-monitor 
+                - status-bedrock 
+                - --host 
+                - ${MINECRAFT_IP} 
+                - --port 
+                - 19132
+              probes:
+                liveness:
+                  enabled: false
+                readiness:
+                  enabled: false
+                startup:
+                  enabled: false
