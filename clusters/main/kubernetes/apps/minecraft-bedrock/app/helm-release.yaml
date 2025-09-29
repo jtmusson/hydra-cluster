@@ -30,6 +30,8 @@ spec:
   values:
     global:
       stopAll: false # change to 'true' to stop all pods whenever world maintenance is needed
+    image:
+      pullPolicy: IfNotPresent
     resources:
       requests:
         cpu: 50m
