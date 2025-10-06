@@ -24,7 +24,7 @@
   "packageRules": [
     // Disable the default Docker manager for n8n to prevent conflicts with our custom regex manager above
     {
-      "matchPackageNames": ["n8n", "n8nio/n8n"],
+      "matchPackageNames": ["ghcr.io/n8n-io/n8n"],
       "matchManagers": ["flux"],
       "enabled": false
     }
