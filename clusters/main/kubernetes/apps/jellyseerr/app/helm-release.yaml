@@ -29,7 +29,7 @@ spec:
     keepHistory: false
   valuesFrom:
     - kind: ConfigMap
-      name: cluster-config
+      name: flux-system/cluster-config
   values:
     global:
       stopAll: false
