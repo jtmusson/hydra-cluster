@@ -14,7 +14,7 @@ resources:
   - jetstack.yaml
   - kubernetes-sigs-metrics-server.yaml
   - kustomization.yaml
-  - kyverno.yaml
+# - kyverno.yaml
   - longhorn.yaml
   - metallb.yaml
   - metrics-server.yaml
