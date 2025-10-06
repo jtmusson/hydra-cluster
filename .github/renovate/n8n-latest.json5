@@ -1,0 +1,32 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "customManagers": [
+    // Add a custom regex manager for n8n that uses the GitHub Releases data source instead of docker hub
+    // This is necessary because n8n publishes pre-release versions to Docker Hub without a sever-compliant tag (i.e. they
+    // should have something like a `-pre` suffix). The only way to filter out these pre-releases is to use the GitHub
+    // releases, which are marked as pre-releases in the GitHub release metadata.
+    {
+      "customType": "regex",
+      "versioningTemplate": "semver-coerced",
+
+      // Identify the files to be processed by this manager and the regex to extract the current version number
+      "managerFilePatterns": ["/^clusters\\/main\\/kubernetes\\/apps\\/n8n\\/app\\/helm-release.yaml$/"],
+      "matchStrings": ["tag:(?<currentValue>[^\\s]+)"],
+
+      // Force the data source to GitHub Releases and use the n8n GitHub repository
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "n8n-io/n8n",
+
+      // Transform the GitHub tag (e.g., 'n8n@1.47.0') into the pure version number ('1.47.0')
+      "extractVersionTemplate": "n8n@(?<version>.*)"
+    }
+  ],
+  "packageRules": [
+    // Disable the default Docker manager for n8n to prevent conflicts with our custom regex manager above
+    {
+      "matchPackageNames": ["n8n", "n8nio/n8n"],
+      "matchManagers": ["docker-compose"],
+      "enabled": false
+    }
+  ]
+}
