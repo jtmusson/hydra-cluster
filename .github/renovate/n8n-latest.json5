@@ -25,7 +25,7 @@
     // Disable the default Docker manager for n8n to prevent conflicts with our custom regex manager above
     {
       "matchPackageNames": ["n8n", "n8nio/n8n"],
-      "matchManagers": ["docker-compose"],
+      "matchManagers": ["flux"],
       "enabled": false
     }
   ]
