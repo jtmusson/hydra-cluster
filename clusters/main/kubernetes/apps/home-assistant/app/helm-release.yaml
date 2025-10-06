@@ -32,7 +32,7 @@ spec:
       stopAll: false
     resources:
       requests:
-        cpu: 25m
+        cpu: 50m
     credentials:
       backblaze:
         accessKey: "${B2_ACCESSKEY}"
