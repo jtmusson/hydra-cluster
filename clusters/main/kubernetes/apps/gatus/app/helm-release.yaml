@@ -390,6 +390,9 @@ spec:
               - name: hue-hub
                 <<: *defaults-network
                 url: "http://10.242.20.64"
+              - name: vonage-hub
+                <<: *defaults-network
+                url: "http://10.242.20.146"
               - name: mercury-web
                 <<: *defaults-network
                 url: "https://mercury.${BASE_DOMAIN}"
