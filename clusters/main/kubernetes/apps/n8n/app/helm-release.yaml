@@ -35,7 +35,6 @@ spec:
         cpu: 10m
     image:
       repository: ghcr.io/n8n-io/n8n
-      # renovate: datasource=github-releases depName=n8n-io/n8n
       tag: 1.113.3@sha256:57f95a26b1b28527053fba6316d9d046395d9b4da9d0da486e838384a38fcf37
     deployment:
       N8N_HOST: n8n.${BASE_DOMAIN} # ensure ingress.main.hosts and below are updated
