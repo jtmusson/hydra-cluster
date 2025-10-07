@@ -11,7 +11,7 @@
 
       // Identify the files to be processed by this manager and the regex to extract the current version number
       "managerFilePatterns": ["/^clusters\\/main\\/kubernetes\\/apps\\/n8n\\/app\\/helm-release.yaml$/"],
-      "matchStrings": ["tag:(?<currentValue>@[^\\s]+)"],
+      // "matchStrings": ["tag:(?<currentValue>@[^\\s]+)"],
 
       // Force the data source to GitHub Releases and use the n8n GitHub repository
       "datasourceTemplate": "github-releases",
