@@ -414,6 +414,13 @@ spec:
                   interval: 5m
                 alerts:
                   - type: ntfy
+              - name: brennin
+                group: machines
+                token: "${GATUS_EXT_BRENNIN_TOKEN}"
+                heartbeat:
+                  interval: 5m
+                alerts:
+                  - type: ntfy
 
             connectivity:
               checker:
