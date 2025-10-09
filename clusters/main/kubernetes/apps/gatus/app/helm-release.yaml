@@ -383,10 +383,17 @@ spec:
                 <<: *defaults-pluto
                 url: "https://kerberos.${BASE_DOMAIN}"
 
-              ## network
+              ## machines
               - name: brother-printer
-                <<: *defaults-network
+                group: machines
                 url: "http://brother-printer.${BASE_DOMAIN}/general/status.html"
+                interval: 10m
+                conditions:
+                  - "[STATUS] == 200"
+                alerts:
+                  - type: ntfy
+
+              ## network
               - name: hue-hub
                 <<: *defaults-network
                 url: "http://10.242.20.64"
