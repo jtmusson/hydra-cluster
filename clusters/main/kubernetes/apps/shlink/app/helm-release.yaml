@@ -80,7 +80,7 @@ spec:
               env:
                 DEFAULT_DOMAIN: "${SHLINK_DOMAIN_EXT}"
                 DEFAULT_BASE_URL_REDIRECT: "https://musson.uk"
-                CORS_ALLOW_ORIGIN: "${SHLINK_DOMAIN_EXT}"
+                CORS_ALLOW_ORIGIN: "https://${SHLINK_DOMAIN_EXT}"
                 INITIAL_API_KEY: "${SHLINK_API_KEY}"
                 GEOLITE_LICENSE_KEY: "${GEOLITE_LICENSE_KEY}"
                 DISABLE_TRACKING_FROM: "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16" # disable tracking from private IPv4 networks
