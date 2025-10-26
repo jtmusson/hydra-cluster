@@ -27,4 +27,4 @@ resources:
   - gatus/ks.yaml
   - ext-scrutiny/ks.yaml
   - ext-homebridge/ks.yaml
-  - audiobookshelf/ks.yaml
+  - audiobookshelf/ks.yaml  - tududi/ks.yaml
