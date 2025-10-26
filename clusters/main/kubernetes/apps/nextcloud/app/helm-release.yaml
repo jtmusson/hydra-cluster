@@ -33,6 +33,9 @@ spec:
     resources:
       requests:
         cpu: 50m
+    image:
+      repository: ghcr.io/trueforge-org/nextcloud-fpm
+      tag: 32.0.1@sha256:d040aa703b665bf058c7c08630283c52c2bec9bd3ecf6eafb4e2d449da8a32a0
     credentials:
       backblaze:
         accessKey: "${B2_ACCESSKEY}"
