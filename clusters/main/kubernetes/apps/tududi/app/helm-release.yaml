@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: app-template
-      version: 0.0.0
+      version: 15.24.12
       sourceRef:
         kind: HelmRepository
         name: truecharts
@@ -34,10 +34,17 @@ spec:
       requests:
         cpu: 25m
     image:
-      repository:
-      tag:
-    podOptions:
-      hostUsers: true
+      repository: docker.io/chrisvel/tududi
+      pullPolicy: IfNotPresent
+      tag: 0.84.2@sha256:685457602d8edf0096421247de6c2a62fe936b373968e81c7b0143cd04578473
+    credentials:
+      backblaze:
+        accessKey: "${B2_ACCESSKEY}"
+        bucket: "${B2_BUCKET}"
+        encrKey: "${B2_ENCRKEY}"
+        secretKey: "${B2_SECRETKEY}"
+        type: s3
+        url: "${B2_URL}"
     ingress:
       main:
         enabled: true
@@ -52,11 +59,57 @@ spec:
             enabled: false
           traefik:
             enabled: false
+    service:
+      main:
+        ports:
+          main:
+            port: 3002
     persistence:
-      
+      backend-db:
+        enabled: true
+        mountPath: "/app/backend/db"
+        volsync:
+          - name: backend-db
+            credentials: backblaze
+            type: restic
+            dest:
+              enabled: false # change to true on restore
+              cacheCapacity: 10Gi
+            src:
+              enabled: true
+              cacheCapacity: 10Gi
+      backend-uploads:
+        enabled: true
+        mountPath: "/app/backend/uploads"
+        volsync:
+          - name: backend-uploads
+            credentials: backblaze
+            type: restic
+            dest:
+              enabled: false # change to true on restore
+              cacheCapacity: 10Gi
+            src:
+              enabled: true
+              cacheCapacity: 10Gi
+    redis:
+      enabled: false
     workload:
       main:
         podSpec:
           containers:
             main:
+              probes:
+                liveness:
+                  type: tcp
+                readiness:
+                  type: tcp
+                startup:
+                  type: tcp
               env:
+                TUDUDI_USER_EMAIL: 
+                TUDUDI_USER_PASSWORD: 
+                TUDUDI_SESSION_SECRET: 
+                TUDUDI_ALLOWED_ORIGINS: "https://tududi.${BASE_DOMAIN}"
+                PUID: "568"
+                GUID: "568"
+                # DBFILE:
