@@ -93,6 +93,13 @@ spec:
               cacheCapacity: 10Gi
     redis:
       enabled: false
+    securityContext:
+      container: 
+        runAsUser: 1001
+        runAsGroup: 1001
+        capabilities:
+          add:
+            - CHOWN
     workload:
       main:
         podSpec:
