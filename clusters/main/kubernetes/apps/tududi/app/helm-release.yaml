@@ -99,12 +99,12 @@ spec:
         runAsGroup: 0
         readOnlyRootFilesystem: false
         allowPrivilegeEscalation: true
-        capabilities:
-          add:
-            - CHOWN
-            - FOWNER
-            - SYS_CHROOT
-            - MKNOD
+        # capabilities:
+        #  add:
+        #    - CHOWN
+        #    - FOWNER
+        #    - SYS_CHROOT
+        #    - MKNOD
       pod:
         supplementalGroups: [1001]
     workload:
