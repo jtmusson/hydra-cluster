@@ -76,7 +76,7 @@ spec:
               enabled: false # change to true on restore
               cacheCapacity: 10Gi
             src:
-              enabled: true
+              enabled: false # change to true when prod
               cacheCapacity: 10Gi
       backend-uploads:
         enabled: true
@@ -89,14 +89,14 @@ spec:
               enabled: false # change to true on restore
               cacheCapacity: 10Gi
             src:
-              enabled: true
+              enabled: false # change to true when prod
               cacheCapacity: 10Gi
     redis:
       enabled: false
     securityContext:
       container: 
-        runAsUser: 1001
-        runAsGroup: 1001
+        # runAsUser: 1001
+        # runAsGroup: 1001
         readOnlyRootFilesystem: false
         allowPrivilegeEscalation: true
         capabilities:
@@ -105,8 +105,8 @@ spec:
             - FOWNER
             - SYS_CHROOT
             - MKNOD
-      pod:
-        fsGroup: 1001
+      # pod:
+      #  fsGroup: 1001
     workload:
       main:
         podSpec:
@@ -124,6 +124,6 @@ spec:
                 TUDUDI_USER_PASSWORD: "${TUDUDI_USER_PASSWORD}"
                 TUDUDI_SESSION_SECRET: "${TUDUDI_SESSION_SECRET}"
                 TUDUDI_ALLOWED_ORIGINS: "https://tududi.${BASE_DOMAIN}"
-                # PUID: "568"
-                # GUID: "568"
+                PUID: "568"
+                GUID: "568"
                 # DBFILE:
