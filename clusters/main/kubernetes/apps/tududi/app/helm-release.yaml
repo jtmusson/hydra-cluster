@@ -15,7 +15,7 @@ spec:
         name: truecharts
         namespace: flux-system
       interval: 15m
-  timeout: 10m
+  timeout: 5m
   maxHistory: 3
   install:
     createNamespace: true
@@ -54,7 +54,7 @@ spec:
         integrations:
           certManager:
             certificateIssuer: cloudflare-prod
-            enabled: true
+            enabled: false
           homepage:
             enabled: false
           traefik:
@@ -97,8 +97,8 @@ spec:
       container: 
         runAsUser: 1001
         runAsGroup: 1001
-        # readOnlyRootFilesystem: false
-        # allowPrivilegeEscalation: true
+        readOnlyRootFilesystem: false
+        allowPrivilegeEscalation: true
         capabilities:
           add:
             - CHOWN
