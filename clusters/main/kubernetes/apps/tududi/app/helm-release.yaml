@@ -95,8 +95,8 @@ spec:
       enabled: false
     securityContext:
       container: 
-        runAsUser: 1001
-        runAsGroup: 1001
+        runAsUser: 0
+        runAsGroup: 0
         readOnlyRootFilesystem: false
         allowPrivilegeEscalation: true
         capabilities:
@@ -105,9 +105,8 @@ spec:
             - FOWNER
             - SYS_CHROOT
             - MKNOD
-        PUID: 1001
       pod:
-       fsGroup: 1001
+        supplementalGroups: [1001]
     workload:
       main:
         podSpec:
@@ -125,6 +124,6 @@ spec:
                 TUDUDI_USER_PASSWORD: "${TUDUDI_USER_PASSWORD}"
                 TUDUDI_SESSION_SECRET: "${TUDUDI_SESSION_SECRET}"
                 TUDUDI_ALLOWED_ORIGINS: "https://tududi.${BASE_DOMAIN}"
-                PUID: "1001"
-                GUID: "1001"
+                # PUID: "568"
+                # GUID: "568"
                 # DBFILE:
