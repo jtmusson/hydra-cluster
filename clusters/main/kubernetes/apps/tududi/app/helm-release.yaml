@@ -97,16 +97,16 @@ spec:
       container: 
         runAsUser: 1001
         runAsGroup: 1001
-        readOnlyRootFilesystem: false
-        allowPrivilegeEscalation: true
+        # readOnlyRootFilesystem: false
+        # allowPrivilegeEscalation: true
         capabilities:
           add:
             - CHOWN
             - FOWNER
             - SYS_CHROOT
             - MKNOD
-      # pod:
-      #  fsGroup: 1001
+      pod:
+       fsGroup: 1001
     workload:
       main:
         podSpec:
