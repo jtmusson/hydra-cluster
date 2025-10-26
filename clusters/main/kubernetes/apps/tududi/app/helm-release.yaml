@@ -105,6 +105,7 @@ spec:
             - FOWNER
             - SYS_CHROOT
             - MKNOD
+        # PUID: 1001
       pod:
        fsGroup: 1001
     workload:
