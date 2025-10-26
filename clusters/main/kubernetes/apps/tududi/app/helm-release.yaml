@@ -76,7 +76,7 @@ spec:
               enabled: false # change to true on restore
               cacheCapacity: 10Gi
             src:
-              enabled: false # change to true when prod
+              enabled: true # change to true when prod
               cacheCapacity: 10Gi
       backend-uploads:
         enabled: true
@@ -89,7 +89,7 @@ spec:
               enabled: false # change to true on restore
               cacheCapacity: 10Gi
             src:
-              enabled: false # change to true when prod
+              enabled: true # change to true when prod
               cacheCapacity: 10Gi
     redis:
       enabled: false
