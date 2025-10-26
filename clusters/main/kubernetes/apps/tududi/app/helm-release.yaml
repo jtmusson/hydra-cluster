@@ -1,0 +1,62 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: tududi
+  namespace: tududi
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: app-template
+      version: 0.0.0
+      sourceRef:
+        kind: HelmRepository
+        name: truecharts
+        namespace: flux-system
+      interval: 15m
+  timeout: 10m
+  maxHistory: 3
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    global:
+      stopAll: false
+    resources:
+      requests:
+        cpu: 25m
+    image:
+      repository:
+      tag:
+    podOptions:
+      hostUsers: true
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: internal
+        hosts:
+          - host: tududi.${BASE_DOMAIN}
+        integrations:
+          certManager:
+            certificateIssuer: cloudflare-prod
+            enabled: true
+          homepage:
+            enabled: false
+          traefik:
+            enabled: false
+    persistence:
+      
+    workload:
+      main:
+        podSpec:
+          containers:
+            main:
+              env:
