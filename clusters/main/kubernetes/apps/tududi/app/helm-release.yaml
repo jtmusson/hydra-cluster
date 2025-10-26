@@ -102,6 +102,9 @@ spec:
         capabilities:
           add:
             - CHOWN
+            - FOWNER
+            - SYS_CHROOT
+            - MKNOD
       pod:
         fsGroup: 1001
     workload:
