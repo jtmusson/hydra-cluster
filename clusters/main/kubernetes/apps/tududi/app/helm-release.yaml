@@ -110,6 +110,6 @@ spec:
                 TUDUDI_USER_PASSWORD: "${TUDUDI_USER_PASSWORD}"
                 TUDUDI_SESSION_SECRET: "${TUDUDI_SESSION_SECRET}"
                 TUDUDI_ALLOWED_ORIGINS: "https://tududi.${BASE_DOMAIN}"
-                PUID: "568"
-                GUID: "568"
+                # PUID: "568"
+                # GUID: "568"
                 # DBFILE:
