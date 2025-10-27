@@ -327,13 +327,20 @@ spec:
                   - "[CERTIFICATE_EXPIRATION] > 48h"
               - name: paperless-ngx
                 <<: *defaults-apps
-                url: "https://paperless-ngx.musson-lan.uk/api/status/"
+                url: "https://paperless-ngx.${BASE_DOMAIN}/api/status/"
                 headers:
                   Authorization: "Token ${PAPERLESS_API_KEY}"
                   Accept: "application/json"
                 conditions:
                   - "[STATUS] == 200"
                   - "[BODY].database.status == OK"
+                  - "[CERTIFICATE_EXPIRATION] > 48h"
+              - name: tududi
+                <<: *defaults-apps
+                url: "https://tududi.${BASE_DOMAIN}/api/health"
+                conditions:
+                  - "[STATUS] == 200"
+                  - "[BODY].status == ok"
                   - "[CERTIFICATE_EXPIRATION] > 48h"
 
               ## dns
