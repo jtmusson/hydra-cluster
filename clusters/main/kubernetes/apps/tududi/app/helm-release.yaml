@@ -54,7 +54,7 @@ spec:
         integrations:
           certManager:
             certificateIssuer: cloudflare-prod
-            enabled: false
+            enabled: true
           homepage:
             enabled: false
           traefik:
