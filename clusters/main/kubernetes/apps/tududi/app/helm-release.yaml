@@ -36,7 +36,7 @@ spec:
     image:
       repository: docker.io/chrisvel/tududi
       pullPolicy: IfNotPresent
-      tag: 0.85.1@sha256:7e6c6a7362bc2ef46a97bc6fb89a2e55a93a583da1a95e56f84b68f2266d9b8c
+      tag: 0.86-rc.1@sha256:8472457e637c07d18236f5bde46b026230521f7b530e452a6fd269022f2752cd
     credentials:
       backblaze:
         accessKey: "${B2_ACCESSKEY}"
@@ -120,10 +120,22 @@ spec:
                 startup:
                   type: tcp
               env:
+                NODE_ENV: production
                 TUDUDI_USER_EMAIL: "${EMAIL1}"
                 TUDUDI_USER_PASSWORD: "${TUDUDI_USER_PASSWORD}"
                 TUDUDI_SESSION_SECRET: "${TUDUDI_SESSION_SECRET}"
                 TUDUDI_ALLOWED_ORIGINS: "https://tududi.${BASE_DOMAIN}"
+                RATE_LIMITING_ENABLED: false
+                SWAGGER_ENABLED: true
+                DISABLE_TELEGRAM: true
+                # ENABLE_EMAIL: true
+                # EMAIL_SMTP_HOST: 
+                # EMAIL_SMTP_PORT: 
+                # EMAIL_SMTP_SECURE: 
+                # EMAIL_SMTP_USERNAME: 
+                # EMAIL_SMTP_PASSWORD: 
+                # EMAIL_FROM_ADDRESS:
+                # EMAIL_FROM_NAME:
                 # PUID: "568"
                 # GUID: "568"
                 # DBFILE:
