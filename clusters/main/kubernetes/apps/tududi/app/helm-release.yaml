@@ -126,7 +126,7 @@ spec:
                 TUDUDI_ALLOWED_ORIGINS: "https://tududi.${BASE_DOMAIN}"
                 FRONTEND_URL: "https://tududi.${BASE_DOMAIN}"
                 # RATE_LIMITING_ENABLED: false
-                # SWAGGER_ENABLED: true
+                SWAGGER_ENABLED: true
                 DISABLE_TELEGRAM: true
                 # ENABLE_EMAIL: true
                 # EMAIL_SMTP_HOST: 
