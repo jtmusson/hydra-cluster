@@ -139,7 +139,7 @@ spec:
               resources:
                 limits:
                   cpu: 1000m
-                  memory: 10Gi
+                  memory: 5Gi
                 requests:
                   cpu: 50m
       imaginary:
