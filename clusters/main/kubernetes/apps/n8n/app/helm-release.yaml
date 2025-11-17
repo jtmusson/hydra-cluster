@@ -63,6 +63,8 @@ spec:
       main:
         enabled: true
         ingressClassName: external
+        annotations:
+          nginx.ingress.kubernetes.io/whitelist-source-range: ${WHITELIST_IP_RANGE}
         hosts:
           - host: n8n.${BASE_DOMAIN} # ensure N8N_HOST is updated
           - host: n8n-hooks.${BASE_DOMAIN_EXT} # ensure WEBHOOK_URL is updated
