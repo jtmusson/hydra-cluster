@@ -15,7 +15,7 @@ spec:
         name: truecharts
         namespace: flux-system
       interval: 15m
-  timeout: 15m
+  timeout: 15m # set to at least 20m on restore
   maxHistory: 3
   install:
     createNamespace: true
@@ -78,7 +78,6 @@ spec:
     persistence:
       config:
         enabled: true
-        # mountPath: "/config"
         volsync:
           - name: config-3
             credentials: backblaze
