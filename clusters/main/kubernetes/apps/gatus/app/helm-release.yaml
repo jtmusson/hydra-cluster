@@ -343,6 +343,13 @@ spec:
                   - "[BODY].status == ok"
                   - "[BODY].environment == production"
                   - "[CERTIFICATE_EXPIRATION] > 48h"
+              - name: vaultwarden
+                <<: **defaults-apps
+                url: "https://vaultwarden.musson-serv.uk/api/alive"
+                conditions:
+                  - "[STATUS] == 200"
+                  - "has([BODY]) == true"
+                  - "[CERTIFICATE_EXPIRATION] > 48h"
 
               ## dns
               - name: pihole-dns
