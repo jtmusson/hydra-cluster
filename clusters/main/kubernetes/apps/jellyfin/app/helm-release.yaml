@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: jellyfin
-      version: 21.12.9
+      version: 22.0.0
       sourceRef:
         kind: HelmRepository
         name: truecharts
@@ -78,7 +78,7 @@ spec:
     persistence:
       config:
         enabled: true
-        mountPath: "/config"
+        # mountPath: "/config"
         volsync:
           - name: config-3
             credentials: backblaze
