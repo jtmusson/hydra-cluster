@@ -89,6 +89,8 @@ spec:
               enabled: true
               trigger:
                 schedule: 30 0 * * *
+      data:
+        enabled: false
       movies:
         enabled: true
         mountPath: "/mnt/movies"
@@ -108,3 +110,8 @@ spec:
                   gpu.intel.com/i915: 1
                 requests:
                   gpu.intel.com/i915: 1
+              env:
+                JELLYFIN_DATA_DIR: /config
+                JELLYFIN_CONFIG_DIR: /config/config
+                # JELLYFIN_LOG_DIR: /config/log
+                # JELLYFIN_CACHE_DIR: /cache
