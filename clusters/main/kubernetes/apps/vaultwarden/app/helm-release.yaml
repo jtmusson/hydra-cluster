@@ -56,6 +56,8 @@ spec:
         enabled: true
         installationId: "${VAULTWARDEN_PUSH_INSTALLATION_ID}"
         installationKey: "${VAULTWARDEN_PUSH_INSTALLATION_KEY}"
+      log:
+        level: "info"
     credentials:
       backblaze:
         accessKey: "${B2_ACCESSKEY}"
