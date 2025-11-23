@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: gatus
-      version: 2.24.0
+      version: 2.23.0
       sourceRef:
         kind: HelmRepository
         name: truecharts
@@ -139,6 +139,7 @@ spec:
               conditions:
                 - "[CONNECTED] == true"
                 - "[DNS_RCODE] == NOERROR"
+                - "[RESPONSE_TIME] < 100"
               alerts:
                 - type: ntfy
                   failure-threshold: 2
