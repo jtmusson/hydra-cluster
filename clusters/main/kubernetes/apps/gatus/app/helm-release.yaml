@@ -139,7 +139,7 @@ spec:
               conditions:
                 - "[CONNECTED] == true"
                 - "[DNS_RCODE] == NOERROR"
-                - "[RESPONSE_TIME] < 100"
+                - "[RESPONSE_TIME] < 50"
               alerts:
                 - type: ntfy
                   failure-threshold: 2
