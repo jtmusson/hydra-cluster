@@ -33,6 +33,9 @@ spec:
     resources:
       requests:
         cpu: 10m
+    image:
+      repository: ghcr.io/lldap/lldap
+      tag: 2025-11-20@sha256:82c4289affc92dcb198f9a2d53080c82900930991db03953da28756b7c3e198f
     credentials:
       backblaze:
         accessKey: "${B2_ACCESSKEY}"
