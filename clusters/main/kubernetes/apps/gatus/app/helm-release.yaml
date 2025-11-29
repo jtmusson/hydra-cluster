@@ -183,6 +183,9 @@ spec:
                 conditions:
                   - "[STATUS] == 200"
                   - "has([BODY].result.links) == true"
+              - name: hey
+                <<: *defaults-websites
+                url: "https://app.hey.com"
               
               ## apps-pluto
               - name: scrutiny
@@ -297,13 +300,6 @@ spec:
                   - "[STATUS] == 200"
                   - "[BODY].status == ok"
                   - "[CERTIFICATE_EXPIRATION] > 48h"
-              # - name: nocodb
-              #  <<: *defaults-apps
-              #  url: "https://nocodb.${BASE_DOMAIN}/api/v1/health"
-              #  conditions:
-              #    - "[STATUS] == 200"
-              #    - "[BODY].message == OK"
-              #    - "[CERTIFICATE_EXPIRATION] > 48h"
               - name: nextcloud
                 <<: *defaults-apps
                 url: "https://nc.${BASE_DOMAIN_EXT}/ocs/v2.php/apps/serverinfo/api/v1/info?format=json"
@@ -350,6 +346,12 @@ spec:
                 conditions:
                   - "[STATUS] == 200"
                   - "has([BODY]) == true"
+                  - "[CERTIFICATE_EXPIRATION] > 48h"
+              - name: lldap
+                <<: *defaults-apps
+                url: "https://lldap.${BASE_DOMAIN}"
+                conditions:
+                  - "[STATUS] == 200"
                   - "[CERTIFICATE_EXPIRATION] > 48h"
 
               ## dns
