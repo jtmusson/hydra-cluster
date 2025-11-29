@@ -49,7 +49,7 @@ spec:
         annotations:
           nginx.ingress.kubernetes.io/whitelist-source-range: ${WHITELIST_IP_RANGE},${PODNET}
         hosts:
-          - host: lldap.${BASE_DOMAIN}
+          - host: lldap.${BASE_DOMAIN} # also change LLDAP_HTTP_URL
         integrations:
           certManager:
             certificateIssuer: cloudflare-prod
@@ -91,6 +91,7 @@ spec:
           containers:
             main:
               env:
+                LLDAP_HTTP_URL: "https://lldap.${BASE_DOMAIN}"
                 LLDAP_LDAP_BASE_DN: "${LLDAP_LDAP_BASE_DOMAIN}"
                 # ADMIN
                 LLDAP_LDAP_USER_DN: "${LLDAP_LDAP_USER_DN}"
