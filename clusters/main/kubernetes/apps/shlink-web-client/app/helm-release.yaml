@@ -48,6 +48,8 @@ spec:
       main:
         enabled: true
         ingressClassName: internal
+        annotations:
+          nginx.ingress.kubernetes.io/whitelist-source-range: ${WHITELIST_IP_RANGE},${PODNET}
         hosts:
           - host: shlink-web.${BASE_DOMAIN}
         integrations:
