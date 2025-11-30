@@ -133,6 +133,7 @@ spec:
 
             default-endpoint-dns: &defaults-dns
               group: dns
+              interval: 5m
               dns:
                 query-name: "d.root-servers.net"
                 query-type: "A"
