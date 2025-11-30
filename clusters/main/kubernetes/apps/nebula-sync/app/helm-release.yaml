@@ -60,7 +60,7 @@ spec:
                 REPLICAS: "https://${PIHOLE_2_HOST}|${PIHOLE_2_PASSWORD}"
                 FULL_SYNC: false # if set to false, enable and select keys below
                 RUN_GRAVITY: false
-                CRON: "*/17 * * * *"
+                CRON: "*/23 * * * *"
                 CLIENT_SKIP_TLS_VERIFICATION: true
                 # Sync CONFIG options
                 SYNC_CONFIG_DNS: true
