@@ -158,6 +158,7 @@ spec:
         podSpec:
           containers:
             nextcloud-cron:
+              enabled: true
               resources:
                 limits:
                   memory: 5Gi
@@ -165,6 +166,7 @@ spec:
         podSpec:
           containers:
             nextcloud-cron:
+              enabled: true
               resources:
                 limits:
                   memory: 5Gi
