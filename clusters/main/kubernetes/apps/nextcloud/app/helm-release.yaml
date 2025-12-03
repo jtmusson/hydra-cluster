@@ -154,19 +154,3 @@ spec:
                   cpu: 1000m
                 requests:
                   cpu: 100m
-      nextcloud-cron:
-        podSpec:
-          containers:
-            nextcloud-cron:
-              enabled: true
-              resources:
-                limits:
-                  memory: 5Gi
-      preview-cron:
-        podSpec:
-          containers:
-            nextcloud-cron:
-              enabled: true
-              resources:
-                limits:
-                  memory: 5Gi
