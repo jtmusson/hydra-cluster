@@ -15,7 +15,7 @@ spec:
         name: truecharts
         namespace: flux-system
       interval: 15m
-  timeout: 20m # increase to 30m on restore
+  timeout: 15m # increase to 30m on restore
   maxHistory: 3
   install:
     createNamespace: true
@@ -29,7 +29,7 @@ spec:
     keepHistory: false
   values:
     global:
-      stopAll: true
+      stopAll: false
     resources:
       requests:
         cpu: 50m
@@ -98,7 +98,7 @@ spec:
         accessIP: "${NGINX_EXTERNAL_IP}"
         default_phone_region: GB
       php:
-        memory_limit: 8G
+        memory_limit: 5G
     persistence:
       config:
         enabled: true
@@ -139,7 +139,7 @@ spec:
               resources:
                 limits:
                   cpu: 1000m
-                  memory: 8Gi
+                  memory: 5Gi
                 requests:
                   cpu: 50m
       imaginary:
