@@ -33,9 +33,9 @@ spec:
     resources:
       requests:
         cpu: 50m
-    image: # use docker.io image until containerforge image gets sorted out
-      repository: docker.io/homeassistant/home-assistant
-      tag: 2025.12.0@sha256:8951fcbb794da8f261e1639c668639bc90f9520b48099b5715f6d5fbfef08a0e
+    # image: # use docker.io image until containerforge image gets sorted out
+      # repository: docker.io/homeassistant/home-assistant
+      # tag: 2025.12.0@sha256:8951fcbb794da8f261e1639c668639bc90f9520b48099b5715f6d5fbfef08a0e
     credentials:
       backblaze:
         accessKey: "${B2_ACCESSKEY}"
