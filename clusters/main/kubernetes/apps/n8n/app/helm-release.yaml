@@ -126,7 +126,7 @@ spec:
           share: "brother-printer-receipts"
           server: "${PLUTO_IP}"
       movies:
-        enabled: true
+        enabled: false
         mountPath: /mnt/movies
         path: "/mnt/pool0/movies/"
         server: "${PLUTO_IP}"
@@ -144,5 +144,5 @@ spec:
                 N8N_BLOCK_FILE_ACCESS_TO_N8N_FILES: true
                 N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS: true
                 N8N_LOG_LEVEL: warn
-                N8N_RESTRICT_FILE_ACCESS_TO: "/mnt"
+                N8N_RESTRICT_FILE_ACCESS_TO: "/mnt/brother-printer-receipts:/mnt/paperless-ngx-brother-printer"
                 NODES_EXCLUDE: "[]"
