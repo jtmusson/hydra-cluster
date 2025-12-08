@@ -145,3 +145,4 @@ spec:
                 N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS: true
                 N8N_LOG_LEVEL: warn
                 N8N_RESTRICT_FILE_ACCESS_TO: "/mnt"
+                NODES_EXCLUDE: "[]"
