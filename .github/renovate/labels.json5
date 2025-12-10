@@ -1,0 +1,13 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["minor"],
+      "labels": ["type/minor", "automerge"]
+    },
+    {
+      "matchUpdateTypes": ["patch"],
+      "labels": ["type/patch", "automerge"]
+    }
+]
+}
