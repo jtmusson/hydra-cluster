@@ -3,11 +3,13 @@
   "packageRules": [
     {
       "matchUpdateTypes": ["minor"],
-      "labels": ["type/minor", "automerge"]
+      "labels": ["type/minor", "automerge"],
+      "addLabels": []
     },
     {
       "matchUpdateTypes": ["patch"],
-      "labels": ["type/patch", "automerge"]
+      "labels": ["type/patch", "automerge"],
+      "addLabels": []
     }
 ]
 }
