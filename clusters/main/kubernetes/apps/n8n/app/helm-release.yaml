@@ -105,7 +105,7 @@ spec:
       paperless-ngx-brother-printer:
         enabled: true
         type: pvc
-        mountPath: /mnt/paperless-ngx-brother-printer
+        mountPath: "/mnt/paperless-ngx-brother-printer"
         static:
           mode: smb
           username: "${SMB_N8N_USER}"
@@ -115,13 +115,19 @@ spec:
       brother-printer-receipts:
         enabled: true
         type: pvc
-        mountPath: /mnt/brother-printer-receipts
+        mountPath: "/mnt/brother-printer-receipts"
         static:
           mode: smb
           username: "${SMB_N8N_USER}"
           password: "${SMB_N8N_PASSWORD}"
           share: "brother-printer-receipts"
           server: "${PLUTO_IP}"
+      movies:
+        enabled: true
+        mountPath: "/mnt/movies"
+        path: "/mnt/pool0/movies/"
+        server: "${PLUTO_IP}"
+        type: nfs
     workload:
       main:
         podSpec:
@@ -135,5 +141,5 @@ spec:
                 N8N_BLOCK_FILE_ACCESS_TO_N8N_FILES: true
                 N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS: true
                 N8N_LOG_LEVEL: info
-                N8N_RESTRICT_FILE_ACCESS_TO: "/mnt/brother-printer-receipts:/mnt/paperless-ngx-brother-printer"
+                N8N_RESTRICT_FILE_ACCESS_TO: "/mnt/brother-printer-receipts:/mnt/paperless-ngx-brother-printer:/mnt/movies"
                 NODES_EXCLUDE: "[]"
