@@ -106,7 +106,7 @@ spec:
         enabled: true
         # type: pvc
         mountPath: "/mnt/paperless-ngx-brother-printer"
-        path: "mnt/pool0/paperless-ngx/paperless-ngx-brother-printer"
+        path: "/mnt/pool0/paperless-ngx/paperless-ngx-brother-printer"
         # static:
           # mode: smb
           # username: "${SMB_N8N_USER}"
