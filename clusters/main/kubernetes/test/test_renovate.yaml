@@ -1,0 +1,3 @@
+---
+# renovate: datasource=github-releases depName:jellyfin/jellyfin
+version: 10.11.3
