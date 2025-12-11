@@ -1,3 +1,3 @@
 ---
 # renovate: datasource=docker depName=nextcloud
-version: "32.0.2-fpm"
+version: "32.0.2-fpm@sha256:cf35377dd0dbd507542070ed7eb0f7fb17bdc1be7a3b70dc741a92486005547b"
