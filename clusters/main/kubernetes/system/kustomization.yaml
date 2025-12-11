@@ -13,4 +13,3 @@ resources:
   - spegel/ks.yaml
   - system-upgrade-controller/ks.yaml
   - volsync/ks.yaml
-# - csi-driver-smb/ks.yaml
