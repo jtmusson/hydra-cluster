@@ -15,7 +15,7 @@ resources:
   - n8n/ks.yaml
   - myspeed/ks.yaml
   - mosquitto/ks.yaml
-  - minecraft-mussoncraft/ks.yaml
+  - mussoncraft/ks.yaml
   - minecraft-bedrock/ks.yaml
   - metube/ks.yaml
   - makemkv/ks.yaml

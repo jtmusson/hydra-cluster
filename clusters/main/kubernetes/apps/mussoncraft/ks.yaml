@@ -1,11 +1,11 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: minecraft-mussoncraft
+  name: mussoncraft
   namespace: flux-system
 spec:
   interval: 30m
-  path: clusters/main/kubernetes/apps/minecraft-mussoncraft/app
+  path: clusters/main/kubernetes/apps/mussoncraft/app
   prune: true
   sourceRef:
     kind: GitRepository

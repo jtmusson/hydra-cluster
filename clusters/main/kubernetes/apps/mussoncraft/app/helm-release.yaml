@@ -2,8 +2,8 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: minecraft-mussoncraft
-  namespace: minecraft-mussoncraft
+  name: mussoncraft
+  namespace: mussoncraft
 spec:
   interval: 15m
   chart:
