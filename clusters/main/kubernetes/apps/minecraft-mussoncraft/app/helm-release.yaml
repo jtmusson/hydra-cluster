@@ -2,8 +2,8 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: minecraft-bedrock-survival
-  namespace: minecraft-bedrock-survival
+  name: minecraft-mussoncraft
+  namespace: minecraft-mussoncraft
 spec:
   interval: 15m
   chart:
@@ -90,7 +90,7 @@ spec:
                 ENABLE_LAN_VISIBILITY: true
                 MEMBERS: "${MINECRAFT_OPS}"
                 OPS: ""
-                SERVER_NAME: "30BR Survival"
+                SERVER_NAME: "Mussoncraft"
                 TEXTUREPACK_REQUIRED: true
                 VIEW_DISTANCE: 64
                 WHITE_LIST: true # set because source chart sets to false otherwise
