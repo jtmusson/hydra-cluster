@@ -88,7 +88,8 @@ spec:
                 ONLINE_MODE: true
                 MAX_PLAYERS: 8
                 ENABLE_LAN_VISIBILITY: true
-                OPS: "${MINECRAFT_OPS}"
+                MEMBERS: "${MINECRAFT_OPS}"
+                OPS: ""
                 SERVER_NAME: "30BR Survival"
                 TEXTUREPACK_REQUIRED: true
                 VIEW_DISTANCE: 64
