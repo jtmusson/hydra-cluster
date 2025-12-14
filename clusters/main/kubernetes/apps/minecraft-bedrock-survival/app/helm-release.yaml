@@ -1,0 +1,123 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: minecraft-bedrock-survival
+  namespace: minecraft-bedrock-survival
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: minecraft-bedrock
+      version: 12.16.2
+      sourceRef:
+        kind: HelmRepository
+        name: truecharts
+        namespace: flux-system
+      interval: 15m
+  timeout: 20m
+  maxHistory: 3
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    global:
+      stopAll: false # change to 'true' to stop all pods whenever world maintenance is needed
+    image:
+      repository: ghcr.io/itzg/minecraft-bedrock-server
+      pullPolicy: IfNotPresent
+      tag: latest@sha256:4fd973680a49e1f4a0dbbb93dd0a7c0efa9170b8fc0f3c2f67bf1035dd962286
+    resources:
+      requests:
+        cpu: 50m
+    credentials:
+      backblaze:
+        accessKey: "${B2_ACCESSKEY}"
+        bucket: "${B2_BUCKET}"
+        encrKey: "${B2_ENCRKEY}"
+        name: backblaze
+        secretKey: "${B2_SECRETKEY}"
+        type: s3
+        url: "${B2_URL}"  
+    persistence:
+      config:
+        enabled: true
+        volsync:
+          - name: config
+            credentials: backblaze
+            type: restic
+            dest:
+              enabled: true
+            src:
+              enabled: true
+              trigger:
+                schedule: 20 0 * * *
+      worlds:
+        enabled: true
+        path: "/mnt/pool1/minecraft-bedrock/minecraft-bedrock-worlds"
+        server: "${PLUTO_IP}"
+        type: nfs
+        mountPath: "/data/worlds"
+    service:
+      main:
+        enabled: true
+        loadBalancerIP: "10.242.1.51"
+        type: LoadBalancer
+        integrations:
+          metallb:
+            enabled: true
+    workload:
+      main:
+        podSpec:
+          containers:
+            main:
+              env:
+                # renovate: datasource=custom.minecraft-bedrock depName=minecraft-bedrock
+                VERSION: 1.21.130.4
+                ALLOW_CHEATS: false
+                DIFFICULTY: normal
+                GAMEMODE: survival
+                LEVEL_NAME: "30BR-Survival"
+                ONLINE_MODE: true
+                MAX_PLAYERS: 8
+                ENABLE_LAN_VISIBILITY: true
+                OPS: "${MINECRAFT_OPS}"
+                SERVER_NAME: "30BR Survival"
+                TEXTUREPACK_REQUIRED: true
+                VIEW_DISTANCE: 64
+                WHITE_LIST: true # set because source chart sets to false otherwise
+                ALLOW_LIST: true
+                ALLOW_LIST_USERS: "${MINECRAFT_ALLOW_LIST_USERS}"
+      mcmonitor-cron:
+        enabled: false # set up token in gatus then change to true
+        type: CronJob
+        schedule: "*/5 * * * *"
+        podSpec:
+          restartPolicy: Never
+          containers:
+            mcmonitor-cron:
+              enabled: true
+              primary: true
+              imageSelector: image
+              resources:
+                excludeExtra: true
+              command:
+                - /bin/sh
+                - -c
+                - |
+                  /usr/local/bin/mc-monitor status-bedrock --host "{{ .Values.service.main.loadBalancerIP }}" --port "{{ .Values.service.main.ports.main.port }}" \
+                  && curl -vs -H "Authorization: Bearer ${GATUS_EXT_MINECRAFT_BEDROCK_TOKEN}" -X POST "https://gatus.${BASE_DOMAIN}/api/v1/endpoints/apps-hydra_minecraft-bedrock-survival-ext/external?success=true" 2>&1
+              probes:
+                liveness:
+                  enabled: false
+                readiness:
+                  enabled: false
+                startup:
+                  enabled: false

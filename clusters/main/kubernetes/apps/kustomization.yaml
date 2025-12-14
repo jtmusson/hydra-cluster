@@ -15,6 +15,7 @@ resources:
   - n8n/ks.yaml
   - myspeed/ks.yaml
   - mosquitto/ks.yaml
+  - minecraft-bedrock-survival/ks.yaml
   - minecraft-bedrock/ks.yaml
   - metube/ks.yaml
   - makemkv/ks.yaml
