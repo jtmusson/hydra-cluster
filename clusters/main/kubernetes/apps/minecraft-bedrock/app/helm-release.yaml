@@ -31,7 +31,9 @@ spec:
     global:
       stopAll: false # change to 'true' to stop all pods whenever world maintenance is needed
     image:
+      repository: ghcr.io/itzg/minecraft-bedrock-server
       pullPolicy: IfNotPresent
+      tag: latest@sha256:4fd973680a49e1f4a0dbbb93dd0a7c0efa9170b8fc0f3c2f67bf1035dd962286
     resources:
       requests:
         cpu: 50m
