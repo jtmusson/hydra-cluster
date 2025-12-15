@@ -10,11 +10,6 @@
             "description": ["Allow Kubelet, Talos and kubectl upgrades to create branches at any time"],
             "matchPackageNames": ["ghcr.io/siderolabs/kubelet", "ghcr.io/siderolabs/installer", "registry.k8s.io/kubectl"],
             "schedule": ["* * * * *"]
-        },
-        {
-            "description": ["Set schedule for reloader to override TrueCharts config"],
-            "matchPackageNames": ["ghcr.io/stakater/charts/reloader"],
-            "schedule": ["* 0-5 * * *"]
         }
     ]
 }
