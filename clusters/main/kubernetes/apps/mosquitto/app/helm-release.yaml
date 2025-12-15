@@ -60,6 +60,9 @@ spec:
     service:
       main:
         enabled: true
+        annotations:
+          external-dns.alpha.kubernetes.io/target: "${MQTT_IP}"
+          external-dns.alpha.kubernetes.io/internal-hostname: "mqtt.${BASE_DOMAIN}"
         loadBalancerIP: "${MQTT_IP}"
         type: LoadBalancer
         integrations:
