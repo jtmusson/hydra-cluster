@@ -69,7 +69,7 @@ spec:
       main:
         enabled: true
         annotations:
-          external-dns.alpha.kubernetes.io/target: "10.242.1.51"
+          external-dns.alpha.kubernetes.io/target: "{{ .Values.service.main.loadBalancerIP }}"
           external-dns.alpha.kubernetes.io/internal-hostname: "mc-survival.${BASE_DOMAIN_EXT}"
         loadBalancerIP: "10.242.1.51"
         type: LoadBalancer
