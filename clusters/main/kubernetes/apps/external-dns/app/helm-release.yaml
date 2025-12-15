@@ -47,6 +47,6 @@ spec:
       registry: noop
       sources:
         - ingress
-      # - service
+        - service
     podOptions:
       hostUsers: true
