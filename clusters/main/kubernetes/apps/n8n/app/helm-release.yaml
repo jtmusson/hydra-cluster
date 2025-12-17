@@ -93,14 +93,14 @@ spec:
       data:
         enabled: true
         volsync:
-          - name: data-1
+          - name: data-2
             credentials: backblaze
             type: restic
             dest:
               enabled: true
               cacheCapacity: 10Gi
             src:
-              enabled: true
+              enabled: false
               cacheCapacity: 10Gi
       paperless-ngx-brother-printer:
         enabled: true
