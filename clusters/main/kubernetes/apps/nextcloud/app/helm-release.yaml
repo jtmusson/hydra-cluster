@@ -98,7 +98,7 @@ spec:
         accessIP: "${NGINX_EXTERNAL_IP}"
         default_phone_region: GB
       php:
-        memory_limit: 5G
+        memory_limit: 8G
     persistence:
       config:
         enabled: true
@@ -139,7 +139,7 @@ spec:
               resources:
                 limits:
                   cpu: 1000m
-                  memory: 5Gi
+                  memory: 8Gi
                 requests:
                   cpu: 50m
       imaginary:
