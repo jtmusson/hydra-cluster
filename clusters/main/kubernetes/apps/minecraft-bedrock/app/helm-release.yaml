@@ -33,7 +33,7 @@ spec:
     image:
       repository: ghcr.io/itzg/minecraft-bedrock-server
       pullPolicy: IfNotPresent
-      tag: latest@sha256:4fd973680a49e1f4a0dbbb93dd0a7c0efa9170b8fc0f3c2f67bf1035dd962286
+      tag: 2025.12.1@sha256:d0cdf2854f45ee3867446741d30bbfcb7e9a1c9431a0a631acedd79f2685b9d8
     resources:
       requests:
         cpu: 50m
