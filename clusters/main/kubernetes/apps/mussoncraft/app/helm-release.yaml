@@ -71,7 +71,7 @@ spec:
         annotations:
           external-dns.alpha.kubernetes.io/target: "{{ .Values.service.main.loadBalancerIP }}"
           external-dns.alpha.kubernetes.io/internal-hostname: "mc-survival.${BASE_DOMAIN_EXT}"
-        loadBalancerIP: "10.242.1.51"
+        loadBalancerIP: "${MUSSONCRAFT_IP}"
         type: LoadBalancer
         integrations:
           metallb:
@@ -100,7 +100,7 @@ spec:
                 ALLOW_LIST: true
                 ALLOW_LIST_USERS: "${MINECRAFT_ALLOW_LIST_USERS}"
       mcmonitor-cron:
-        enabled: false # set up token in gatus then change to true
+        enabled: true # set up token in gatus then change to true
         type: CronJob
         schedule: "*/5 * * * *"
         podSpec:
@@ -117,7 +117,7 @@ spec:
                 - -c
                 - |
                   /usr/local/bin/mc-monitor status-bedrock --host "{{ .Values.service.main.loadBalancerIP }}" --port "{{ .Values.service.main.ports.main.port }}" \
-                  && curl -vs -H "Authorization: Bearer ${GATUS_EXT_MINECRAFT_BEDROCK_TOKEN}" -X POST "https://gatus.${BASE_DOMAIN}/api/v1/endpoints/apps-hydra_minecraft-bedrock-survival-ext/external?success=true" 2>&1
+                  && curl -vs -H "Authorization: Bearer ${GATUS_EXT_MUSSONCRAFT_TOKEN}" -X POST "https://gatus.${BASE_DOMAIN}/api/v1/endpoints/apps-hydra_minecraft-mussoncraft-ext/external?success=true" 2>&1
               probes:
                 liveness:
                   enabled: false

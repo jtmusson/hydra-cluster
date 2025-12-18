@@ -201,11 +201,6 @@ spec:
                   - "[CERTIFICATE_EXPIRATION] > 48h"
               
               ## apps-hydra
-              - name: minecraft-bedrock
-                <<: *defaults-apps
-                url: "udp://${MINECRAFT_IP}:19132"
-                conditions:
-                  - "[CONNECTED] == true"
               - name: jellyfin
                 <<: *defaults-apps
                 url: "https://jellyfin.${BASE_DOMAIN}/health"
@@ -440,7 +435,14 @@ spec:
                 group: apps-hydra
                 token: "${GATUS_EXT_MINECRAFT_BEDROCK_TOKEN}"
                 heartbeat:
-                  interval: 5m
+                  interval: 7m
+                alerts:
+                  - type: ntfy
+              - name: minecraft-mussoncraft-ext
+                group: apps-hydra
+                token: "${GATUS_EXT_MUSSONCRAFT_TOKEN}"
+                heartbeat:
+                  interval: 7m
                 alerts:
                   - type: ntfy
               - name: brennin
