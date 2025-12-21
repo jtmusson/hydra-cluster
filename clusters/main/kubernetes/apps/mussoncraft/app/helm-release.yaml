@@ -29,7 +29,7 @@ spec:
     keepHistory: false
   values:
     global:
-      stopAll: true # change to 'true' to stop all pods whenever world maintenance is needed
+      stopAll: false # change to 'true' to stop all pods whenever world maintenance is needed
     image:
       repository: ghcr.io/itzg/minecraft-bedrock-server
       pullPolicy: IfNotPresent
@@ -87,7 +87,7 @@ spec:
                 ALLOW_CHEATS: false
                 DIFFICULTY: normal
                 GAMEMODE: survival
-                LEVEL_NAME: "30BR-Survival"
+                LEVEL_NAME: "Mussoncraft"
                 ONLINE_MODE: true
                 MAX_PLAYERS: 8
                 MAX_THREADS: 8
