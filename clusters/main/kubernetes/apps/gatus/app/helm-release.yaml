@@ -33,9 +33,6 @@ spec:
     resources:
       requests:
         cpu: 25m
-    image:
-      repository: ghcr.io/twin/gatus
-      # tag: v5.33.0@sha256:bf249f4d7cf69e825457ade2ebc3d11168d73527ef1657a653119a0d9da97a4a
     credentials:
       backblaze:
         accessKey: "${B2_ACCESSKEY}"
