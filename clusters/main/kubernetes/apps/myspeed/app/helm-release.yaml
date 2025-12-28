@@ -61,10 +61,10 @@ spec:
     persistence:
       data:
         volsync:
-          - name: data-1
+          - name: data-2
             type: restic
             credentials: backblaze
             dest:
               enabled: false
             src:
-              enabled: false
+              enabled: true
