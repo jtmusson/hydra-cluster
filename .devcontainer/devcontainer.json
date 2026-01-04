@@ -1,7 +1,7 @@
 {
     "$schema": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.schema.json",
     "name": "ClusterTool Cluster",
-    "image": "tccr.io/tccr/devcontainer:latest@sha256:24b09249ed1828ed5cb770bf682c7123dad5f49233f674e4a35e269edfa45ffa",
+    "image": "tccr.io/tccr/devcontainer:latest@sha256:e1e58d0977dc6997281b3aa28aea33c955a969165e5e0ed41a45d6297d2669c6",
     "initializeCommand": "docker pull tccr.io/tccr/devcontainer:v1.0.4",
     "postCreateCommand": {
       "setup": "bash ${containerWorkspaceFolder}/.devcontainer/postCreateCommand.sh"
