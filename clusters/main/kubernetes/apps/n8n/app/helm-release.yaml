@@ -34,6 +34,7 @@ spec:
       requests:
         cpu: 10m
     image:
+      repository: ghcr.io/n8n-io/n8n
       tag: stable@sha256:aa499e07898e1599bd50ba07e967fc47cdc7fc78adb2430f588e0f8386b8ff39
     deployment:
       N8N_HOST: n8n.${BASE_DOMAIN} # ensure ingress.main.hosts and below are updated
