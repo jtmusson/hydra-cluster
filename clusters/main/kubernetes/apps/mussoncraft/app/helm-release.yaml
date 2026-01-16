@@ -94,7 +94,7 @@ spec:
                 DEFAULT_PLAYER_PERMISSION_LEVEL: "member"
                 ENABLE_LAN_VISIBILITY: true
                 SERVER_NAME: "Mussoncraft"
-                VIEW_DISTANCE: 64
+                VIEW_DISTANCE: 32
                 PLAYER_IDLE_TIMEOUT: 0
                 WHITE_LIST: true # set because source chart sets to false otherwise
                 ALLOW_LIST: true
