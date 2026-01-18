@@ -136,5 +136,5 @@ spec:
                 N8N_BLOCK_FILE_ACCESS_TO_N8N_FILES: true
                 N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS: true
                 N8N_LOG_LEVEL: info
-                N8N_RESTRICT_FILE_ACCESS_TO: "" # this should be "/mnt/paperless-ngx-brother-printer:/mnt/brother-printer-receipts:/mnt/movies"
+                N8N_RESTRICT_FILE_ACCESS_TO: "/mnt/paperless-ngx-brother-printer;/mnt/brother-printer-receipts;/mnt/movies"
                 NODES_EXCLUDE: "[]"
