@@ -33,10 +33,10 @@ spec:
     resources:
       requests:
         cpu: 50m
-    image: # use ghcr.io image until containerforge image gets sorted out
-      repository: ghcr.io/home-assistant/home-assistant
-      pullPolicy: IfNotPresent
-      tag: 2026.1.3@sha256:c36741490472518338323db8ee67775d7df70d2fa1f68eff9b9e63679fe64a18
+    # image: # use ghcr.io image until containerforge image gets sorted out
+      # repository: ghcr.io/home-assistant/home-assistant
+      # pullPolicy: IfNotPresent
+      # tag: 2026.1.3@sha256:c36741490472518338323db8ee67775d7df70d2fa1f68eff9b9e63679fe64a18
     credentials:
       backblaze:
         accessKey: "${B2_ACCESSKEY}"
