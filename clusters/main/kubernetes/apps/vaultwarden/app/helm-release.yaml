@@ -15,7 +15,7 @@ spec:
         name: truecharts
         namespace: flux-system
       interval: 15m
-  timeout: 15m # increase to 20m on restore
+  timeout: 20m # increase to 20m on restore
   maxHistory: 3
   install:
     createNamespace: true
@@ -90,7 +90,7 @@ spec:
       main:
         cluster:
           singleNode: true
-        mode: standalone # change to `recovery` after install
+        mode: recovery # change to `standalone` on initial install
         backups:
           enabled: true
           credentials: backblaze

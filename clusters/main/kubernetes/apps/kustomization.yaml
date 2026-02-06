@@ -3,7 +3,7 @@ kind: Kustomization
 resources:
   - kubernetes-dashboard/ks.yaml
   - external-dns/ks.yaml
-# - vaultwarden/ks.yaml
+  - vaultwarden/ks.yaml
   - tududi/ks.yaml
   - shlink-web-client/ks.yaml
   - shlink/ks.yaml
