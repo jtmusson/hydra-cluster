@@ -13,7 +13,6 @@ resources:
   - nextcloud/ks.yaml
   - nebula-sync/ks.yaml
   - n8n/ks.yaml
-  - myspeed/ks.yaml
   - mosquitto/ks.yaml
   - mussoncraft/ks.yaml
   - minecraft-bedrock/ks.yaml
